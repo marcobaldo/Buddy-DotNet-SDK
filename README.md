@@ -21,6 +21,29 @@ For developers the Buddy Platform offers turnkey support for features like the f
 * *Game Scores, Metadata, and Boards* - Keep track of game stores and states for individual users as well as across users.
 * *Commerce* - Offer items for in-app purchase via Facebook Commerce.
 * *And more* - Checkout the rest of the offering at [buddy.com/developers](http://buddy.com/developers/).
+* 
+## Platform Support
+
+Under the ```src``` directory, you'll find a set of .csproj files for building various flavors of the Buddy Platform SDK
+
+| Platform | Project File |  Notes |
+| -------- | ------------ | ------ |
+| .NET 4.0, Mono Mac | src/Buddy.Net40.csproj || 
+| .NET 4.5 | src/Buddy.Net45.csproj | |
+| .NET Portable | src/Buddy.Portable.csproj | .NET 4.5 Core (Windows Store) + SL5 + WP8 |
+| Windows Phone 7.x| src/Buddy.WP7.csproj | |
+| Windows Phone 8| src/Buddy.WP8.csproj | |
+| Windows Store | src/Buddy.WindowsStore.csproj | .NET 4.5 Core |
+| Xamarin.iOS | src/Buddy.iOS.csproj |
+| Xamarin.Android | src/Buddy.Android.csproj |
+
+All of these project files reference the same source files.  They are purely vehicles for specifying a different project type guid, and set some defines that vary how the code is defined between the platforms.
+
+The principal code differences are:
+
+* The Windows Phone variants support some Windows Phone specific functions (Push, Tiles, etc).
+* All variants except Portable and Windows Phone 7.x use the modern Task<T> syntax for async calls.  For platforms that support ***async / await**, this is supported as well.
+
 
 
 ## How It works
