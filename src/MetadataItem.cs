@@ -140,8 +140,10 @@ namespace Buddy
         /// <param name="appTag">The optional application tag for this item.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SetAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SetAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SetAsync (Action<bool, BuddyCallbackParams> callback, string value, double latitude = 0.0, double longitude = 0.0, string appTag = "", object state = null)
         {
 
@@ -166,8 +168,10 @@ namespace Buddy
         /// <param name="callback">The callback to call when this method completes. The first parameter is true if the item was deleted, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             DeleteInternal ((bcr) => callback (bcr.Result, new BuddyCallbackParams (bcr.Error == BuddyError.None, bcr.Error == BuddyError.None ? null : new BuddyServiceException (bcr.Error.ToString ()), null, null)));

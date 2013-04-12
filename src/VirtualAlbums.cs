@@ -30,8 +30,10 @@ namespace Buddy
         /// <param name="appTag">An optional application tag for the album.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of CreateAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of CreateAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult CreateAsync (Action<VirtualAlbum, BuddyCallbackParams> callback, string name, string appTag = "", object state = null)
         {
             CreateInternal (name, appTag, (bcr) => {
@@ -69,8 +71,10 @@ namespace Buddy
         /// <param name="albumId">The ID of the virtual album to retrieve.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAsync (Action<VirtualAlbum, BuddyCallbackParams> callback, int albumId, object state = null)
         {
             GetInternal (albumId, (bcr) => {
@@ -130,8 +134,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a list of album IDs that this user owns.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetMyAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetMyAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetMyAsync (Action<List<int>, BuddyCallbackParams> callback, object state = null)
         {
             GetMyInternal ((bcr) => {

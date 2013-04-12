@@ -35,8 +35,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a list of all of the application metadata items.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAllAsync (Action<Dictionary<string, MetadataItem>, BuddyCallbackParams> callback, object state = null)
         {
             GetAllInternal ((bcr) => {
@@ -75,8 +77,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is the metadata item or null if it doesn't exist.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAsync (Action<MetadataItem, BuddyCallbackParams> callback, string key, object state = null)
         {
             GetInternal (key, (bcr) => {
@@ -130,8 +134,10 @@ namespace Buddy
         /// <param name="appTag">The optional application tag for this item.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SetAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SetAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SetAsync (Action<bool, BuddyCallbackParams> callback, string key, string value, double latitude = 0.0, double longitude = 0.0, string appTag = "", object state = null)
         {
             SetInternal (key, value, latitude, longitude, appTag, (bcr) => {
@@ -174,8 +180,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if the item was deleted, false otherwise (i.e. doesn't exist).</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAsync (Action<bool, BuddyCallbackParams> callback, string key, object state = null)
         {
             DeleteInternal (key, (bcr) => {
@@ -211,8 +219,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if all metadata was deleted, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAllAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAllAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAllAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             DeleteAllInternal ((bcr) => {
@@ -258,8 +268,10 @@ namespace Buddy
         /// <param name="disableCache">Optionally disable cache searches.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult FindAsync (Action<Dictionary<string, MetadataItem>, BuddyCallbackParams> callback, int searchDistanceMeters, double latitude, double longitude, int numberOfResults = 10,
                     string withKey = "", string withValue = "", int updatedMinutesAgo = -1, double valueMin = 0, double valueMax = 100, bool searchAsFloat = false,
                     bool sortAscending = false, bool disableCache = false, object state = null)
@@ -311,8 +323,10 @@ namespace Buddy
         /// <param name="withAppTag">Optionally sum only items that have a certain application tag.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SumAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SumAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SumAsync (Action<MetadataSum, BuddyCallbackParams> callback, string forKeys, int withinDistance = -1, double latitude = 0.0, double longitude = 0.0,
                     int updatedMinutesAgo = -1, string withAppTag = "", object state = null)
         {
@@ -366,8 +380,10 @@ namespace Buddy
         /// <param name="withAppTag">Optionally sum only items that have a certain application tag.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of BatchSumAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of BatchSumAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult BatchSumAsync (Action<List<MetadataSum>, BuddyCallbackParams> callback, string forKeys, string withinDistance = "-1", double latitude = -1.0, double longitude = -1.0,
                     int updatedMinutesAgo = -1, string withAppTag = "", object state = null)
         {

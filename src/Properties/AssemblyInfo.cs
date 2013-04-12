@@ -16,8 +16,8 @@ using System.Runtime.InteropServices;
 // - the first two numbers are the Buddy Platform Web-Service version
 // - the second two number are the SDK versions 
 
-[assembly: AssemblyVersion("0.2.0.0")]
-[assembly: AssemblyFileVersion("0.2.0.0")]
+[assembly: AssemblyVersion("0.2.0.3")]
+[assembly: AssemblyFileVersion("0.2.0.3")]
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Buddy.ClientTest")]
 

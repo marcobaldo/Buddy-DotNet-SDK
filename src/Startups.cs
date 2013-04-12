@@ -43,8 +43,10 @@ namespace Buddy
         /// <param name="searchForName">Optional search string, for example: "Star*" to search for all startups that begin with the string "Star".</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult FindAsync (Action<List<Startup>, BuddyCallbackParams> callback, int searchDistanceInMeters, double latitude, double longitude, int numberOfResults, string searchForName = "", object state = null)
         {
             FindInternal (searchDistanceInMeters, latitude, longitude, numberOfResults, searchForName, (bcr) => {
@@ -91,8 +93,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a .NET List of MetroAreas that were found.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetMetroAreaListAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetMetroAreaListAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetMetroAreaListAsync (Action<List<MetroArea>, BuddyCallbackParams> callback, object state = null)
         {
             GetMetroAreaListInternal ((bcr) => {
@@ -131,8 +135,10 @@ namespace Buddy
         /// <param name="recordLimit">The number of search results to return.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetFromMetroAreaAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetFromMetroAreaAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetFromMetroAreaAsync (Action<List<Startup>, BuddyCallbackParams> callback, string metroName, int recordLimit, object state = null)
         {
             GetFromMetroAreaInternal (metroName, recordLimit, (bcr) => {

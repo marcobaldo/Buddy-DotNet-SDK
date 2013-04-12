@@ -39,8 +39,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a list of identity values.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAllAsync (Action<List<IdentityItem>, BuddyCallbackParams> callback, object state = null)
         {
             GetAllInternal ((bcr) => {
@@ -78,8 +80,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if the value was added, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddAsync (Action<bool, BuddyCallbackParams> callback, string value, object state = null)
         {
             AddInternal (value, (bcr) => {
@@ -115,8 +119,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if the value was removed, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RemoveAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RemoveAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RemoveAsync (Action<bool, BuddyCallbackParams> callback, string value, object state = null)
         {
             RemoveInternal (value, (bcr) => {
@@ -152,8 +158,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a list of identity values that were found.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of CheckForValuesAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of CheckForValuesAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult CheckForValuesAsync (Action<List<IdentityItemSearchResult>, BuddyCallbackParams> callback, string values, object state = null)
         {
             CheckForValuesInternal (values, (bcr) => {

@@ -58,8 +58,10 @@ namespace Buddy
         /// <param name="afterDate">Filter the list by friends added 'afterDate'.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAllAsync (Action<List<User>, BuddyCallbackParams> callback, DateTime afterDate = default(DateTime), object state = null)
         {
             GetAllInternal (afterDate, (bcr) => {
@@ -100,8 +102,10 @@ namespace Buddy
         /// <param name="user">The user to remove from the friends list. Must be already on the list and can't be null.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RemoveAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RemoveAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RemoveAsync (Action<bool, BuddyCallbackParams> callback, User user, object state = null)
         {
             RemoveInternal (user, (bcr) => {

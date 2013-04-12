@@ -182,8 +182,10 @@ namespace Buddy
         /// <param name="userTag">The user-level tag to set for this Place.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SetTagAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SetTagAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SetTagAsync (Action<bool, BuddyCallbackParams> callback, string appTag, string userTag, object state = null)
         {
             SetTagInternal (appTag, userTag, (bcr) => {

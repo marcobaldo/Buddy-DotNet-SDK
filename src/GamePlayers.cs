@@ -35,8 +35,10 @@ namespace Buddy
         /// <param name="appTag">Optional metadata to store with the Player object. ie: a list of players, game state, etc. Leave empty or set to null if there is no data to store with the score.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddAsync (Action<bool, BuddyCallbackParams> callback, string name, string board = "", string rank = "", double latitude = 0.0, double longitude = 0.0, string appTag = "", object state = null)
         {
             AddInternal (name, board, rank, latitude, longitude, appTag, (bcr) => {
@@ -87,8 +89,10 @@ namespace Buddy
         /// <param name="appTag">Optional metadata to store with the Player object. ie: a list of players, game state, etc. Leave empty or set to null if there is no data to store with the score.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of UpdateAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of UpdateAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult UpdateAsync (Action<bool, BuddyCallbackParams> callback, string name, string board = "", string rank = "", double latitude = 0.0, double longitude = 0.0, string appTag = "", object state = null)
         {
             UpdateInternal (name, board, rank, latitude, longitude, appTag, (bcr) => {
@@ -134,8 +138,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true on success, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             DeleteInternal ((bcr) => {
@@ -175,8 +181,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is the player info for this user.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetInfoAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetInfoAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetInfoAsync (Action<GamePlayer, BuddyCallbackParams> callback, object state = null)
         {
             GetInfoInternal ((bcr) => {
@@ -222,8 +230,10 @@ namespace Buddy
         /// <param name="rank">Optionally search for a player rank.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult FindAsync (Action<List<GamePlayer>, BuddyCallbackParams> callback, int searchDistanceInMeters = -1, double latitude = 0.0, double longitude = 0.0, int recordLimit = 100,
                             string boardName = "", int onlyForLastNumberOfDays = -1, int minimumScore = -1, string appTag = "", string rank = "", object state = null)
         {

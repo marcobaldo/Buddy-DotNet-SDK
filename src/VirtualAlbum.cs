@@ -88,8 +88,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true on success, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             DeleteInternal ((bcr) => {
@@ -122,8 +124,10 @@ namespace Buddy
         /// <param name="picture">The picture to add to the virtual albums. Either PicturePublic or Picture works.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddPictureAsync (Action<bool, BuddyCallbackParams> callback, PicturePublic picture, object state = null)
         {
             AddPictureInternal (picture, (bcr) => {
@@ -161,8 +165,10 @@ namespace Buddy
         /// <param name="pictures">The list of pictures to add to this photo album. Either PicturePublic or Picture works.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureBatchAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureBatchAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddPictureBatchAsync (Action<bool, BuddyCallbackParams> callback, List<PicturePublic> pictures, object state = null)
         {
             AddPictureBatchInternal (pictures, (bcr) => {
@@ -204,8 +210,10 @@ namespace Buddy
         /// <param name="picture">The picture to remove from the album. Either PicturePublic or Picture works.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RemovePictureAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RemovePictureAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RemovePictureAsync (Action<bool, BuddyCallbackParams> callback, PicturePublic picture, object state = null)
         {
             RemovePictureInternal (picture, (bcr) => {
@@ -243,8 +251,10 @@ namespace Buddy
         /// <param name="newAppTag">An optional new application tag for the album.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of UpdateAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of UpdateAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult UpdateAsync (Action<bool, BuddyCallbackParams> callback, string newName, string newAppTag = "", object state = null)
         {
             UpdateInternal (newName, newAppTag, (bcr) => {
@@ -281,8 +291,10 @@ namespace Buddy
         /// <param name="newAppTag">An optional new application tag for the picture.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of UpdatePictureAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of UpdatePictureAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult UpdatePictureAsync (Action<bool, BuddyCallbackParams> callback, PicturePublic picture, string newComment, string newAppTag = "", object state = null)
         {
             UpdatePictureInternal (picture, newComment, newAppTag, (bcr) => {

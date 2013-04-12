@@ -37,8 +37,10 @@ namespace Buddy
         /// <param name="callback">Callback that will be invoked upon completion.</param>
         /// <param name="soundName">The name of the sound file.  See the Buddy Developer Portal "Sounds" page to find sounds and get their names.</param>
         /// <param name="quality">The quality level of the file to retrieve.</param>  
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetSoundAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetSoundAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetSoundAsync(Action<Stream, BuddyCallbackParams> callback, string soundName, SoundQuality quality)
         {
             GetSoundInternal(soundName, quality, (bcr) =>

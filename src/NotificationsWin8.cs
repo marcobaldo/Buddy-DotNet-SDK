@@ -39,8 +39,10 @@ namespace Buddy
         /// <param name="groupName">Register this device as part of a group, so that you can send the whole group messages.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RegisterDeviceAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RegisterDeviceAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RegisterDeviceAsync (Action<bool, BuddyCallbackParams> callback, string deviceUri, string clientId, string clientSecret, string groupName = "", object state = null)
         {
             RegisterDeviceInternal (deviceUri, clientId, clientSecret, groupName, (bcr) => {
@@ -76,8 +78,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true on success, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of UnregisterDeviceAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of UnregisterDeviceAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult UnregisterDeviceAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             UnregisterDeviceInternal ((bcr) => {
@@ -108,8 +112,10 @@ namespace Buddy
         /// <param name="currentPage">Set the current page.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetRegisteredDevicesAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetRegisteredDevicesAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetRegisteredDevicesAsync (Action<List<RegisteredDeviceWin8>, BuddyCallbackParams> callback, string forGroup = "", int pageSize = 10, int currentPage = 1, object state = null)
         {
             GetRegisteredDevicesInternal (forGroup, pageSize, currentPage, (bcr) => {
@@ -154,8 +160,10 @@ namespace Buddy
         /// </summary>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetGroupsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetGroupsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetGroupsAsync (Action<Dictionary<string, int>, BuddyCallbackParams> callback, object state = null)
         {
             GetGroupsInternal ((bcr) => {
@@ -195,8 +203,10 @@ namespace Buddy
         /// <param name="groupName">Send messages to an entire group of users, not just a one.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SendTileAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SendTileAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SendTileAsync (Action<bool, BuddyCallbackParams> callback, string xmlPayload, int senderUserId, DateTime deliverAfter = default(DateTime), string groupName = "", object state = null)
         {
             SendTileInternal (xmlPayload, senderUserId, deliverAfter, groupName, (bcr) => {
@@ -243,8 +253,10 @@ namespace Buddy
         /// <param name="groupName">Send messages to an entire group of users, not just a one.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SendBadgeAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SendBadgeAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SendBadgeAsync (Action<bool, BuddyCallbackParams> callback, string xmlPayload, int senderUserId, DateTime deliverAfter = default(DateTime), string groupName = "", object state = null)
         {
             SendBadgeInternal (xmlPayload, senderUserId, deliverAfter, groupName, (bcr) => {
@@ -291,8 +303,10 @@ namespace Buddy
         /// <param name="groupName">Send messages to an entire group of users, not just a one.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SendToastMessageAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SendToastMessageAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SendToastMessageAsync (Action<bool, BuddyCallbackParams> callback, string xmlPayload, int senderUserId, DateTime deliverAfter = default(DateTime), string groupName = "", object state = null)
         {
             SendToastMessageInternal (xmlPayload, senderUserId, deliverAfter, groupName, (bcr) => {

@@ -54,8 +54,10 @@ namespace Buddy
         /// <param name="metadata">An optional application specific metadata string to include with the report.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RecordInformationAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RecordInformationAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RecordInformationAsync (Action<bool, BuddyCallbackParams> callback, string osVersion, string deviceType, AuthenticatedUser user, string appVersion = "1.0", double latitude = 0.0, double longitude = 0.0, string metadata = "", object state = null)
         {
             RecordInformationInternal (osVersion, deviceType, user, appVersion, latitude, longitude, metadata, (bcr) => {
@@ -118,8 +120,10 @@ namespace Buddy
         /// <param name="metadata">An optional application specific metadata string to include with the report.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RecordCrashAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RecordCrashAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RecordCrashAsync (Action<bool, BuddyCallbackParams> callback, string methodName, string osVersion, string deviceType, AuthenticatedUser user, string stackTrace = "", string appVersion = "1.0", double latitude = 0.0, double longitude = 0.0, string metadata = "", object state = null)
         {
             RecordCrashInternal (methodName, osVersion, deviceType,  user, stackTrace, appVersion,latitude, longitude, metadata, (bcr) => {

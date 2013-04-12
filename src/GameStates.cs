@@ -54,8 +54,10 @@ namespace Buddy
         /// <param name="appTag">An optional application tag for this score.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddAsync (Action<bool, BuddyCallbackParams> callback, string gameStateKey, string gameStateValue, string appTag = "", object state = null)
         {
             AddInternal (gameStateKey, gameStateValue, appTag, (bcr) => {
@@ -98,8 +100,10 @@ namespace Buddy
         /// <exception cref="System.ArgumentException">When key is null or empty.</exception>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAsync (Action<GameState, BuddyCallbackParams> callback, string gameStateKey, object state = null)
         {
             GetInternal (gameStateKey, (bcr) => {
@@ -152,8 +156,10 @@ namespace Buddy
         /// <param name="newAppTag">An optional new application tag for the value.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of UpdateAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of UpdateAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult UpdateAsync (Action<bool, BuddyCallbackParams> callback, string gameStateKey, string gameStateValue, string newAppTag = "", object state = null)
         {
             UpdateInternal (gameStateKey, gameStateValue, newAppTag, (bcr) => {
@@ -196,8 +202,10 @@ namespace Buddy
         /// <param name="gameStateKey">The key to remove from the GameState.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RemoveAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RemoveAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RemoveAsync (Action<bool, BuddyCallbackParams> callback, string gameStateKey, object state = null)
         {
             RemoveInternal (gameStateKey, (bcr) => {
@@ -234,8 +242,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a Dictionary of name/value pairs for this User's GameState.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAllAsync (Action<Dictionary<string, GameState>, BuddyCallbackParams> callback, object state = null)
         {
             GetAllInternal ((bcr) => {

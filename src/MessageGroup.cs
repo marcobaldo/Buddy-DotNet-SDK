@@ -87,8 +87,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true on success, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of JoinAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of JoinAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult JoinAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             JoinInternal ((bcr) => {
@@ -123,8 +125,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true on success, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of LeaveAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of LeaveAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult LeaveAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             LeaveInternal ((bcr) => {
@@ -160,8 +164,10 @@ namespace Buddy
         /// <param name="userToAdd">The User to add to the message group.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddUserAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddUserAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddUserAsync (Action<bool, BuddyCallbackParams> callback, User userToAdd, object state = null)
         {
             AddUserInternal (userToAdd, (bcr) => {
@@ -196,8 +202,10 @@ namespace Buddy
         /// <param name="userToRemove">The user to remove from the group.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RemoveUserAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RemoveUserAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RemoveUserAsync (Action<bool, BuddyCallbackParams> callback, User userToRemove, object state = null)
         {
             RemoveUserInternal (userToRemove, (bcr) => {
@@ -235,8 +243,10 @@ namespace Buddy
         /// <param name="appTag">An optional application tag for this message.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SendMessageAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SendMessageAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SendMessageAsync (Action<Dictionary<int, bool>, BuddyCallbackParams> callback, string message, double latitude = 0.0, double longitude = 0.0, string appTag = "", object state = null)
         {
             SendMessageInternal (message, latitude, longitude, appTag, (bcr) => {
@@ -289,8 +299,10 @@ namespace Buddy
         /// <param name="afterDate">Optionally return only messages sent after this date.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetReceivedAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetReceivedAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetReceivedAsync (Action<List<GroupMessage>, BuddyCallbackParams> callback, DateTime afterDate = default(DateTime), object state = null)
         {
             GetReceivedInternal (afterDate, (bcr) => {
@@ -330,8 +342,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true on success, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             DeleteInternal ((bcr) => {

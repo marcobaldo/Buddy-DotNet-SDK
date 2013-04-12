@@ -51,8 +51,10 @@ namespace Buddy
         /// <param name="appTag">Mark this request with an tag, can be used on the user's side to make a decision on whether to accept the request.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddAsync (Action<bool, BuddyCallbackParams> callback, User user, string appTag = "", object state = null)
         {
             AddInternal (user, appTag, (bcr) => {
@@ -95,8 +97,10 @@ namespace Buddy
         /// <param name="afterDate">Filter the list by returning only the friend requests after a ceratin date.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAllAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAllAsync (Action<List<User>, BuddyCallbackParams> callback, DateTime afterDate = default(DateTime), object state = null)
         {
             GetAllInternal (afterDate, (bcr) => {
@@ -136,8 +140,10 @@ namespace Buddy
         /// <param name="appTag">Tag this friend accept with a string.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AcceptAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AcceptAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AcceptAsync (Action<bool, BuddyCallbackParams> callback, User user, string appTag = "", object state = null)
         {
             AcceptInternal (user, appTag, (bcr) => {
@@ -174,8 +180,10 @@ namespace Buddy
         /// <param name="user">The user to deny the friend request from. User can't be null and must be on the friend request list.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DenyAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DenyAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DenyAsync (Action<bool, BuddyCallbackParams> callback, User user, object state = null)
         {
             DenyInternal (user, (bcr) => {

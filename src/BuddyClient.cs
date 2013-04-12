@@ -121,8 +121,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a string "Pong" if this method was successful.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of PingAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of PingAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult PingAsync(Action<string, BuddyCallbackParams> callback, object state = null)
         {
             PingInternal((bcr) =>
@@ -161,8 +163,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is the datetime of the Buddy web-service.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetServiceTimeAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetServiceTimeAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetServiceTimeAsync(Action<DateTime, BuddyCallbackParams> callback, object state = null)
         {
             GetServiceTimeInternal((bcr) =>
@@ -201,8 +205,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is the version of the service.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetServiceVersionAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetServiceVersionAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetServiceVersionAsync(Action<string, BuddyCallbackParams> callback, object state = null)
         {
             GetServiceVersionInternal((bcr) =>
@@ -242,8 +248,10 @@ namespace Buddy
         /// <param name="pageSize">Used for paginig, specify page size.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetUserEmailsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetUserEmailsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetUserEmailsAsync(Action<List<string>, BuddyCallbackParams> callback, int fromRow, int pageSize = 10, object state = null)
         {
             GetUserEmailsInternal(fromRow, pageSize, (bcr) =>
@@ -289,8 +297,10 @@ namespace Buddy
         /// <param name="pageSize">Used for paginig, specify page size.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetUserProfilesAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetUserProfilesAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetUserProfilesAsync(Action<List<User>, BuddyCallbackParams> callback, int fromRow, int pageSize = 10, object state = null)
         {
             GetUserProfilesInternal(fromRow, pageSize, (bcr) =>
@@ -334,8 +344,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is the list of application stats.</param>   
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetApplicationStatisticsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetApplicationStatisticsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetApplicationStatisticsAsync(Action<List<ApplicationStatistics>, BuddyCallbackParams> callback, object state = null)
         {
             GetApplicationStatisticsInternal((bcr) =>
@@ -379,8 +391,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a the authenticated user if the login was successful.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of LoginAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of LoginAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult LoginAsync(Action<AuthenticatedUser, BuddyCallbackParams> callback, string token, object state = null)
         {
             LoginInternal(token, (bcr) =>
@@ -539,8 +553,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is an authenticated user if the Login was successful.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of LoginAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of LoginAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult LoginAsync(Action<AuthenticatedUser, BuddyCallbackParams> callback, string username, string password, object state = null)
         {
             LoginInternal(username, password, (bcr) =>
@@ -584,8 +600,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if the email exists in the system, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of CheckIfEmailExistsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of CheckIfEmailExistsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult CheckIfEmailExistsAsync(Action<bool, BuddyCallbackParams> callback, string email, object state = null)
         {
             CheckIfEmailExistsInternal(email, (bcr) =>
@@ -620,8 +638,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if the name exists in the system, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of CheckIfUsernameExistsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of CheckIfUsernameExistsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult CheckIfUsernameExistsAsync(Action<bool, BuddyCallbackParams> callback, string username, object state = null)
         {
             CheckIfUsernameExistsInternal(username, (bcr) =>
@@ -669,8 +689,10 @@ namespace Buddy
         /// <param name="appTag">An optional custom tag for this user.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of CreateUserAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of CreateUserAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult CreateUserAsync(Action<AuthenticatedUser, BuddyCallbackParams> callback, string name, string password, UserGender gender = UserGender.Any, int age = 0,
                             string email = "", UserStatus status = UserStatus.Any, bool fuzzLocation = false, bool celebrityMode = false, string appTag = "", object state = null)
         {
@@ -724,8 +746,10 @@ namespace Buddy
         /// <param name="appTag">An optional custom tag to include with the session.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns></returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of StartSessionAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of StartSessionAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult StartSessionAsync(Action<int, BuddyCallbackParams> callback, AuthenticatedUser user, string sessionName, string appTag = null, object state = null)
         {
 
@@ -774,8 +798,10 @@ namespace Buddy
         /// <param name="appTag">An optional custom tag to include with the session.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns></returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of EndSessionAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of EndSessionAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult EndSessionAsync(Action<bool, BuddyCallbackParams> callback, AuthenticatedUser user, int sessionId, string appTag = null, object state = null)
         {
 
@@ -824,8 +850,10 @@ namespace Buddy
         /// <param name="appTag">An optional custom tag to include with the metric.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns></returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of RecordSessionMetricAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of RecordSessionMetricAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult RecordSessionMetricAsync(Action<bool, BuddyCallbackParams> callback, AuthenticatedUser user, int sessionId, string metricKey, string metricValue, string appTag = null, object state = null)
         {
 

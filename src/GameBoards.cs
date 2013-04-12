@@ -42,8 +42,10 @@ namespace Buddy
         /// <param name="recordLimit">The maximum number of scores to return.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetHighScoresAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetHighScoresAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetHighScoresAsync (Action<List<GameScore>, BuddyCallbackParams> callback, string boardName, int recordLimit = 100, object state = null)
         {
             GetHighScoresInternal (boardName, recordLimit, (bcr) => {
@@ -124,8 +126,10 @@ namespace Buddy
         /// <param name="appTag">Optionally return only scores that have a certain app tag.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of FindScoresAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of FindScoresAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult FindScoresAsync (Action<List<GameScore>, BuddyCallbackParams> callback, User user = null, int distanceInMeters = -1, double latitude = 0.0,
                             double longitude = 0.0, int recordLimit = 100, string boardName = "", int daysOld = 999999, double minimumScore = -1.0, string appTag = "", object state = null)
         {

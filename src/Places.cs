@@ -43,8 +43,10 @@ namespace Buddy
         /// <param name="searchCategoryId">Optional search category ID to narrow down the search with.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of FindAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult FindAsync (Action<List<Place>, BuddyCallbackParams> callback, int searchDistanceInMeters, double latitude, double longitude, int numberOfResults = 10, string searchForName = "", int searchCategoryId = -1, object state = null)
         {
             FindInternal (searchDistanceInMeters, latitude, longitude, numberOfResults, searchForName, searchCategoryId, (bcr) => {
@@ -93,8 +95,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a list of geo-location categories mapped to their IDs.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetCategoriesAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetCategoriesAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetCategoriesAsync (Action<Dictionary<int, string>, BuddyCallbackParams> callback, object state = null)
         {
             GetCategoriesInternal ((bcr) => {
@@ -128,8 +132,10 @@ namespace Buddy
         /// <param name="longitude">The optioanl longitude to calculate a distance to.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAsync (Action<Place, BuddyCallbackParams> callback, int placeId, double latitude = 0.0, double longitude = 0.0, object state = null)
         {
             GetInternal (placeId, latitude, longitude, (bcr) => {

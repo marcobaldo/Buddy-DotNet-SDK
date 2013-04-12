@@ -44,8 +44,10 @@ namespace Buddy
         /// <param name="fromDateTime">The starting date and time to get receipts from, leave this blank to get all the receipts.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetReceiptsForUserAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetReceiptsForUserAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetReceiptsForUserAsync (Action<List<Receipt>, BuddyCallbackParams> callback, DateTime? fromDateTime = null, object state = null)
         {
             GetReceiptsForUserInternal (fromDateTime, (bcr) => {
@@ -84,8 +86,10 @@ namespace Buddy
         /// <param name="customTransactionID">The CustomTransactionID of the transaction. For Facebook payments this is the OrderID of the transaction.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetReceiptForUserAndTransactionIDAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetReceiptForUserAndTransactionIDAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetReceiptForUserAndTransactionIDAsync (Action<List<Receipt>, BuddyCallbackParams> callback, string customTransactionID, object state = null)
         {
             GetReceiptForUserAndTransactionIDInternal (customTransactionID, (bcr) => {
@@ -132,8 +136,10 @@ namespace Buddy
         /// <param name="appData">Optional metadata to associate with the transaction.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SaveReceiptAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SaveReceiptAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SaveReceiptAsync (Action<bool, BuddyCallbackParams> callback, string totalCost, int totalQuantity, int storeItemID, string storeName,
                             string receiptData = "", string customTransactionID = "", string appData = "", object state = null)
         {
@@ -184,8 +190,10 @@ namespace Buddy
         /// <param name="appData">Optional metadata to associated with the transaction.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of VerifyiOSReceiptAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of VerifyiOSReceiptAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult VerifyiOSReceiptAsync (Action<bool, BuddyCallbackParams> callback, string totalCost, int totalQuantity, bool useSandbox, string appleItemID = "",
                             string receiptData = "", string customTransactionID = "", string appData = "", object state = null)
         {
@@ -236,8 +244,10 @@ namespace Buddy
         /// <param name="appData">Optional metadata to associated with the transaction.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of VerifyAndSaveiOSReceiptAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of VerifyAndSaveiOSReceiptAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult VerifyAndSaveiOSReceiptAsync (Action<bool, BuddyCallbackParams> callback, string totalCost, int totalQuantity, bool useSandbox, string appleItemID = "",
                             string receiptData = "", string customTransactionID = "", string appData = "", object state = null)
         {
@@ -279,8 +289,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a .NET List of StoreItems if this method was successful.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetAllStoreItemsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetAllStoreItemsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetAllStoreItemsAsync (Action<List<StoreItem>, BuddyCallbackParams> callback, object state = null)
         {
             GetAllStoreItemsInternal ((bcr) => {
@@ -319,8 +331,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a .NET List of StoreItems if this method was successful.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetActiveStoreItemsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetActiveStoreItemsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetActiveStoreItemsAsync (Action<List<StoreItem>, BuddyCallbackParams> callback, object state = null)
         {
             GetActiveStoreItemsInternal ((bcr) => {
@@ -359,8 +373,10 @@ namespace Buddy
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
         ///
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetFreeStoreItemsAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetFreeStoreItemsAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetFreeStoreItemsAsync (Action<List<StoreItem>, BuddyCallbackParams> callback, object state = null)
         {
             GetFreeStoreItemsInternal ((bcr) => {

@@ -281,8 +281,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a list of profile photos.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetProfilePhotosAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetProfilePhotosAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetProfilePhotosAsync(Action<List<PicturePublic>, BuddyCallbackParams> callback, object state = null) { GetProfilePhotosInternal((bcr) => { if (callback == null) return; callback(bcr.Result, new BuddyCallbackParams(bcr.Error)); }); return null; }
 
         

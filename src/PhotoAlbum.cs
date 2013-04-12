@@ -53,8 +53,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if successful, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         {
             DeleteInternal ((bcr) => {
@@ -94,8 +96,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is the new picture that was added or null on error.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddPictureAsync (Action<Picture, BuddyCallbackParams> callback, byte[] blob, string comment = "", double latitude = 0.0, double longitude = 0.0, string appTag = "", object state = null)
         {
             AddPictureInternal (new MemoryStream(blob), comment, latitude, longitude, appTag, (bcr) => {
@@ -141,8 +145,10 @@ namespace Buddy
         /// <param name="watermarkmessage">An optional message to watermark the image with.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureWithWatermarkAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of AddPictureWithWatermarkAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult AddPictureWithWatermarkAsync (Action<Picture, BuddyCallbackParams> callback, byte[] blob, string comment = "", double latitude = 0.0, double longitude = 0.0, string appTag = "", string watermarkmessage = "", object state = null)
         {
             AddPictureWithWatermarkInternal (new MemoryStream(blob), comment, latitude, longitude, appTag, watermarkmessage, (bcr) => {

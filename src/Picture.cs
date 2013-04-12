@@ -52,8 +52,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if the picture was deleted, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of DeleteAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult DeleteAsync (Action<bool, BuddyCallbackParams> callback, object state = null)
         { 
             DeleteInternal ((bcr) => {
@@ -91,8 +93,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a list of supported filters.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SupportedFiltersAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SupportedFiltersAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SupportedFiltersAsync (Action<Dictionary<string, string>, BuddyCallbackParams> callback, object state = null)
         { 
             SupportedFiltersInternal ((bcr) => {
@@ -134,8 +138,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is a new picture with the filter applied.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of ApplyFilterAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of ApplyFilterAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult ApplyFilterAsync (string filterName, string filterParams, Action<Picture, BuddyCallbackParams> callback, object state = null)
         { 
             ApplyFilterInternal (filterName, filterParams, (bcr) => {
@@ -183,8 +189,10 @@ namespace Buddy
         /// <param name="callback">The async callback to call on success or error. The first parameter is true if the app tag was added, false otherwise.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SetAppTagAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SetAppTagAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SetAppTagAsync (Action<bool, BuddyCallbackParams> callback, string appTag, object state = null)
         { 
             SetAppTagInternal (appTag, (bcr) => {

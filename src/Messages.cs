@@ -47,8 +47,10 @@ namespace Buddy
         /// <param name="appTag">An optional application tag to set for the message.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of SendAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of SendAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult SendAsync (Action<bool, BuddyCallbackParams> callback, User toUser, string message, string appTag = "", object state = null)
         {
             SendInternal (toUser, message, appTag, (bcr) => {
@@ -89,8 +91,10 @@ namespace Buddy
         /// <param name="afterDate">Optionally retreive only messages after a certain DateTime.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetReceivedAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetReceivedAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetReceivedAsync (Action<List<Message>, BuddyCallbackParams> callback, DateTime afterDate = default(DateTime), object state = null)
         {
             GetReceivedInternal (afterDate, (bcr) => {
@@ -129,8 +133,10 @@ namespace Buddy
         /// <param name="afterDate">Optionally retreive only messages after a certain DateTime.</param>
         /// <param name="state">An optional user defined object that will be passed to the callback.</param>
         /// <returns>An IAsyncResult handle that can be used to monitor progress on this call.</returns>
-        [Obsolete("This method has been deprecated, please call one of the other overloads of GetSentAsync.")]
+        #if AWAIT_SUPPORTED
+	[Obsolete("This method has been deprecated, please call one of the other overloads of GetSentAsync.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#endif
         public IAsyncResult GetSentAsync (Action<List<Message>, BuddyCallbackParams> callback, DateTime afterDate = default(DateTime), object state = null)
         {
             GetSentInternal (afterDate, (bcr) => {
