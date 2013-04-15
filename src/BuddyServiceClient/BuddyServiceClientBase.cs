@@ -81,7 +81,7 @@ namespace BuddyServiceClient
         CouldNotDeleteFileGenericError, PhotoAlbumDoesNotExist, AlbumNamesCannotBeBlank, PhotoIDDoesNotExistInContext, dupelocation, invalidflagreason,
         EmptyDeviceURI, EmptyGroupName, EmptyImageURI, EmptyMessageCount, EmptyMessageTitle, EmptyRawMessage, EmptyToastTitle, EmptyToastSubTitle,
         EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
-        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError
+        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, UserIDMustBeAnInteger
 
 
     }
@@ -2602,11 +2602,11 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
 
 // for WP7.
 #if PUBLIC_SERIALIZATION
-    internal
-#else
     public
+#else
+    internal
 #endif
-    class InternalModels
+ class InternalModels
 {
 
     public class DataContract_MetaDataBatchSum
