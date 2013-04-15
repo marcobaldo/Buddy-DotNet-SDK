@@ -16,7 +16,7 @@ namespace Buddy
         public DateTime RegistrationDate { get; protected set; }
         public int UserID { get; protected set; }
 
-        internal RegisteredDeviceWin8(DataContract_Win8DeviceList device, AuthenticatedUser user)
+        internal RegisteredDeviceWin8(InternalModels.DataContract_Win8DeviceList device, AuthenticatedUser user)
         {
             if (device == null) throw new ArgumentNullException("device");
             if (user == null) throw new ArgumentNullException("user");

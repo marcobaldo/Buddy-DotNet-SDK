@@ -66,7 +66,7 @@ namespace Buddy
             this.Name = name;
         }
 
-        internal MessageGroup (BuddyClient client, AuthenticatedUser user, DataContract_GroupChatMemberships group)
+        internal MessageGroup (BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_GroupChatMemberships group)
             : base(client, user)
         {
             this.ID = Int32.Parse (group.ChatGroupID);

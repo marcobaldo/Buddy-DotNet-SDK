@@ -108,7 +108,7 @@ namespace Buddy
             return;
         }
 
-        internal void GetPicturesInternal (int albumId, DataContract_VirtualPhotoAlbumInformation info, Action<BuddyCallResult<VirtualAlbum>> callback)
+        internal void GetPicturesInternal(int albumId, InternalModels.DataContract_VirtualPhotoAlbumInformation info, Action<BuddyCallResult<VirtualAlbum>> callback)
         {
             this.Client.Service.Pictures_VirtualAlbum_Get (this.Client.AppName, this.Client.AppPassword, this.AuthUser.Token, albumId.ToString (), (bcr) =>
             {

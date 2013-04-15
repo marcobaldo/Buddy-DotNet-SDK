@@ -42,7 +42,7 @@ namespace Buddy
         /// </summary>
         public double Longitude { get; protected set; }
 
-        internal GroupMessage(BuddyClient client, DataContract_GroupMessage msg, MessageGroup group)
+        internal GroupMessage(BuddyClient client, InternalModels.DataContract_GroupMessage msg, MessageGroup group)
         {
             this.DateSent = Convert.ToDateTime(msg.SentDateTime, CultureInfo.InvariantCulture); 
             this.Group = group;

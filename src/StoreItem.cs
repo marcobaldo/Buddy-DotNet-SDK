@@ -69,7 +69,7 @@ namespace Buddy
         /// </summary>
         public string StoreItemID { get; protected set; }
 
-        internal StoreItem(BuddyClient client, AuthenticatedUser user, DataContract_CommerceStoreGetItems storeItem)
+        internal StoreItem(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_CommerceStoreGetItems storeItem)
             : base(client, user)
         {
 

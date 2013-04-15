@@ -203,7 +203,7 @@ namespace BuddyServiceClient
 internal partial class BuddyServiceClientBase {
 
 
-public void MetaData_ApplicationMetaDataValue_BatchSum(String BuddyApplicationName, String BuddyApplicationPassword, String ApplicationMetaKeyCollection, String SearchDistanceCollection, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<DataContract_MetaDataBatchSum[]>> callback){
+public void MetaData_ApplicationMetaDataValue_BatchSum(String BuddyApplicationName, String BuddyApplicationPassword, String ApplicationMetaKeyCollection, String SearchDistanceCollection, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<InternalModels.DataContract_MetaDataBatchSum[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -215,12 +215,12 @@ public void MetaData_ApplicationMetaDataValue_BatchSum(String BuddyApplicationNa
 	parameters["ApplicationTag"] = ApplicationTag;
 
 	
-	CallMethodAsync<DataContract_MetaDataBatchSum[]>("MetaData_ApplicationMetaDataValue_BatchSum", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_MetaDataBatchSum[]>("MetaData_ApplicationMetaDataValue_BatchSum", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void MetaData_ApplicationMetaDataValue_SearchData(String BuddyApplicationName, String BuddyApplicationPassword, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String MetaKeySearch, String MetaValueSearch, String TimeFilter, String MetaValueMin, String MetaValueMax, String SearchAsFloat, String SortResultsDirection, String DisableCach, Action<BuddyCallResult<DataContract_SearchAppMetaData[]>> callback){
+public void MetaData_ApplicationMetaDataValue_SearchData(String BuddyApplicationName, String BuddyApplicationPassword, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String MetaKeySearch, String MetaValueSearch, String TimeFilter, String MetaValueMin, String MetaValueMax, String SearchAsFloat, String SortResultsDirection, String DisableCach, Action<BuddyCallResult<InternalModels.DataContract_SearchAppMetaData[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -238,12 +238,12 @@ public void MetaData_ApplicationMetaDataValue_SearchData(String BuddyApplication
 	parameters["DisableCach"] = DisableCach;
 
 	
-	CallMethodAsync<DataContract_SearchAppMetaData[]>("MetaData_ApplicationMetaDataValue_SearchData", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchAppMetaData[]>("MetaData_ApplicationMetaDataValue_SearchData", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void MetaData_ApplicationMetaDataValue_SearchNearby(String BuddyApplicationName, String BuddyApplicationPassword, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String MetaKeySearch, String MetaValueSearch, String TimeFilter, String MetaValueMin, String MetaValueMax, String SortResultsDirection, String DisableCach, Action<BuddyCallResult<DataContract_SearchAppMetaData[]>> callback){
+public void MetaData_ApplicationMetaDataValue_SearchNearby(String BuddyApplicationName, String BuddyApplicationPassword, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String MetaKeySearch, String MetaValueSearch, String TimeFilter, String MetaValueMin, String MetaValueMax, String SortResultsDirection, String DisableCach, Action<BuddyCallResult<InternalModels.DataContract_SearchAppMetaData[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -260,24 +260,24 @@ public void MetaData_ApplicationMetaDataValue_SearchNearby(String BuddyApplicati
 	parameters["DisableCach"] = DisableCach;
 
 	
-	CallMethodAsync<DataContract_SearchAppMetaData[]>("MetaData_ApplicationMetaDataValue_SearchNearby", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchAppMetaData[]>("MetaData_ApplicationMetaDataValue_SearchNearby", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void MetaData_UserMetaDataValue_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_UserMetaData[]>> callback){
+public void MetaData_UserMetaDataValue_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_UserMetaData[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_UserMetaData[]>("MetaData_UserMetaDataValue_GetAll", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_UserMetaData[]>("MetaData_UserMetaDataValue_GetAll", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void MetaData_UserMetaDataValue_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String MetaKey, Action<BuddyCallResult<DataContract_UserMetaData[]>> callback){
+public void MetaData_UserMetaDataValue_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String MetaKey, Action<BuddyCallResult<InternalModels.DataContract_UserMetaData[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -285,7 +285,7 @@ public void MetaData_UserMetaDataValue_Get(String BuddyApplicationName, String B
 	parameters["MetaKey"] = MetaKey;
 
 	
-	CallMethodAsync<DataContract_UserMetaData[]>("MetaData_UserMetaDataValue_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_UserMetaData[]>("MetaData_UserMetaDataValue_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -324,7 +324,7 @@ public void MetaData_UserMetaDataValue_BatchSet(String BuddyApplicationName, Str
 
 	});
 }
-public void MetaData_UserMetaDataValue_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String MetaKeySearch, String MetaValueSearch, String TimeFilter, String SortValueAsFloat, String SortDirection, String DisableCache, Action<BuddyCallResult<DataContract_SearchUserMetaData[]>> callback){
+public void MetaData_UserMetaDataValue_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String MetaKeySearch, String MetaValueSearch, String TimeFilter, String SortValueAsFloat, String SortDirection, String DisableCache, Action<BuddyCallResult<InternalModels.DataContract_SearchUserMetaData[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -341,12 +341,12 @@ public void MetaData_UserMetaDataValue_Search(String BuddyApplicationName, Strin
 	parameters["DisableCache"] = DisableCache;
 
 	
-	CallMethodAsync<DataContract_SearchUserMetaData[]>("MetaData_UserMetaDataValue_Search", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchUserMetaData[]>("MetaData_UserMetaDataValue_Search", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void MetaData_UserMetaDataValue_Sum(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String MetaKey, String SearchDistance, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<DataContract_MetaDataSum[]>> callback){
+public void MetaData_UserMetaDataValue_Sum(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String MetaKey, String SearchDistance, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<InternalModels.DataContract_MetaDataSum[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -359,7 +359,7 @@ public void MetaData_UserMetaDataValue_Sum(String BuddyApplicationName, String B
 	parameters["ApplicationTag"] = ApplicationTag;
 
 	
-	CallMethodAsync<DataContract_MetaDataSum[]>("MetaData_UserMetaDataValue_Sum", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_MetaDataSum[]>("MetaData_UserMetaDataValue_Sum", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -389,7 +389,7 @@ public void MetaData_UserMetaDataValue_DeleteAll(String BuddyApplicationName, St
 
 	});
 }
-public void MetaData_UserMetaDataValue_BatchSum(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserMetaKeyCollection, String SearchDistanceCollection, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<DataContract_MetaDataBatchSum[]>> callback){
+public void MetaData_UserMetaDataValue_BatchSum(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserMetaKeyCollection, String SearchDistanceCollection, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<InternalModels.DataContract_MetaDataBatchSum[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -402,7 +402,7 @@ public void MetaData_UserMetaDataValue_BatchSum(String BuddyApplicationName, Str
 	parameters["ApplicationTag"] = ApplicationTag;
 
 	
-	CallMethodAsync<DataContract_MetaDataBatchSum[]>("MetaData_UserMetaDataValue_BatchSum", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_MetaDataBatchSum[]>("MetaData_UserMetaDataValue_BatchSum", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -485,7 +485,7 @@ public void PushNotifications_WP_SendToastMessage(String BuddyApplicationName, S
 
 	});
 }
-public void PushNotifications_WP_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<DataContract_WPDeviceList[]>> callback){
+public void PushNotifications_WP_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<InternalModels.DataContract_WPDeviceList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -494,18 +494,18 @@ public void PushNotifications_WP_GetRegisteredDevices(String BuddyApplicationNam
 	parameters["CurrentPageNumber"] = CurrentPageNumber;
 
 	
-	CallMethodAsync<DataContract_WPDeviceList[]>("PushNotifications_WP_GetRegisteredDevices", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_WPDeviceList[]>("PushNotifications_WP_GetRegisteredDevices", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void PushNotifications_WP_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_WPGroupNames[]>> callback){
+public void PushNotifications_WP_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_WPGroupNames[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_WPGroupNames[]>("PushNotifications_WP_GetGroupNames", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_WPGroupNames[]>("PushNotifications_WP_GetGroupNames", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -551,7 +551,7 @@ public void PushNotifications_Android_SendRawMessage(String BuddyApplicationName
 
 	});
 }
-public void PushNotifications_Android_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<DataContract_AndroidDeviceList[]>> callback){
+public void PushNotifications_Android_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<InternalModels.DataContract_AndroidDeviceList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -560,18 +560,18 @@ public void PushNotifications_Android_GetRegisteredDevices(String BuddyApplicati
 	parameters["CurrentPageNumber"] = CurrentPageNumber;
 
 	
-	CallMethodAsync<DataContract_AndroidDeviceList[]>("PushNotifications_Android_GetRegisteredDevices", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_AndroidDeviceList[]>("PushNotifications_Android_GetRegisteredDevices", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void PushNotifications_Android_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_AndroidGroupNames[]>> callback){
+public void PushNotifications_Android_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_AndroidGroupNames[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_AndroidGroupNames[]>("PushNotifications_Android_GetGroupNames", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_AndroidGroupNames[]>("PushNotifications_Android_GetGroupNames", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -603,18 +603,18 @@ public void PushNotifications_Apple_RegisterDevice(String BuddyApplicationName, 
 
 	});
 }
-public void PushNotifications_Apple_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_AppleGroupNames[]>> callback){
+public void PushNotifications_Apple_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_AppleGroupNames[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_AppleGroupNames[]>("PushNotifications_Apple_GetGroupNames", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_AppleGroupNames[]>("PushNotifications_Apple_GetGroupNames", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void PushNotifications_Apple_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<DataContract_AppleDeviceList[]>> callback){
+public void PushNotifications_Apple_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<InternalModels.DataContract_AppleDeviceList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -623,7 +623,7 @@ public void PushNotifications_Apple_GetRegisteredDevices(String BuddyApplication
 	parameters["CurrentPageNumber"] = CurrentPageNumber;
 
 	
-	CallMethodAsync<DataContract_AppleDeviceList[]>("PushNotifications_Apple_GetRegisteredDevices", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_AppleDeviceList[]>("PushNotifications_Apple_GetRegisteredDevices", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -674,7 +674,7 @@ public void PushNotifications_Win8_RegisterDevice(String BuddyApplicationName, S
 
 	});
 }
-public void PushNotifications_Win8_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<DataContract_Win8DeviceList[]>> callback){
+public void PushNotifications_Win8_GetRegisteredDevices(String BuddyApplicationName, String BuddyApplicationPassword, String GroupName, String PageSize, String CurrentPageNumber, Action<BuddyCallResult<InternalModels.DataContract_Win8DeviceList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -683,18 +683,18 @@ public void PushNotifications_Win8_GetRegisteredDevices(String BuddyApplicationN
 	parameters["CurrentPageNumber"] = CurrentPageNumber;
 
 	
-	CallMethodAsync<DataContract_Win8DeviceList[]>("PushNotifications_Win8_GetRegisteredDevices", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_Win8DeviceList[]>("PushNotifications_Win8_GetRegisteredDevices", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void PushNotifications_Win8_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_Win8GroupNames[]>> callback){
+public void PushNotifications_Win8_GetGroupNames(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_Win8GroupNames[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_Win8GroupNames[]>("PushNotifications_Win8_GetGroupNames", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_Win8GroupNames[]>("PushNotifications_Win8_GetGroupNames", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -756,7 +756,7 @@ public void PushNotifications_Win8_SendLiveTile(String BuddyApplicationName, Str
 
 	});
 }
-public void Application_Users_GetEmailList(String BuddyApplicationName, String BuddyApplicationPassword, String FirstRow, String LastRow, Action<BuddyCallResult<DataContract_ApplicationEmail[]>> callback){
+public void Application_Users_GetEmailList(String BuddyApplicationName, String BuddyApplicationPassword, String FirstRow, String LastRow, Action<BuddyCallResult<InternalModels.DataContract_ApplicationEmail[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -764,12 +764,12 @@ public void Application_Users_GetEmailList(String BuddyApplicationName, String B
 	parameters["LastRow"] = LastRow;
 
 	
-	CallMethodAsync<DataContract_ApplicationEmail[]>("Application_Users_GetEmailList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_ApplicationEmail[]>("Application_Users_GetEmailList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Application_Users_GetProfileList(String BuddyApplicationName, String BuddyApplicationPassword, String FirstRow, String LastRow, Action<BuddyCallResult<DataContract_ApplicationUserProfile[]>> callback){
+public void Application_Users_GetProfileList(String BuddyApplicationName, String BuddyApplicationPassword, String FirstRow, String LastRow, Action<BuddyCallResult<InternalModels.DataContract_ApplicationUserProfile[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -777,18 +777,18 @@ public void Application_Users_GetProfileList(String BuddyApplicationName, String
 	parameters["LastRow"] = LastRow;
 
 	
-	CallMethodAsync<DataContract_ApplicationUserProfile[]>("Application_Users_GetProfileList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_ApplicationUserProfile[]>("Application_Users_GetProfileList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Application_Metrics_GetStats(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_ApplicationStats[]>> callback){
+public void Application_Metrics_GetStats(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_ApplicationStats[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_ApplicationStats[]>("Application_Metrics_GetStats", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_ApplicationStats[]>("Application_Metrics_GetStats", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -806,7 +806,7 @@ public void GroupMessages_Membership_JoinGroup(String BuddyApplicationName, Stri
 
 	});
 }
-public void GroupMessages_Message_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String GroupChatID, String FromDateTime, Action<BuddyCallResult<DataContract_GroupMessage[]>> callback){
+public void GroupMessages_Message_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String GroupChatID, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_GroupMessage[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -815,19 +815,19 @@ public void GroupMessages_Message_Get(String BuddyApplicationName, String BuddyA
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_GroupMessage[]>("GroupMessages_Message_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GroupMessage[]>("GroupMessages_Message_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void GroupMessages_Membership_GetAllGroups(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_GroupChatMemberships[]>> callback){
+public void GroupMessages_Membership_GetAllGroups(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_GroupChatMemberships[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_GroupChatMemberships[]>("GroupMessages_Membership_GetAllGroups", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GroupChatMemberships[]>("GroupMessages_Membership_GetAllGroups", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -867,14 +867,14 @@ public void GeoLocation_Location_Flag(String BuddyApplicationName, String BuddyA
 
 	});
 }
-public void GeoLocation_Category_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_PlacesCategoryList[]>> callback){
+public void GeoLocation_Category_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_PlacesCategoryList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_PlacesCategoryList[]>("GeoLocation_Category_GetList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PlacesCategoryList[]>("GeoLocation_Category_GetList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -904,7 +904,7 @@ public void GeoLocation_Location_Add(String BuddyApplicationName, String BuddyAp
 
 	});
 }
-public void GeoLocation_Location_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String SearchName, String SearchCategoryID, Action<BuddyCallResult<DataContract_SearchPlaces[]>> callback){
+public void GeoLocation_Location_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String SearchName, String SearchCategoryID, Action<BuddyCallResult<InternalModels.DataContract_SearchPlaces[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -917,12 +917,12 @@ public void GeoLocation_Location_Search(String BuddyApplicationName, String Budd
 	parameters["SearchCategoryID"] = SearchCategoryID;
 
 	
-	CallMethodAsync<DataContract_SearchPlaces[]>("GeoLocation_Location_Search", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchPlaces[]>("GeoLocation_Location_Search", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void GeoLocation_Location_CustomSearch(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String SearchName, String SearchCategoryID, String CustomSearchCommand, Action<BuddyCallResult<DataContract_SearchPlaces[]>> callback){
+public void GeoLocation_Location_CustomSearch(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String SearchName, String SearchCategoryID, String CustomSearchCommand, Action<BuddyCallResult<InternalModels.DataContract_SearchPlaces[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -936,7 +936,7 @@ public void GeoLocation_Location_CustomSearch(String BuddyApplicationName, Strin
 	parameters["CustomSearchCommand"] = CustomSearchCommand;
 
 	
-	CallMethodAsync<DataContract_SearchPlaces[]>("GeoLocation_Location_CustomSearch", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchPlaces[]>("GeoLocation_Location_CustomSearch", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -971,7 +971,7 @@ public void GeoLocation_Location_SetTag(String BuddyApplicationName, String Budd
 
 	});
 }
-public void GeoLocation_Location_GetFromID(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String ExistingGeoID, String Latitude, String Longitude, Action<BuddyCallResult<DataContract_SearchPlaces[]>> callback){
+public void GeoLocation_Location_GetFromID(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String ExistingGeoID, String Latitude, String Longitude, Action<BuddyCallResult<InternalModels.DataContract_SearchPlaces[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -981,12 +981,12 @@ public void GeoLocation_Location_GetFromID(String BuddyApplicationName, String B
 	parameters["Longitude"] = Longitude;
 
 	
-	CallMethodAsync<DataContract_SearchPlaces[]>("GeoLocation_Location_GetFromID", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchPlaces[]>("GeoLocation_Location_GetFromID", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void StartupData_Location_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String SearchName, Action<BuddyCallResult<DataContract_SearchStartups[]>> callback){
+public void StartupData_Location_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String SearchName, Action<BuddyCallResult<InternalModels.DataContract_SearchStartups[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -998,23 +998,23 @@ public void StartupData_Location_Search(String BuddyApplicationName, String Budd
 	parameters["SearchName"] = SearchName;
 
 	
-	CallMethodAsync<DataContract_SearchStartups[]>("StartupData_Location_Search", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchStartups[]>("StartupData_Location_Search", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void StartupData_Location_GetMetroList(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_MetroList[]>> callback){
+public void StartupData_Location_GetMetroList(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_MetroList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_MetroList[]>("StartupData_Location_GetMetroList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_MetroList[]>("StartupData_Location_GetMetroList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void StartupData_Location_GetFromMetroArea(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String MetroName, String RecordLimit, Action<BuddyCallResult<DataContract_SearchStartups[]>> callback){
+public void StartupData_Location_GetFromMetroArea(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String MetroName, String RecordLimit, Action<BuddyCallResult<InternalModels.DataContract_SearchStartups[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1023,7 +1023,7 @@ public void StartupData_Location_GetFromMetroArea(String BuddyApplicationName, S
 	parameters["RecordLimit"] = RecordLimit;
 
 	
-	CallMethodAsync<DataContract_SearchStartups[]>("StartupData_Location_GetFromMetroArea", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchStartups[]>("StartupData_Location_GetFromMetroArea", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1069,7 +1069,7 @@ public void Friends_FriendRequest_Accept(String BuddyApplicationName, String Bud
 
 	});
 }
-public void Friends_FriendRequest_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<DataContract_FriendRequests[]>> callback){
+public void Friends_FriendRequest_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_FriendRequests[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1077,12 +1077,12 @@ public void Friends_FriendRequest_Get(String BuddyApplicationName, String BuddyA
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_FriendRequests[]>("Friends_FriendRequest_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_FriendRequests[]>("Friends_FriendRequest_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Friends_Friends_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<DataContract_FriendList[]>> callback){
+public void Friends_Friends_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_FriendList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1090,12 +1090,12 @@ public void Friends_Friends_GetList(String BuddyApplicationName, String BuddyApp
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_FriendList[]>("Friends_Friends_GetList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_FriendList[]>("Friends_Friends_GetList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Friends_Friends_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String TimeFilter, String SearchDistance, String Latitude, String Longitude, String PageSize, String PageNumber, Action<BuddyCallResult<DataContract_SearchFriends[]>> callback){
+public void Friends_Friends_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String TimeFilter, String SearchDistance, String Latitude, String Longitude, String PageSize, String PageNumber, Action<BuddyCallResult<InternalModels.DataContract_SearchFriends[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1108,7 +1108,7 @@ public void Friends_Friends_Search(String BuddyApplicationName, String BuddyAppl
 	parameters["PageNumber"] = PageNumber;
 
 	
-	CallMethodAsync<DataContract_SearchFriends[]>("Friends_Friends_Search", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchFriends[]>("Friends_Friends_Search", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1153,19 +1153,19 @@ public void Friends_Block_Add(String BuddyApplicationName, String BuddyApplicati
 
 	});
 }
-public void Friends_Block_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_BlockedList[]>> callback){
+public void Friends_Block_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_BlockedList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_BlockedList[]>("Friends_Block_GetList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_BlockedList[]>("Friends_Block_GetList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Friends_FriendRequest_GetSentRequests(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<DataContract_SentFriendRequests[]>> callback){
+public void Friends_FriendRequest_GetSentRequests(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_SentFriendRequests[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1173,7 +1173,7 @@ public void Friends_FriendRequest_GetSentRequests(String BuddyApplicationName, S
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_SentFriendRequests[]>("Friends_FriendRequest_GetSentRequests", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SentFriendRequests[]>("Friends_FriendRequest_GetSentRequests", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1310,25 +1310,25 @@ public void MetaData_ApplicationMetaDataValue_Set(String BuddyApplicationName, S
 
 	});
 }
-public void MetaData_ApplicationMetaDataValue_Get(String BuddyApplicationName, String BuddyApplicationPassword, String SocketMetaKey, Action<BuddyCallResult<DataContract_ApplicationMetaData[]>> callback){
+public void MetaData_ApplicationMetaDataValue_Get(String BuddyApplicationName, String BuddyApplicationPassword, String SocketMetaKey, Action<BuddyCallResult<InternalModels.DataContract_ApplicationMetaData[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["SocketMetaKey"] = SocketMetaKey;
 
 	
-	CallMethodAsync<DataContract_ApplicationMetaData[]>("MetaData_ApplicationMetaDataValue_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_ApplicationMetaData[]>("MetaData_ApplicationMetaDataValue_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void MetaData_ApplicationMetaDataValue_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_ApplicationMetaData[]>> callback){
+public void MetaData_ApplicationMetaDataValue_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_ApplicationMetaData[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_ApplicationMetaData[]>("MetaData_ApplicationMetaDataValue_GetAll", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_ApplicationMetaData[]>("MetaData_ApplicationMetaDataValue_GetAll", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1377,7 +1377,7 @@ public void MetaData_ApplicationMetaDataCounter_Decrement(String BuddyApplicatio
 
 	});
 }
-public void MetaData_ApplicationMetaDataValue_Sum(String BuddyApplicationName, String BuddyApplicationPassword, String SocketMetaKey, String SearchDistance, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<DataContract_MetaDataSum[]>> callback){
+public void MetaData_ApplicationMetaDataValue_Sum(String BuddyApplicationName, String BuddyApplicationPassword, String SocketMetaKey, String SearchDistance, String Latitude, String Longitude, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<InternalModels.DataContract_MetaDataSum[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1389,7 +1389,7 @@ public void MetaData_ApplicationMetaDataValue_Sum(String BuddyApplicationName, S
 	parameters["ApplicationTag"] = ApplicationTag;
 
 	
-	CallMethodAsync<DataContract_MetaDataSum[]>("MetaData_ApplicationMetaDataValue_Sum", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_MetaDataSum[]>("MetaData_ApplicationMetaDataValue_Sum", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1405,7 +1405,7 @@ public void MetaData_ApplicationMetaDataValue_DeleteAll(String BuddyApplicationN
 
 	});
 }
-public void Pictures_PhotoAlbum_GetByDateTime(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String StartDateTime, Action<BuddyCallResult<DataContract_PhotoList[]>> callback){
+public void Pictures_PhotoAlbum_GetByDateTime(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String StartDateTime, Action<BuddyCallResult<InternalModels.DataContract_PhotoList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1414,12 +1414,12 @@ public void Pictures_PhotoAlbum_GetByDateTime(String BuddyApplicationName, Strin
 	parameters["StartDateTime"] = StartDateTime;
 
 	
-	CallMethodAsync<DataContract_PhotoList[]>("Pictures_PhotoAlbum_GetByDateTime", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PhotoList[]>("Pictures_PhotoAlbum_GetByDateTime", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Pictures_PhotoAlbum_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, Action<BuddyCallResult<DataContract_PhotoAlbumList[]>> callback){
+public void Pictures_PhotoAlbum_GetList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, Action<BuddyCallResult<InternalModels.DataContract_PhotoAlbumList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1427,12 +1427,12 @@ public void Pictures_PhotoAlbum_GetList(String BuddyApplicationName, String Budd
 	parameters["UserProfileID"] = UserProfileID;
 
 	
-	CallMethodAsync<DataContract_PhotoAlbumList[]>("Pictures_PhotoAlbum_GetList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PhotoAlbumList[]>("Pictures_PhotoAlbum_GetList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Pictures_PhotoAlbum_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String PhotoAlbumID, Action<BuddyCallResult<DataContract_PhotoList[]>> callback){
+public void Pictures_PhotoAlbum_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String PhotoAlbumID, Action<BuddyCallResult<InternalModels.DataContract_PhotoList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1441,7 +1441,7 @@ public void Pictures_PhotoAlbum_Get(String BuddyApplicationName, String BuddyApp
 	parameters["PhotoAlbumID"] = PhotoAlbumID;
 
 	
-	CallMethodAsync<DataContract_PhotoList[]>("Pictures_PhotoAlbum_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PhotoList[]>("Pictures_PhotoAlbum_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1474,7 +1474,7 @@ public void Pictures_PhotoAlbum_Create(String BuddyApplicationName, String Buddy
 
 	});
 }
-public void Pictures_PhotoAlbum_GetAllPictures(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String SearchFromDateTime, Action<BuddyCallResult<DataContract_PhotoList[]>> callback){
+public void Pictures_PhotoAlbum_GetAllPictures(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String SearchFromDateTime, Action<BuddyCallResult<InternalModels.DataContract_PhotoList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1483,12 +1483,12 @@ public void Pictures_PhotoAlbum_GetAllPictures(String BuddyApplicationName, Stri
 	parameters["SearchFromDateTime"] = SearchFromDateTime;
 
 	
-	CallMethodAsync<DataContract_PhotoList[]>("Pictures_PhotoAlbum_GetAllPictures", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PhotoList[]>("Pictures_PhotoAlbum_GetAllPictures", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Pictures_PhotoAlbum_GetFromAlbumName(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String PhotoAlbumName, Action<BuddyCallResult<DataContract_PhotoAlbumList[]>> callback){
+public void Pictures_PhotoAlbum_GetFromAlbumName(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String PhotoAlbumName, Action<BuddyCallResult<InternalModels.DataContract_PhotoAlbumList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1497,7 +1497,7 @@ public void Pictures_PhotoAlbum_GetFromAlbumName(String BuddyApplicationName, St
 	parameters["PhotoAlbumName"] = PhotoAlbumName;
 
 	
-	CallMethodAsync<DataContract_PhotoAlbumList[]>("Pictures_PhotoAlbum_GetFromAlbumName", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PhotoAlbumList[]>("Pictures_PhotoAlbum_GetFromAlbumName", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1530,7 +1530,7 @@ public void Pictures_VirtualAlbum_AddPhoto(String BuddyApplicationName, String B
 
 	});
 }
-public void Pictures_VirtualAlbum_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String VirtualPhotoAlbumID, Action<BuddyCallResult<DataContract_VirtualPhotoList[]>> callback){
+public void Pictures_VirtualAlbum_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String VirtualPhotoAlbumID, Action<BuddyCallResult<InternalModels.DataContract_VirtualPhotoList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1538,7 +1538,7 @@ public void Pictures_VirtualAlbum_Get(String BuddyApplicationName, String BuddyA
 	parameters["VirtualPhotoAlbumID"] = VirtualPhotoAlbumID;
 
 	
-	CallMethodAsync<DataContract_VirtualPhotoList[]>("Pictures_VirtualAlbum_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_VirtualPhotoList[]>("Pictures_VirtualAlbum_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1556,7 +1556,7 @@ public void Pictures_VirtualAlbum_DeleteAlbum(String BuddyApplicationName, Strin
 
 	});
 }
-public void Pictures_VirtualAlbum_AddPhotoBatch(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String VirtualAlbumID, String ExistingPhotoIDBatchString, Action<BuddyCallResult<DataContract_VirtualAlbumBatchAddResults[]>> callback){
+public void Pictures_VirtualAlbum_AddPhotoBatch(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String VirtualAlbumID, String ExistingPhotoIDBatchString, Action<BuddyCallResult<InternalModels.DataContract_VirtualAlbumBatchAddResults[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1565,12 +1565,12 @@ public void Pictures_VirtualAlbum_AddPhotoBatch(String BuddyApplicationName, Str
 	parameters["ExistingPhotoIDBatchString"] = ExistingPhotoIDBatchString;
 
 	
-	CallMethodAsync<DataContract_VirtualAlbumBatchAddResults[]>("Pictures_VirtualAlbum_AddPhotoBatch", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_VirtualAlbumBatchAddResults[]>("Pictures_VirtualAlbum_AddPhotoBatch", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Pictures_VirtualAlbum_GetAlbumInformation(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String VirtualAlbumID, Action<BuddyCallResult<DataContract_VirtualPhotoAlbumInformation[]>> callback){
+public void Pictures_VirtualAlbum_GetAlbumInformation(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String VirtualAlbumID, Action<BuddyCallResult<InternalModels.DataContract_VirtualPhotoAlbumInformation[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1578,19 +1578,19 @@ public void Pictures_VirtualAlbum_GetAlbumInformation(String BuddyApplicationNam
 	parameters["VirtualAlbumID"] = VirtualAlbumID;
 
 	
-	CallMethodAsync<DataContract_VirtualPhotoAlbumInformation[]>("Pictures_VirtualAlbum_GetAlbumInformation", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_VirtualPhotoAlbumInformation[]>("Pictures_VirtualAlbum_GetAlbumInformation", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Pictures_VirtualAlbum_GetMyAlbums(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_VirtualPhotoAlbumInformation[]>> callback){
+public void Pictures_VirtualAlbum_GetMyAlbums(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_VirtualPhotoAlbumInformation[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_VirtualPhotoAlbumInformation[]>("Pictures_VirtualAlbum_GetMyAlbums", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_VirtualPhotoAlbumInformation[]>("Pictures_VirtualAlbum_GetMyAlbums", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1639,7 +1639,7 @@ public void Pictures_VirtualAlbum_UpdatePhoto(String BuddyApplicationName, Strin
 
 	});
 }
-public void Pictures_Photo_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String PhotoID, Action<BuddyCallResult<DataContract_PhotoList[]>> callback){
+public void Pictures_Photo_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserProfileID, String PhotoID, Action<BuddyCallResult<InternalModels.DataContract_PhotoList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1648,7 +1648,7 @@ public void Pictures_Photo_Get(String BuddyApplicationName, String BuddyApplicat
 	parameters["PhotoID"] = PhotoID;
 
 	
-	CallMethodAsync<DataContract_PhotoList[]>("Pictures_Photo_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PhotoList[]>("Pictures_Photo_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1683,7 +1683,7 @@ public void Pictures_Photo_Add(String BuddyApplicationName, String BuddyApplicat
 
 	});
 }
-public void Pictures_SearchPhotos_Nearby(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, Action<BuddyCallResult<DataContract_PublicPhotoSearch[]>> callback){
+public void Pictures_SearchPhotos_Nearby(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, Action<BuddyCallResult<InternalModels.DataContract_PublicPhotoSearch[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1694,12 +1694,12 @@ public void Pictures_SearchPhotos_Nearby(String BuddyApplicationName, String Bud
 	parameters["RecordLimit"] = RecordLimit;
 
 	
-	CallMethodAsync<DataContract_PublicPhotoSearch[]>("Pictures_SearchPhotos_Nearby", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PublicPhotoSearch[]>("Pictures_SearchPhotos_Nearby", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Pictures_SearchPhotos_Data(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String Latitude, String Longitude, String RecordLimit, Action<BuddyCallResult<DataContract_PublicPhotoSearch[]>> callback){
+public void Pictures_SearchPhotos_Data(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String Latitude, String Longitude, String RecordLimit, Action<BuddyCallResult<InternalModels.DataContract_PublicPhotoSearch[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1709,18 +1709,18 @@ public void Pictures_SearchPhotos_Data(String BuddyApplicationName, String Buddy
 	parameters["RecordLimit"] = RecordLimit;
 
 	
-	CallMethodAsync<DataContract_PublicPhotoSearch[]>("Pictures_SearchPhotos_Data", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PublicPhotoSearch[]>("Pictures_SearchPhotos_Data", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Pictures_Filters_GetList(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_PictureFilterList[]>> callback){
+public void Pictures_Filters_GetList(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_PictureFilterList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_PictureFilterList[]>("Pictures_Filters_GetList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PictureFilterList[]>("Pictures_Filters_GetList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1773,14 +1773,14 @@ public void Pictures_Photo_SetAppTag(String BuddyApplicationName, String BuddyAp
 
 	});
 }
-public void Pictures_ProfilePhoto_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, String UserProfileID, Action<BuddyCallResult<DataContract_ProfilePhotos[]>> callback){
+public void Pictures_ProfilePhoto_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, String UserProfileID, Action<BuddyCallResult<InternalModels.DataContract_ProfilePhotos[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserProfileID"] = UserProfileID;
 
 	
-	CallMethodAsync<DataContract_ProfilePhotos[]>("Pictures_ProfilePhoto_GetAll", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_ProfilePhotos[]>("Pictures_ProfilePhoto_GetAll", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1811,14 +1811,14 @@ public void Pictures_ProfilePhoto_Add(String BuddyApplicationName, String BuddyA
 
 	});
 }
-public void Pictures_ProfilePhoto_GetMyList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_ProfilePhotos[]>> callback){
+public void Pictures_ProfilePhoto_GetMyList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_ProfilePhotos[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_ProfilePhotos[]>("Pictures_ProfilePhoto_GetMyList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_ProfilePhotos[]>("Pictures_ProfilePhoto_GetMyList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1851,7 +1851,7 @@ public void Messages_Message_Send(String BuddyApplicationName, String BuddyAppli
 
 	});
 }
-public void Messages_Messages_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<DataContract_Messages[]>> callback){
+public void Messages_Messages_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_Messages[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1859,12 +1859,12 @@ public void Messages_Messages_Get(String BuddyApplicationName, String BuddyAppli
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_Messages[]>("Messages_Messages_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_Messages[]>("Messages_Messages_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Messages_SentMessages_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<DataContract_MessagesFromMe[]>> callback){
+public void Messages_SentMessages_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_MessagesFromMe[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1872,7 +1872,7 @@ public void Messages_SentMessages_Get(String BuddyApplicationName, String BuddyA
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_MessagesFromMe[]>("Messages_SentMessages_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_MessagesFromMe[]>("Messages_SentMessages_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -1959,19 +1959,19 @@ public void GroupMessages_Membership_DepartGroup(String BuddyApplicationName, St
 
 	});
 }
-public void GroupMessages_Membership_GetMyList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_GroupChatMemberships[]>> callback){
+public void GroupMessages_Membership_GetMyList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_GroupChatMemberships[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_GroupChatMemberships[]>("GroupMessages_Membership_GetMyList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GroupChatMemberships[]>("GroupMessages_Membership_GetMyList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void GroupMessages_Message_Send(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String GroupChatID, String MessageContent, String Latitude, String Longitude, String ApplicationTag, Action<BuddyCallResult<DataContract_SendGroupMessageResult[]>> callback){
+public void GroupMessages_Message_Send(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String GroupChatID, String MessageContent, String Latitude, String Longitude, String ApplicationTag, Action<BuddyCallResult<InternalModels.DataContract_SendGroupMessageResult[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -1983,48 +1983,48 @@ public void GroupMessages_Message_Send(String BuddyApplicationName, String Buddy
 	parameters["ApplicationTag"] = ApplicationTag;
 
 	
-	CallMethodAsync<DataContract_SendGroupMessageResult[]>("GroupMessages_Message_Send", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SendGroupMessageResult[]>("GroupMessages_Message_Send", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Commerce_Store_GetAllItems(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_CommerceStoreGetItems[]>> callback){
+public void Commerce_Store_GetAllItems(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_CommerceStoreGetItems[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_CommerceStoreGetItems[]>("Commerce_Store_GetAllItems", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_CommerceStoreGetItems[]>("Commerce_Store_GetAllItems", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Commerce_Store_GetActiveItems(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_CommerceStoreGetItems[]>> callback){
+public void Commerce_Store_GetActiveItems(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_CommerceStoreGetItems[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_CommerceStoreGetItems[]>("Commerce_Store_GetActiveItems", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_CommerceStoreGetItems[]>("Commerce_Store_GetActiveItems", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Commerce_Store_GetFreeItems(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_CommerceStoreGetItems[]>> callback){
+public void Commerce_Store_GetFreeItems(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_CommerceStoreGetItems[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_CommerceStoreGetItems[]>("Commerce_Store_GetFreeItems", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_CommerceStoreGetItems[]>("Commerce_Store_GetFreeItems", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Commerce_Receipt_GetForUserAndTransactionID(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String CustomTransactionID, Action<BuddyCallResult<DataContract_CommerceReceipt[]>> callback){
+public void Commerce_Receipt_GetForUserAndTransactionID(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String CustomTransactionID, Action<BuddyCallResult<InternalModels.DataContract_CommerceReceipt[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2032,7 +2032,7 @@ public void Commerce_Receipt_GetForUserAndTransactionID(String BuddyApplicationN
 	parameters["CustomTransactionID"] = CustomTransactionID;
 
 	
-	CallMethodAsync<DataContract_CommerceReceipt[]>("Commerce_Receipt_GetForUserAndTransactionID", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_CommerceReceipt[]>("Commerce_Receipt_GetForUserAndTransactionID", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2094,7 +2094,7 @@ public void Commerce_Receipt_VerifyAndSaveiOSReceipt(String BuddyApplicationName
 
 	});
 }
-public void Commerce_Receipt_GetForUser(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<DataContract_CommerceReceipt[]>> callback){
+public void Commerce_Receipt_GetForUser(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_CommerceReceipt[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2102,7 +2102,7 @@ public void Commerce_Receipt_GetForUser(String BuddyApplicationName, String Budd
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_CommerceReceipt[]>("Commerce_Receipt_GetForUser", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_CommerceReceipt[]>("Commerce_Receipt_GetForUser", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2126,7 +2126,7 @@ public void Game_Score_Add(String BuddyApplicationName, String BuddyApplicationP
 
 	});
 }
-public void Game_Score_GetScoresForUser(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String RecordLimit, Action<BuddyCallResult<DataContract_GameUserScoreList[]>> callback){
+public void Game_Score_GetScoresForUser(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String RecordLimit, Action<BuddyCallResult<InternalModels.DataContract_GameUserScoreList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2134,12 +2134,12 @@ public void Game_Score_GetScoresForUser(String BuddyApplicationName, String Budd
 	parameters["RecordLimit"] = RecordLimit;
 
 	
-	CallMethodAsync<DataContract_GameUserScoreList[]>("Game_Score_GetScoresForUser", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GameUserScoreList[]>("Game_Score_GetScoresForUser", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Game_Score_GetBoardHighScores(String BuddyApplicationName, String BuddyApplicationPassword, String ScoreBoardName, String RecordLimit, Action<BuddyCallResult<DataContract_GameBoardScoreList[]>> callback){
+public void Game_Score_GetBoardHighScores(String BuddyApplicationName, String BuddyApplicationPassword, String ScoreBoardName, String RecordLimit, Action<BuddyCallResult<InternalModels.DataContract_GameBoardScoreList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2147,12 +2147,12 @@ public void Game_Score_GetBoardHighScores(String BuddyApplicationName, String Bu
 	parameters["RecordLimit"] = RecordLimit;
 
 	
-	CallMethodAsync<DataContract_GameBoardScoreList[]>("Game_Score_GetBoardHighScores", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GameBoardScoreList[]>("Game_Score_GetBoardHighScores", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Game_Score_GetBoardLowScores(String BuddyApplicationName, String BuddyApplicationPassword, String ScoreBoardName, String RecordLimit, Action<BuddyCallResult<DataContract_GameBoardScoreList[]>> callback){
+public void Game_Score_GetBoardLowScores(String BuddyApplicationName, String BuddyApplicationPassword, String ScoreBoardName, String RecordLimit, Action<BuddyCallResult<InternalModels.DataContract_GameBoardScoreList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2160,7 +2160,7 @@ public void Game_Score_GetBoardLowScores(String BuddyApplicationName, String Bud
 	parameters["RecordLimit"] = RecordLimit;
 
 	
-	CallMethodAsync<DataContract_GameBoardScoreList[]>("Game_Score_GetBoardLowScores", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GameBoardScoreList[]>("Game_Score_GetBoardLowScores", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2177,7 +2177,7 @@ public void Game_Score_DeleteAllScoresForUser(String BuddyApplicationName, Strin
 
 	});
 }
-public void Game_Score_SearchScores(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String SearchDistance, String SearchLatitude, String SearchLongitude, String RecordLimit, String SearchBoard, String TimeFilter, String MinimumScore, String AppTag, Action<BuddyCallResult<DataContract_GameScoreSearchResults[]>> callback){
+public void Game_Score_SearchScores(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String SearchDistance, String SearchLatitude, String SearchLongitude, String RecordLimit, String SearchBoard, String TimeFilter, String MinimumScore, String AppTag, Action<BuddyCallResult<InternalModels.DataContract_GameScoreSearchResults[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2192,7 +2192,7 @@ public void Game_Score_SearchScores(String BuddyApplicationName, String BuddyApp
 	parameters["AppTag"] = AppTag;
 
 	
-	CallMethodAsync<DataContract_GameScoreSearchResults[]>("Game_Score_SearchScores", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GameScoreSearchResults[]>("Game_Score_SearchScores", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2245,7 +2245,7 @@ public void Game_Player_Delete(String BuddyApplicationName, String BuddyApplicat
 
 	});
 }
-public void Game_Player_SearchPlayers(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String RecordLimit, String TimeFilter, String ApplicationTag, String PlayerRank, String BoardName, String SearchDistance, String SearchLatitude, String SearchLongitude, Action<BuddyCallResult<DataContract_GamePlayerSearchResults[]>> callback){
+public void Game_Player_SearchPlayers(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String RecordLimit, String TimeFilter, String ApplicationTag, String PlayerRank, String BoardName, String SearchDistance, String SearchLatitude, String SearchLongitude, Action<BuddyCallResult<InternalModels.DataContract_GamePlayerSearchResults[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2260,19 +2260,19 @@ public void Game_Player_SearchPlayers(String BuddyApplicationName, String BuddyA
 	parameters["SearchLongitude"] = SearchLongitude;
 
 	
-	CallMethodAsync<DataContract_GamePlayerSearchResults[]>("Game_Player_SearchPlayers", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GamePlayerSearchResults[]>("Game_Player_SearchPlayers", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Game_Player_GetPlayerInfo(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, Action<BuddyCallResult<DataContract_GamePlayerInfo[]>> callback){
+public void Game_Player_GetPlayerInfo(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, Action<BuddyCallResult<InternalModels.DataContract_GamePlayerInfo[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserTokenOrID"] = UserTokenOrID;
 
 	
-	CallMethodAsync<DataContract_GamePlayerInfo[]>("Game_Player_GetPlayerInfo", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GamePlayerInfo[]>("Game_Player_GetPlayerInfo", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2320,7 +2320,7 @@ public void Game_State_Remove(String BuddyApplicationName, String BuddyApplicati
 
 	});
 }
-public void Game_State_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String GameStateKey, Action<BuddyCallResult<DataContract_GameStateObject[]>> callback){
+public void Game_State_Get(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, String GameStateKey, Action<BuddyCallResult<InternalModels.DataContract_GameStateObject[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2328,36 +2328,36 @@ public void Game_State_Get(String BuddyApplicationName, String BuddyApplicationP
 	parameters["GameStateKey"] = GameStateKey;
 
 	
-	CallMethodAsync<DataContract_GameStateObject[]>("Game_State_Get", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GameStateObject[]>("Game_State_Get", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void Game_State_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, Action<BuddyCallResult<DataContract_GameStateObject[]>> callback){
+public void Game_State_GetAll(String BuddyApplicationName, String BuddyApplicationPassword, String UserTokenOrID, Action<BuddyCallResult<InternalModels.DataContract_GameStateObject[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserTokenOrID"] = UserTokenOrID;
 
 	
-	CallMethodAsync<DataContract_GameStateObject[]>("Game_State_GetAll", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_GameStateObject[]>("Game_State_GetAll", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void UserAccount_Profile_GetFromUserToken(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_FullUserProfile[]>> callback){
+public void UserAccount_Profile_GetFromUserToken(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_FullUserProfile[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_FullUserProfile[]>("UserAccount_Profile_GetFromUserToken", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_FullUserProfile[]>("UserAccount_Profile_GetFromUserToken", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void UserAccount_Profile_GetFromUserID(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserIDToFetch, Action<BuddyCallResult<DataContract_PublicUserProfile[]>> callback){
+public void UserAccount_Profile_GetFromUserID(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserIDToFetch, Action<BuddyCallResult<InternalModels.DataContract_PublicUserProfile[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2365,7 +2365,7 @@ public void UserAccount_Profile_GetFromUserID(String BuddyApplicationName, Strin
 	parameters["UserIDToFetch"] = UserIDToFetch;
 
 	
-	CallMethodAsync<DataContract_PublicUserProfile[]>("UserAccount_Profile_GetFromUserID", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PublicUserProfile[]>("UserAccount_Profile_GetFromUserID", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2424,7 +2424,7 @@ public void UserAccount_Profile_Recover(String BuddyApplicationName, String Budd
 
 	});
 }
-public void UserAccount_Profile_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String Gender, String AgeStart, String AgeStop, String StatusID, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<DataContract_SearchPeople[]>> callback){
+public void UserAccount_Profile_Search(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String SearchDistance, String Latitude, String Longitude, String RecordLimit, String Gender, String AgeStart, String AgeStop, String StatusID, String TimeFilter, String ApplicationTag, Action<BuddyCallResult<InternalModels.DataContract_SearchPeople[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2441,7 +2441,7 @@ public void UserAccount_Profile_Search(String BuddyApplicationName, String Buddy
 	parameters["ApplicationTag"] = ApplicationTag;
 
 	
-	CallMethodAsync<DataContract_SearchPeople[]>("UserAccount_Profile_Search", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_SearchPeople[]>("UserAccount_Profile_Search", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2462,7 +2462,7 @@ public void UserAccount_Location_Checkin(String BuddyApplicationName, String Bud
 
 	});
 }
-public void UserAccount_Location_GetHistory(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<DataContract_UserLocationHistory[]>> callback){
+public void UserAccount_Location_GetHistory(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String FromDateTime, Action<BuddyCallResult<InternalModels.DataContract_UserLocationHistory[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2470,18 +2470,18 @@ public void UserAccount_Location_GetHistory(String BuddyApplicationName, String 
 	parameters["FromDateTime"] = FromDateTime;
 
 	
-	CallMethodAsync<DataContract_UserLocationHistory[]>("UserAccount_Location_GetHistory", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_UserLocationHistory[]>("UserAccount_Location_GetHistory", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
-public void UserAccount_Defines_GetStatusValues(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<DataContract_DefinedUserStatusTags[]>> callback){
+public void UserAccount_Defines_GetStatusValues(String BuddyApplicationName, String BuddyApplicationPassword, Action<BuddyCallResult<InternalModels.DataContract_DefinedUserStatusTags[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 
 	
-	CallMethodAsync<DataContract_DefinedUserStatusTags[]>("UserAccount_Defines_GetStatusValues", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_DefinedUserStatusTags[]>("UserAccount_Defines_GetStatusValues", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2510,7 +2510,7 @@ public void UserAccount_Profile_CheckUserEmail(String BuddyApplicationName, Stri
 
 	});
 }
-public void UserAccount_Profile_GetFromUserName(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserNameToFetch, Action<BuddyCallResult<DataContract_PublicUserProfile[]>> callback){
+public void UserAccount_Profile_GetFromUserName(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String UserNameToFetch, Action<BuddyCallResult<InternalModels.DataContract_PublicUserProfile[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2518,7 +2518,7 @@ public void UserAccount_Profile_GetFromUserName(String BuddyApplicationName, Str
 	parameters["UserNameToFetch"] = UserNameToFetch;
 
 	
-	CallMethodAsync<DataContract_PublicUserProfile[]>("UserAccount_Profile_GetFromUserName", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_PublicUserProfile[]>("UserAccount_Profile_GetFromUserName", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2547,7 +2547,7 @@ public void UserAccount_Profile_GetUserIDFromUserToken(String BuddyApplicationNa
 
 	});
 }
-public void UserAccount_Identity_CheckForValues(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String IdentityValue, Action<BuddyCallResult<DataContract_IdentityCheck[]>> callback){
+public void UserAccount_Identity_CheckForValues(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, String IdentityValue, Action<BuddyCallResult<InternalModels.DataContract_IdentityCheck[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
@@ -2555,7 +2555,7 @@ public void UserAccount_Identity_CheckForValues(String BuddyApplicationName, Str
 	parameters["IdentityValue"] = IdentityValue;
 
 	
-	CallMethodAsync<DataContract_IdentityCheck[]>("UserAccount_Identity_CheckForValues", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_IdentityCheck[]>("UserAccount_Identity_CheckForValues", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
@@ -2586,1118 +2586,1179 @@ public void UserAccount_Identity_RemoveValue(String BuddyApplicationName, String
 
 	});
 }
-public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<DataContract_IdentityValueList[]>> callback){
+public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String BuddyApplicationPassword, String UserToken, Action<BuddyCallResult<InternalModels.DataContract_IdentityValueList[]>> callback){
 	IDictionary<string, object> parameters = new Dictionary<string, object>();
 	parameters["BuddyApplicationName"] = BuddyApplicationName;
 	parameters["BuddyApplicationPassword"] = BuddyApplicationPassword;
 	parameters["UserToken"] = UserToken;
 
 	
-	CallMethodAsync<DataContract_IdentityValueList[]>("UserAccount_Identity_GetMyList", parameters, (bcr) => {
+	CallMethodAsync<InternalModels.DataContract_IdentityValueList[]>("UserAccount_Identity_GetMyList", parameters, (bcr) => {
 		CallOnUiThread((state) => callback(bcr));
 
 	});
 }
 }
 
+// for WP7.
+#if PUBLIC_SERIALIZATION
+    internal
+#else
+    public
+#endif
+    class InternalModels
+{
+
+    public class DataContract_MetaDataBatchSum
+    {
+
+
+        public String KeyCount { get; set; }
+        public String MetaKey { get; set; }
+        public String SearchDistance { get; set; }
+        public String TotalValue { get; set; }
+
+
+    }
 
 
 
-internal class DataContract_MetaDataBatchSum {
 
 
-	public String KeyCount {get;set;}
-	public String MetaKey {get;set;}
-	public String SearchDistance {get;set;}
-	public String TotalValue {get;set;}
 
+    public class DataContract_SearchAppMetaData
+    {
+
+
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public DateTime LastUpdateDate { get; set; }
+        public String MetaKey { get; set; }
+        public String MetaLatitude { get; set; }
+        public String MetaLongitude { get; set; }
+        public String MetaValue { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_UserMetaData
+    {
+
+
+        public DateTime LastUpdateDate { get; set; }
+        public String MetaKey { get; set; }
+        public String MetaLatitude { get; set; }
+        public String MetaLongitude { get; set; }
+        public String MetaValue { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_SearchUserMetaData
+    {
+
+
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public DateTime LastUpdateDate { get; set; }
+        public String MetaKey { get; set; }
+        public String MetaLatitude { get; set; }
+        public String MetaLongitude { get; set; }
+        public String MetaValue { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_MetaDataSum
+    {
+
+
+        public String KeyCount { get; set; }
+        public String TotalValue { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_WPDeviceList
+    {
+
+
+        public DateTime DeviceModified { get; set; }
+        public DateTime DeviceRegistered { get; set; }
+        public String DeviceURI { get; set; }
+        public String EnableRawMessages { get; set; }
+        public String EnableTiles { get; set; }
+        public String EnableToastMessages { get; set; }
+        public String GroupName { get; set; }
+        public String UserID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_WPGroupNames
+    {
+
+
+        public String DeviceCount { get; set; }
+        public String GroupName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_AndroidDeviceList
+    {
+
+
+        public DateTime DeviceModified { get; set; }
+        public DateTime DeviceRegistered { get; set; }
+        public String GroupName { get; set; }
+        public String RegistrationID { get; set; }
+        public String UserID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_AndroidGroupNames
+    {
+
+
+        public String DeviceCount { get; set; }
+        public String GroupName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_AppleGroupNames
+    {
+
+
+        public String DeviceCount { get; set; }
+        public String GroupName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_AppleDeviceList
+    {
+
+
+        public String APNSDeviceToken { get; set; }
+        public DateTime DeviceModified { get; set; }
+        public DateTime DeviceRegistered { get; set; }
+        public String GroupName { get; set; }
+        public String UserID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_Win8DeviceList
+    {
+
+
+        public String ClientID { get; set; }
+        public String ClientSecret { get; set; }
+        public DateTime DeviceModified { get; set; }
+        public DateTime DeviceRegistered { get; set; }
+        public String DeviceURI { get; set; }
+        public String GroupName { get; set; }
+        public String UserID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_Win8GroupNames
+    {
+
+
+        public String DeviceCount { get; set; }
+        public String GroupName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_ApplicationEmail
+    {
+
+
+        public String RowNumber { get; set; }
+        public String UserEmail { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_ApplicationUserProfile
+    {
+
+
+        public String Age { get; set; }
+        public String CelebMode { get; set; }
+        public String CreatedDate { get; set; }
+        public String LastLoginDate { get; set; }
+        public String LocationFuzzing { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String RowNumber { get; set; }
+        public String StatusID { get; set; }
+        public String UserEmail { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_ApplicationStats
+    {
+
+
+        public String TotalAlbums { get; set; }
+        public String TotalAppMetadata { get; set; }
+        public String TotalCrashes { get; set; }
+        public String TotalDeviceInformation { get; set; }
+        public String TotalFriends { get; set; }
+        public String TotalGamePlayers { get; set; }
+        public String TotalGameScores { get; set; }
+        public String TotalMessages { get; set; }
+        public String TotalPhotos { get; set; }
+        public String TotalPushMessages { get; set; }
+        public String TotalUserCheckins { get; set; }
+        public String TotalUserMetadata { get; set; }
+        public String TotalUsers { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_GroupMessage
+    {
+
+
+        public String AppTag { get; set; }
+        public String ChatGroupID { get; set; }
+        public String FromUserID { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String MessageID { get; set; }
+        public String MessageText { get; set; }
+        public String SentDateTime { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_GroupChatMemberships
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String ChatGroupID { get; set; }
+        public String ChatGroupName { get; set; }
+        public String CreatedDateTime { get; set; }
+        public String LastMessageApplicationTag { get; set; }
+        public String LastMessageDateTime { get; set; }
+        public String LastMessageLatitude { get; set; }
+        public String LastMessageLongitude { get; set; }
+        public String LastMessagePhotoURL { get; set; }
+        public String LastMessageText { get; set; }
+        public String MemberUserIDList { get; set; }
+        public String MembershipCounter { get; set; }
+        public String OwnerUserID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_PlacesCategoryList
+    {
+
+
+        public String CategoryID { get; set; }
+        public String CategoryName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_SearchPlaces
+    {
+
+
+        public String Address { get; set; }
+        public String AppTagData { get; set; }
+        public String CategoryID { get; set; }
+        public String CategoryName { get; set; }
+        public String City { get; set; }
+        public String CreatedDate { get; set; }
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public String Fax { get; set; }
+        public String GeoID { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String Name { get; set; }
+        public String PostalState { get; set; }
+        public String PostalZip { get; set; }
+        public String Region { get; set; }
+        public String ShortID { get; set; }
+        public String Telephone { get; set; }
+        public String TouchedDate { get; set; }
+        public String UserTagData { get; set; }
+        public String WebSite { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_SearchStartups
+    {
+
+
+        public String CenterLat { get; set; }
+        public String CenterLong { get; set; }
+        public String City { get; set; }
+        public String CrunchBaseUrl { get; set; }
+        public String CustomData { get; set; }
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public String EmployeeCount { get; set; }
+        public String FacebookURL { get; set; }
+        public String FundingSource { get; set; }
+        public String HomePageURL { get; set; }
+        public String Industry { get; set; }
+        public String LinkedinURL { get; set; }
+        public String LogoURL { get; set; }
+        public String MetroLocation { get; set; }
+        public String PhoneNumber { get; set; }
+        public String StartupID { get; set; }
+        public String StartupName { get; set; }
+        public String State { get; set; }
+        public String StreetAddress { get; set; }
+        public String TotalFundingRaised { get; set; }
+        public String TwitterURL { get; set; }
+        public String ZipPostal { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_MetroList
+    {
+
+
+        public String IconURL { get; set; }
+        public String ImageURL { get; set; }
+        public String MetroName { get; set; }
+        public String StartupCount { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_FriendRequests
+    {
+
+
+        public String Age { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public String FriendID { get; set; }
+        public DateTime LastLoginDate { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String StatusID { get; set; }
+        public String UserApplicationTag { get; set; }
+        public String UserEmail { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_FriendList
+    {
+
+
+        public String Age { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public String FriendID { get; set; }
+        public DateTime LastLoginDate { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String Status { get; set; }
+        public String StatusID { get; set; }
+        public String UserApplicationTag { get; set; }
+        public String UserEmail { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_SearchFriends
+    {
+
+
+        public String Age { get; set; }
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String RowNumber { get; set; }
+        public String StatusID { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_BlockedList
+    {
+
+
+        public String Age { get; set; }
+        public String BlockedProfileID { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime DateBlocked { get; set; }
+        public DateTime LastLoginDate { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String StatusID { get; set; }
+        public String UserApplicationTag { get; set; }
+        public String UserEmail { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_SentFriendRequests
+    {
+
+
+        public String Age { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public String FriendID { get; set; }
+        public DateTime LastLoginDate { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String Status { get; set; }
+        public String StatusID { get; set; }
+        public String UserEmail { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_ApplicationMetaData
+    {
+
+
+        public DateTime LastUpdateDate { get; set; }
+        public String MetaKey { get; set; }
+        public String MetaLatitude { get; set; }
+        public String MetaLongitude { get; set; }
+        public String MetaValue { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_PhotoList
+    {
+
+
+        public DateTime AddedDateTime { get; set; }
+        public String AlbumID { get; set; }
+        public String ApplicationTag { get; set; }
+        public String FullPhotoURL { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String PhotoComment { get; set; }
+        public String PhotoID { get; set; }
+        public String ShortID { get; set; }
+        public String ShortURL { get; set; }
+        public String ThumbnailPhotoURL { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_PhotoAlbumList
+    {
+
+
+        public String AlbumID { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+        public DateTime LastUpdatedDateTime { get; set; }
+        public String PhotoAlbumName { get; set; }
+        public String PhotoAlbumThumbnail { get; set; }
+        public String PhotoCount { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_VirtualPhotoList
+    {
+
+
+        public DateTime AddedDateTime { get; set; }
+        public String ApplicationTag { get; set; }
+        public String FullPhotoURL { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String PhotoComment { get; set; }
+        public String PhotoID { get; set; }
+        public String ThumbnailPhotoURL { get; set; }
+        public String UserID { get; set; }
+        public String VirtualAlbumID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_VirtualAlbumBatchAddResults
+    {
+
+
+        public String NewVirtualPhotoID { get; set; }
+        public String OriginalPhotoID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_VirtualPhotoAlbumInformation
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String CreatedDateTime { get; set; }
+        public String LastUpdatedDateTime { get; set; }
+        public String PhotoAlbumName { get; set; }
+        public String PhotoAlbumThumbnail { get; set; }
+        public String PhotoCount { get; set; }
+        public String UserID { get; set; }
+        public String VirtualAlbumID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_PublicPhotoSearch
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public String FullPhotoURL { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String PhotoAdded { get; set; }
+        public String PhotoAlbumName { get; set; }
+        public String PhotoAlbumThumbnail { get; set; }
+        public String PhotoID { get; set; }
+        public String ShortID { get; set; }
+        public String ShortURL { get; set; }
+        public String ThumbnailPhotoURL { get; set; }
+        public String UserProfileID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_PictureFilterList
+    {
+
+
+        public String FilterID { get; set; }
+        public String FilterName { get; set; }
+        public String ParameterList { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_ProfilePhotos
+    {
+
+
+        public DateTime AddedDateTime { get; set; }
+        public String FullPhotoURL { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String PhotoComment { get; set; }
+        public String PhotoID { get; set; }
+        public String ShortID { get; set; }
+        public String ShortURL { get; set; }
+        public String ThumbnailPhotoURL { get; set; }
+        public String UserProfileID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_Messages
+    {
+
+
+        public DateTime DateSent { get; set; }
+        public String FromUserID { get; set; }
+        public String MessageString { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_MessagesFromMe
+    {
+
+
+        public DateTime DateSent { get; set; }
+        public String MessageString { get; set; }
+        public String ToUserID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_SendGroupMessageResult
+    {
+
+
+        public String MemberUserIDList { get; set; }
+        public String SendResult { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_CommerceStoreGetItems
+    {
+
+
+        public String AppData { get; set; }
+        public String CustomItemID { get; set; }
+        public String ItemAvailableFlag { get; set; }
+        public String ItemCost { get; set; }
+        public String ItemDateTime { get; set; }
+        public String ItemDescription { get; set; }
+        public String ItemDownloadUri { get; set; }
+        public String ItemFreeFlag { get; set; }
+        public String ItemIconUri { get; set; }
+        public String ItemName { get; set; }
+        public String ItemPreviewUri { get; set; }
+        public String StoreItemID { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_CommerceReceipt
+    {
+
+
+        public String AppData { get; set; }
+        public String HistoryCustomTransactionID { get; set; }
+        public String HistoryDateTime { get; set; }
+        public String ItemQuantity { get; set; }
+        public String ReceiptData { get; set; }
+        public String ReceiptHistoryID { get; set; }
+        public String StoreItemID { get; set; }
+        public String StoreName { get; set; }
+        public String TotalCost { get; set; }
+        public String UserID { get; set; }
+        public String VerificationResult { get; set; }
+        public String VerificationResultData { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_GameUserScoreList
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String ScoreBoardName { get; set; }
+        public String ScoreDate { get; set; }
+        public String ScoreID { get; set; }
+        public String ScoreLatitude { get; set; }
+        public String ScoreLongitude { get; set; }
+        public String ScoreRank { get; set; }
+        public String ScoreValue { get; set; }
+        public String UserID { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_GameBoardScoreList
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String ScoreBoardName { get; set; }
+        public String ScoreDate { get; set; }
+        public String ScoreID { get; set; }
+        public String ScoreLatitude { get; set; }
+        public String ScoreLongitude { get; set; }
+        public String ScoreRank { get; set; }
+        public String ScoreValue { get; set; }
+        public String UserID { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public class DataContract_GameScoreSearchResults
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String ScoreBoardName { get; set; }
+        public String ScoreDate { get; set; }
+        public String ScoreID { get; set; }
+        public String ScoreLatitude { get; set; }
+        public String ScoreLongitude { get; set; }
+        public String ScoreRank { get; set; }
+        public String ScoreValue { get; set; }
+        public String UserID { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_GamePlayerSearchResults
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public String PlayerBoardName { get; set; }
+        public String PlayerDate { get; set; }
+        public String PlayerID { get; set; }
+        public String PlayerLatitude { get; set; }
+        public String PlayerLongitude { get; set; }
+        public String PlayerName { get; set; }
+        public String PlayerRank { get; set; }
+        public String UserID { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_GamePlayerInfo
+    {
+
+
+        public String ApplicationTag { get; set; }
+        public String PlayerBoardName { get; set; }
+        public String PlayerDate { get; set; }
+        public String PlayerID { get; set; }
+        public String PlayerLatitude { get; set; }
+        public String PlayerLongitude { get; set; }
+        public String PlayerName { get; set; }
+        public String PlayerRank { get; set; }
+        public String UserID { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_GameStateObject
+    {
+
+
+        public String AppTag { get; set; }
+        public String StateDateTime { get; set; }
+        public String StateID { get; set; }
+        public String StateKey { get; set; }
+        public String StateValue { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_FullUserProfile
+    {
+
+
+        public String Age { get; set; }
+        public String CelebMode { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastLoginDate { get; set; }
+        public String LocationFuzzing { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String StatusID { get; set; }
+        public String UserApplicationTag { get; set; }
+        public String UserEmail { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_PublicUserProfile
+    {
+
+
+        public String Age { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastLoginDate { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String StatusID { get; set; }
+        public String UserApplicationTag { get; set; }
+        public String UserEmail { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_SearchPeople
+    {
+
+
+        public String Age { get; set; }
+        public String DistanceInKilometers { get; set; }
+        public String DistanceInMeters { get; set; }
+        public String DistanceInMiles { get; set; }
+        public String DistanceInYards { get; set; }
+        public String ProfilePictureUrl { get; set; }
+        public String StatusID { get; set; }
+        public String UserApplicationTag { get; set; }
+        public String UserGender { get; set; }
+        public String UserID { get; set; }
+        public String UserLatitude { get; set; }
+        public String UserLongitude { get; set; }
+        public String UserName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_UserLocationHistory
+    {
+
+
+        public DateTime CreatedDate { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String PlaceName { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_DefinedUserStatusTags
+    {
+
+
+        public String StatusID { get; set; }
+        public String StatusTag { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_IdentityCheck
+    {
+
+
+        public String IdentityValue { get; set; }
+        public String UserProfileID { get; set; }
+        public String ValueFound { get; set; }
+
+
+    }
+
+
+
+
+
+
+    public class DataContract_IdentityValueList
+    {
+
+
+        public String CreatedDateTime { get; set; }
+        public String IdentityValue { get; set; }
+
+
+    }
 
 }
-
-
-
-
-
-
-internal class DataContract_SearchAppMetaData {
-
-
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public DateTime LastUpdateDate {get;set;}
-	public String MetaKey {get;set;}
-	public String MetaLatitude {get;set;}
-	public String MetaLongitude {get;set;}
-	public String MetaValue {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_UserMetaData {
-
-
-	public DateTime LastUpdateDate {get;set;}
-	public String MetaKey {get;set;}
-	public String MetaLatitude {get;set;}
-	public String MetaLongitude {get;set;}
-	public String MetaValue {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_SearchUserMetaData {
-
-
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public DateTime LastUpdateDate {get;set;}
-	public String MetaKey {get;set;}
-	public String MetaLatitude {get;set;}
-	public String MetaLongitude {get;set;}
-	public String MetaValue {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_MetaDataSum {
-
-
-	public String KeyCount {get;set;}
-	public String TotalValue {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_WPDeviceList {
-
-
-	public DateTime DeviceModified {get;set;}
-	public DateTime DeviceRegistered {get;set;}
-	public String DeviceURI {get;set;}
-	public String EnableRawMessages {get;set;}
-	public String EnableTiles {get;set;}
-	public String EnableToastMessages {get;set;}
-	public String GroupName {get;set;}
-	public String UserID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_WPGroupNames {
-
-
-	public String DeviceCount {get;set;}
-	public String GroupName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_AndroidDeviceList {
-
-
-	public DateTime DeviceModified {get;set;}
-	public DateTime DeviceRegistered {get;set;}
-	public String GroupName {get;set;}
-	public String RegistrationID {get;set;}
-	public String UserID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_AndroidGroupNames {
-
-
-	public String DeviceCount {get;set;}
-	public String GroupName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_AppleGroupNames {
-
-
-	public String DeviceCount {get;set;}
-	public String GroupName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_AppleDeviceList {
-
-
-	public String APNSDeviceToken {get;set;}
-	public DateTime DeviceModified {get;set;}
-	public DateTime DeviceRegistered {get;set;}
-	public String GroupName {get;set;}
-	public String UserID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_Win8DeviceList {
-
-
-	public String ClientID {get;set;}
-	public String ClientSecret {get;set;}
-	public DateTime DeviceModified {get;set;}
-	public DateTime DeviceRegistered {get;set;}
-	public String DeviceURI {get;set;}
-	public String GroupName {get;set;}
-	public String UserID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_Win8GroupNames {
-
-
-	public String DeviceCount {get;set;}
-	public String GroupName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_ApplicationEmail {
-
-
-	public String RowNumber {get;set;}
-	public String UserEmail {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_ApplicationUserProfile {
-
-
-	public String Age {get;set;}
-	public String CelebMode {get;set;}
-	public String CreatedDate {get;set;}
-	public String LastLoginDate {get;set;}
-	public String LocationFuzzing {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String RowNumber {get;set;}
-	public String StatusID {get;set;}
-	public String UserEmail {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_ApplicationStats {
-
-
-	public String TotalAlbums {get;set;}
-	public String TotalAppMetadata {get;set;}
-	public String TotalCrashes {get;set;}
-	public String TotalDeviceInformation {get;set;}
-	public String TotalFriends {get;set;}
-	public String TotalGamePlayers {get;set;}
-	public String TotalGameScores {get;set;}
-	public String TotalMessages {get;set;}
-	public String TotalPhotos {get;set;}
-	public String TotalPushMessages {get;set;}
-	public String TotalUserCheckins {get;set;}
-	public String TotalUserMetadata {get;set;}
-	public String TotalUsers {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_GroupMessage {
-
-
-	public String AppTag {get;set;}
-	public String ChatGroupID {get;set;}
-	public String FromUserID {get;set;}
-	public String Latitude {get;set;}
-	public String Longitude {get;set;}
-	public String MessageID {get;set;}
-	public String MessageText {get;set;}
-	public String SentDateTime {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_GroupChatMemberships {
-
-
-	public String ApplicationTag {get;set;}
-	public String ChatGroupID {get;set;}
-	public String ChatGroupName {get;set;}
-	public String CreatedDateTime {get;set;}
-	public String LastMessageApplicationTag {get;set;}
-	public String LastMessageDateTime {get;set;}
-	public String LastMessageLatitude {get;set;}
-	public String LastMessageLongitude {get;set;}
-	public String LastMessagePhotoURL {get;set;}
-	public String LastMessageText {get;set;}
-	public String MemberUserIDList {get;set;}
-	public String MembershipCounter {get;set;}
-	public String OwnerUserID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_PlacesCategoryList {
-
-
-	public String CategoryID {get;set;}
-	public String CategoryName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_SearchPlaces {
-
-
-	public String Address {get;set;}
-	public String AppTagData {get;set;}
-	public String CategoryID {get;set;}
-	public String CategoryName {get;set;}
-	public String City {get;set;}
-	public String CreatedDate {get;set;}
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public String Fax {get;set;}
-	public String GeoID {get;set;}
-	public String Latitude {get;set;}
-	public String Longitude {get;set;}
-	public String Name {get;set;}
-	public String PostalState {get;set;}
-	public String PostalZip {get;set;}
-	public String Region {get;set;}
-	public String ShortID {get;set;}
-	public String Telephone {get;set;}
-	public String TouchedDate {get;set;}
-	public String UserTagData {get;set;}
-	public String WebSite {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_SearchStartups {
-
-
-	public String CenterLat {get;set;}
-	public String CenterLong {get;set;}
-	public String City {get;set;}
-	public String CrunchBaseUrl {get;set;}
-	public String CustomData {get;set;}
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public String EmployeeCount {get;set;}
-	public String FacebookURL {get;set;}
-	public String FundingSource {get;set;}
-	public String HomePageURL {get;set;}
-	public String Industry {get;set;}
-	public String LinkedinURL {get;set;}
-	public String LogoURL {get;set;}
-	public String MetroLocation {get;set;}
-	public String PhoneNumber {get;set;}
-	public String StartupID {get;set;}
-	public String StartupName {get;set;}
-	public String State {get;set;}
-	public String StreetAddress {get;set;}
-	public String TotalFundingRaised {get;set;}
-	public String TwitterURL {get;set;}
-	public String ZipPostal {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_MetroList {
-
-
-	public String IconURL {get;set;}
-	public String ImageURL {get;set;}
-	public String MetroName {get;set;}
-	public String StartupCount {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_FriendRequests {
-
-
-	public String Age {get;set;}
-	public DateTime CreatedDate {get;set;}
-	public String FriendID {get;set;}
-	public DateTime LastLoginDate {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String StatusID {get;set;}
-	public String UserApplicationTag {get;set;}
-	public String UserEmail {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_FriendList {
-
-
-	public String Age {get;set;}
-	public DateTime CreatedDate {get;set;}
-	public String FriendID {get;set;}
-	public DateTime LastLoginDate {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String Status {get;set;}
-	public String StatusID {get;set;}
-	public String UserApplicationTag {get;set;}
-	public String UserEmail {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_SearchFriends {
-
-
-	public String Age {get;set;}
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String RowNumber {get;set;}
-	public String StatusID {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_BlockedList {
-
-
-	public String Age {get;set;}
-	public String BlockedProfileID {get;set;}
-	public DateTime CreatedDate {get;set;}
-	public DateTime DateBlocked {get;set;}
-	public DateTime LastLoginDate {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String StatusID {get;set;}
-	public String UserApplicationTag {get;set;}
-	public String UserEmail {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_SentFriendRequests {
-
-
-	public String Age {get;set;}
-	public DateTime CreatedDate {get;set;}
-	public String FriendID {get;set;}
-	public DateTime LastLoginDate {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String Status {get;set;}
-	public String StatusID {get;set;}
-	public String UserEmail {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_ApplicationMetaData {
-
-
-	public DateTime LastUpdateDate {get;set;}
-	public String MetaKey {get;set;}
-	public String MetaLatitude {get;set;}
-	public String MetaLongitude {get;set;}
-	public String MetaValue {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_PhotoList {
-
-
-	public DateTime AddedDateTime {get;set;}
-	public String AlbumID {get;set;}
-	public String ApplicationTag {get;set;}
-	public String FullPhotoURL {get;set;}
-	public String Latitude {get;set;}
-	public String Longitude {get;set;}
-	public String PhotoComment {get;set;}
-	public String PhotoID {get;set;}
-	public String ShortID {get;set;}
-	public String ShortURL {get;set;}
-	public String ThumbnailPhotoURL {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_PhotoAlbumList {
-
-
-	public String AlbumID {get;set;}
-	public DateTime CreatedDateTime {get;set;}
-	public DateTime LastUpdatedDateTime {get;set;}
-	public String PhotoAlbumName {get;set;}
-	public String PhotoAlbumThumbnail {get;set;}
-	public String PhotoCount {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_VirtualPhotoList {
-
-
-	public DateTime AddedDateTime {get;set;}
-	public String ApplicationTag {get;set;}
-	public String FullPhotoURL {get;set;}
-	public String Latitude {get;set;}
-	public String Longitude {get;set;}
-	public String PhotoComment {get;set;}
-	public String PhotoID {get;set;}
-	public String ThumbnailPhotoURL {get;set;}
-	public String UserID {get;set;}
-	public String VirtualAlbumID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_VirtualAlbumBatchAddResults {
-
-
-	public String NewVirtualPhotoID {get;set;}
-	public String OriginalPhotoID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_VirtualPhotoAlbumInformation {
-
-
-	public String ApplicationTag {get;set;}
-	public String CreatedDateTime {get;set;}
-	public String LastUpdatedDateTime {get;set;}
-	public String PhotoAlbumName {get;set;}
-	public String PhotoAlbumThumbnail {get;set;}
-	public String PhotoCount {get;set;}
-	public String UserID {get;set;}
-	public String VirtualAlbumID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_PublicPhotoSearch {
-
-
-	public String ApplicationTag {get;set;}
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public String FullPhotoURL {get;set;}
-	public String Latitude {get;set;}
-	public String Longitude {get;set;}
-	public String PhotoAdded {get;set;}
-	public String PhotoAlbumName {get;set;}
-	public String PhotoAlbumThumbnail {get;set;}
-	public String PhotoID {get;set;}
-	public String ShortID {get;set;}
-	public String ShortURL {get;set;}
-	public String ThumbnailPhotoURL {get;set;}
-	public String UserProfileID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_PictureFilterList {
-
-
-	public String FilterID {get;set;}
-	public String FilterName {get;set;}
-	public String ParameterList {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_ProfilePhotos {
-
-
-	public DateTime AddedDateTime {get;set;}
-	public String FullPhotoURL {get;set;}
-	public String Latitude {get;set;}
-	public String Longitude {get;set;}
-	public String PhotoComment {get;set;}
-	public String PhotoID {get;set;}
-	public String ShortID {get;set;}
-	public String ShortURL {get;set;}
-	public String ThumbnailPhotoURL {get;set;}
-	public String UserProfileID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_Messages {
-
-
-	public DateTime DateSent {get;set;}
-	public String FromUserID {get;set;}
-	public String MessageString {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_MessagesFromMe {
-
-
-	public DateTime DateSent {get;set;}
-	public String MessageString {get;set;}
-	public String ToUserID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_SendGroupMessageResult {
-
-
-	public String MemberUserIDList {get;set;}
-	public String SendResult {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_CommerceStoreGetItems {
-
-
-	public String AppData {get;set;}
-	public String CustomItemID {get;set;}
-	public String ItemAvailableFlag {get;set;}
-	public String ItemCost {get;set;}
-	public String ItemDateTime {get;set;}
-	public String ItemDescription {get;set;}
-	public String ItemDownloadUri {get;set;}
-	public String ItemFreeFlag {get;set;}
-	public String ItemIconUri {get;set;}
-	public String ItemName {get;set;}
-	public String ItemPreviewUri {get;set;}
-	public String StoreItemID {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_CommerceReceipt {
-
-
-	public String AppData {get;set;}
-	public String HistoryCustomTransactionID {get;set;}
-	public String HistoryDateTime {get;set;}
-	public String ItemQuantity {get;set;}
-	public String ReceiptData {get;set;}
-	public String ReceiptHistoryID {get;set;}
-	public String StoreItemID {get;set;}
-	public String StoreName {get;set;}
-	public String TotalCost {get;set;}
-	public String UserID {get;set;}
-	public String VerificationResult {get;set;}
-	public String VerificationResultData {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_GameUserScoreList {
-
-
-	public String ApplicationTag {get;set;}
-	public String ScoreBoardName {get;set;}
-	public String ScoreDate {get;set;}
-	public String ScoreID {get;set;}
-	public String ScoreLatitude {get;set;}
-	public String ScoreLongitude {get;set;}
-	public String ScoreRank {get;set;}
-	public String ScoreValue {get;set;}
-	public String UserID {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_GameBoardScoreList {
-
-
-	public String ApplicationTag {get;set;}
-	public String ScoreBoardName {get;set;}
-	public String ScoreDate {get;set;}
-	public String ScoreID {get;set;}
-	public String ScoreLatitude {get;set;}
-	public String ScoreLongitude {get;set;}
-	public String ScoreRank {get;set;}
-	public String ScoreValue {get;set;}
-	public String UserID {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-internal class DataContract_GameScoreSearchResults {
-
-
-	public String ApplicationTag {get;set;}
-	public String ScoreBoardName {get;set;}
-	public String ScoreDate {get;set;}
-	public String ScoreID {get;set;}
-	public String ScoreLatitude {get;set;}
-	public String ScoreLongitude {get;set;}
-	public String ScoreRank {get;set;}
-	public String ScoreValue {get;set;}
-	public String UserID {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_GamePlayerSearchResults {
-
-
-	public String ApplicationTag {get;set;}
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public String PlayerBoardName {get;set;}
-	public String PlayerDate {get;set;}
-	public String PlayerID {get;set;}
-	public String PlayerLatitude {get;set;}
-	public String PlayerLongitude {get;set;}
-	public String PlayerName {get;set;}
-	public String PlayerRank {get;set;}
-	public String UserID {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_GamePlayerInfo {
-
-
-	public String ApplicationTag {get;set;}
-	public String PlayerBoardName {get;set;}
-	public String PlayerDate {get;set;}
-	public String PlayerID {get;set;}
-	public String PlayerLatitude {get;set;}
-	public String PlayerLongitude {get;set;}
-	public String PlayerName {get;set;}
-	public String PlayerRank {get;set;}
-	public String UserID {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_GameStateObject {
-
-
-	public String AppTag {get;set;}
-	public String StateDateTime {get;set;}
-	public String StateID {get;set;}
-	public String StateKey {get;set;}
-	public String StateValue {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_FullUserProfile {
-
-
-	public String Age {get;set;}
-	public String CelebMode {get;set;}
-	public DateTime CreatedDate {get;set;}
-	public DateTime LastLoginDate {get;set;}
-	public String LocationFuzzing {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String StatusID {get;set;}
-	public String UserApplicationTag {get;set;}
-	public String UserEmail {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_PublicUserProfile {
-
-
-	public String Age {get;set;}
-	public DateTime CreatedDate {get;set;}
-	public DateTime LastLoginDate {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String StatusID {get;set;}
-	public String UserApplicationTag {get;set;}
-	public String UserEmail {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_SearchPeople {
-
-
-	public String Age {get;set;}
-	public String DistanceInKilometers {get;set;}
-	public String DistanceInMeters {get;set;}
-	public String DistanceInMiles {get;set;}
-	public String DistanceInYards {get;set;}
-	public String ProfilePictureUrl {get;set;}
-	public String StatusID {get;set;}
-	public String UserApplicationTag {get;set;}
-	public String UserGender {get;set;}
-	public String UserID {get;set;}
-	public String UserLatitude {get;set;}
-	public String UserLongitude {get;set;}
-	public String UserName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_UserLocationHistory {
-
-
-	public DateTime CreatedDate {get;set;}
-	public String Latitude {get;set;}
-	public String Longitude {get;set;}
-	public String PlaceName {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_DefinedUserStatusTags {
-
-
-	public String StatusID {get;set;}
-	public String StatusTag {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_IdentityCheck {
-
-
-	public String IdentityValue {get;set;}
-	public String UserProfileID {get;set;}
-	public String ValueFound {get;set;}
-
-
-}
-
-
-
-
-
-
-internal class DataContract_IdentityValueList {
-
-
-	public String CreatedDateTime {get;set;}
-	public String IdentityValue {get;set;}
-
-
-}
-
 
 
 

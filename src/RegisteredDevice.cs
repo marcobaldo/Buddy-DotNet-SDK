@@ -17,7 +17,7 @@ namespace Buddy
         public DateTime RegistrationDate { get; protected set; }
         public int UserID { get; protected set; }
 
-        internal RegisteredDevice(DataContract_WPDeviceList device, AuthenticatedUser user)
+        internal RegisteredDevice(InternalModels.DataContract_WPDeviceList device, AuthenticatedUser user)
         {
             if (device == null) throw new ArgumentNullException("device");
             if (user == null) throw new ArgumentNullException("user");

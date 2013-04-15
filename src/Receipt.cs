@@ -64,7 +64,7 @@ namespace Buddy
         /// </summary>
         public long StoreItemID { get; protected set; }
 
-        internal Receipt(BuddyClient client, AuthenticatedUser user, DataContract_CommerceReceipt receipt)
+        internal Receipt(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_CommerceReceipt receipt)
             : base(client, user)
         {
 

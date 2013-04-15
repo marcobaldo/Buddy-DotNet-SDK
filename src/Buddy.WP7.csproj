@@ -39,7 +39,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\Debug\wp7\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;NET40</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;NET40;PUBLIC_SERIALIZATION</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -52,7 +52,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\Release\wp7\</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;PUBLIC_SERIALIZATION</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>

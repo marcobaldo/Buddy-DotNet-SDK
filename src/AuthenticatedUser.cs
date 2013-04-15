@@ -113,7 +113,7 @@ namespace Buddy
             }
         }
 
-        internal AuthenticatedUser (string token, DataContract_FullUserProfile profile, BuddyClient client)
+        internal AuthenticatedUser (string token, InternalModels.DataContract_FullUserProfile profile, BuddyClient client)
             : base(client, Int32.Parse(profile.UserID))
         {
             if (client == null)
@@ -139,7 +139,7 @@ namespace Buddy
             this.GameScores = new GameScores (this.Client, this, null);
         }
 
-        internal AuthenticatedUser (BuddyClient client, DataContract_ApplicationUserProfile profile)
+        internal AuthenticatedUser (BuddyClient client, InternalModels.DataContract_ApplicationUserProfile profile)
             : base(client, Int32.Parse(profile.UserID))
         {
             //this.Token = profile.user; <-- removed from contract (in ws) for security reasons 
@@ -175,7 +175,7 @@ namespace Buddy
             this.CelebrityMode = Boolean.Parse (profile.CelebMode);
         }
 
-        internal void UpdateFromProfile (DataContract_FullUserProfile profile)
+        internal void UpdateFromProfile (InternalModels.DataContract_FullUserProfile profile)
         {
             this.Name = profile.UserName;
             this.ID = Int32.Parse (profile.UserID);

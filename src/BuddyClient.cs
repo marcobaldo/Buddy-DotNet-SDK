@@ -1001,7 +1001,7 @@ namespace Buddy
         /// </summary>
         public string TotalDeviceInformation { get; protected set; }
 
-        internal ApplicationStatistics(DataContract_ApplicationStats appStats, BuddyClient client)
+        internal ApplicationStatistics(InternalModels.DataContract_ApplicationStats appStats, BuddyClient client)
         {
             if (client == null)
                 throw new ArgumentNullException("client");

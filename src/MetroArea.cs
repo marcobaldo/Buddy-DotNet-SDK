@@ -19,7 +19,7 @@ namespace Buddy
         /// </summary>
         public string ImageURL { get; protected set; }
 
-        internal MetroArea(BuddyClient client, AuthenticatedUser user, DataContract_MetroList metro)
+        internal MetroArea(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_MetroList metro)
             : base(client, user)
         {
 

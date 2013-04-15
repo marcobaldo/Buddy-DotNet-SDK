@@ -144,7 +144,7 @@ namespace Buddy
         /// </summary>
         public string Website { get; protected set; }
 
-        internal Place (BuddyClient client, AuthenticatedUser user, DataContract_SearchPlaces place)
+        internal Place (BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_SearchPlaces place)
             : base(client, user)
         {
 

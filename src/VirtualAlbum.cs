@@ -59,7 +59,7 @@ namespace Buddy
         /// </summary>
         public DateTime LastUpdated { get; protected set; }
 
-        internal VirtualAlbum (BuddyClient client, AuthenticatedUser user, DataContract_VirtualPhotoAlbumInformation info)
+        internal VirtualAlbum(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_VirtualPhotoAlbumInformation info)
             : base(client, user)
         {
             this.pictures = new List<PicturePublic> ();
@@ -74,7 +74,7 @@ namespace Buddy
             this.ThumbnailUrl = info.PhotoAlbumThumbnail;
         }
 
-        internal void AddPictures (IEnumerable<DataContract_VirtualPhotoList> virtualPhotoList)
+        internal void AddPictures(IEnumerable<InternalModels.DataContract_VirtualPhotoList> virtualPhotoList)
         {
             foreach (var d in virtualPhotoList)
                 pictures.Add (new PicturePublic (this.Client, d));

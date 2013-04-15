@@ -103,7 +103,7 @@ namespace Buddy
 
         }
 
-        internal PicturePublic(BuddyClient client, User user, DataContract_PublicPhotoSearch photo, int userId)
+        internal PicturePublic(BuddyClient client, User user, InternalModels.DataContract_PublicPhotoSearch photo, int userId)
             : base(client)
         {
             if (photo == null) throw new ArgumentNullException("photo");
@@ -124,7 +124,7 @@ namespace Buddy
             this.DistanceInYards = client.TryParseDouble(photo.DistanceInYards);
         }
 
-        internal PicturePublic(BuddyClient client, DataContract_VirtualPhotoList photo)
+        internal PicturePublic(BuddyClient client, InternalModels.DataContract_VirtualPhotoList photo)
             : base(client)
         {
             if (photo == null) throw new ArgumentNullException("photo");

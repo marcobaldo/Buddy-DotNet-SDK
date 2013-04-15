@@ -136,7 +136,7 @@ namespace Buddy
         /// </summary>
         public double ZipPostal { get; protected set; }
 
-        internal Startup(BuddyClient client, AuthenticatedUser user, DataContract_SearchStartups startup)
+        internal Startup(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_SearchStartups startup)
             : base(client, user)
         {
 

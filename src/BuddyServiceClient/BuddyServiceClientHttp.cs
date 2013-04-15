@@ -435,11 +435,15 @@ namespace BuddyServiceClient
             requestStream.Write(trailer, 0, trailer.Length);
         }
 
-        public class JsonEnvelope<T>
+#if PUBLIC_SERIALIZATION
+        public
+#else 
+        internal
+#endif 
+            class JsonEnvelope<T>
         {
-			public T data = default(T);
+            public T data = default(T);
         }
-
        
      }
 

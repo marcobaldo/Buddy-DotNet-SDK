@@ -73,7 +73,7 @@ namespace Buddy
         /// </summary>
         public string Rank { get; protected set; }
 
-        internal GamePlayer(BuddyClient client, AuthenticatedUser user, DataContract_GamePlayerInfo info)
+        internal GamePlayer(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_GamePlayerInfo info)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (user == null) throw new ArgumentNullException("user");
@@ -90,7 +90,7 @@ namespace Buddy
             this.Rank = info.PlayerRank;
         }
 
-        internal GamePlayer(BuddyClient client, AuthenticatedUser user, DataContract_GamePlayerSearchResults info)
+        internal GamePlayer(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_GamePlayerSearchResults info)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (user == null) throw new ArgumentNullException("user");

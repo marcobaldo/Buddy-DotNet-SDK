@@ -36,7 +36,7 @@ namespace Buddy
 
         }
 
-        internal Picture (BuddyClient client, AuthenticatedUser user, DataContract_PhotoList photo)
+        internal Picture(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_PhotoList photo)
             : base(client, photo.FullPhotoURL, photo.ThumbnailPhotoURL, client.TryParseDouble(photo.Latitude),
             client.TryParseDouble(photo.Longitude), photo.PhotoComment, photo.ApplicationTag, photo.AddedDateTime,
             Int32.Parse(photo.PhotoID), user)

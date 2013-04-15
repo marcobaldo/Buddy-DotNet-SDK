@@ -160,7 +160,7 @@ namespace Buddy
             this.GameStates = new GameStates(this.Client, this);
         }
 
-        internal User(BuddyClient client, DataContract_PublicUserProfile publicProfile)
+        internal User(BuddyClient client, InternalModels.DataContract_PublicUserProfile publicProfile)
             : this(client, Int32.Parse(publicProfile.UserID))
         {
             this.Name = publicProfile.UserName;
@@ -175,7 +175,7 @@ namespace Buddy
             this.Age = Int32.Parse(publicProfile.Age);
         }
 
-        internal User(BuddyClient client, DataContract_ApplicationUserProfile applicationUserProfile)
+        internal User(BuddyClient client, InternalModels.DataContract_ApplicationUserProfile applicationUserProfile)
             : this(client, Int32.Parse(applicationUserProfile.UserID))
         {
             this.Name = applicationUserProfile.UserName;
@@ -190,7 +190,7 @@ namespace Buddy
             this.Age = Int32.Parse(applicationUserProfile.Age);
         }
 
-        internal User(BuddyClient client, DataContract_FriendList publicProfile, int userId)
+        internal User(BuddyClient client, InternalModels.DataContract_FriendList publicProfile, int userId)
             : this(client, Int32.Parse(publicProfile.FriendID) == userId ? Int32.Parse(publicProfile.UserID) : Int32.Parse(publicProfile.FriendID))
         {
             this.Name = publicProfile.UserName;
@@ -206,7 +206,7 @@ namespace Buddy
             this.FriendRequestPending = publicProfile.Status == "0";
         }
 
-        internal User(BuddyClient client, DataContract_FriendRequests publicProfile, int userId)
+        internal User(BuddyClient client, InternalModels.DataContract_FriendRequests publicProfile, int userId)
             : this(client, Int32.Parse(publicProfile.FriendID) == userId ? Int32.Parse(publicProfile.UserID) : Int32.Parse(publicProfile.FriendID))
         {
             this.Name = publicProfile.UserName;
@@ -221,7 +221,7 @@ namespace Buddy
             this.Age = Int32.Parse(publicProfile.Age);
         }
 
-        internal User(BuddyClient client, DataContract_SearchPeople publicProfile)
+        internal User(BuddyClient client, InternalModels.DataContract_SearchPeople publicProfile)
             : base(client)
         {
             this.Name = publicProfile.UserName;

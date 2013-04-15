@@ -37,7 +37,7 @@ namespace Buddy
         /// </summary>
         public string Value { get; protected set; }
 
-        internal GameState(DataContract_GameStateObject gs)
+        internal GameState(InternalModels.DataContract_GameStateObject gs)
         {
             this.AppTag = gs.AppTag;
             this.Key = gs.StateKey;

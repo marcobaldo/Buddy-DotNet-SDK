@@ -87,7 +87,7 @@ namespace Buddy
 
         protected string Token { get; set; }
 
-        internal MetadataItem (BuddyClient client, UserMetadata owner, AppMetadata ownerApp, string token, DataContract_SearchUserMetaData d, double originLatitude, double originLongitude)
+        internal MetadataItem(BuddyClient client, UserMetadata owner, AppMetadata ownerApp, string token, InternalModels.DataContract_SearchUserMetaData d, double originLatitude, double originLongitude)
             : this(client, owner, ownerApp, token, d.MetaKey, d.MetaValue, client.TryParseDouble(d.MetaLatitude), client.TryParseDouble(d.MetaLongitude), d.LastUpdateDate, null)
         {
             this.DistanceInKilometers = this.Client.TryParseDouble (d.DistanceInKilometers);
@@ -96,7 +96,7 @@ namespace Buddy
             this.DistanceInYards = this.Client.TryParseDouble (d.DistanceInYards);
         }
 
-        internal MetadataItem (BuddyClient client, UserMetadata owner, AppMetadata ownerApp, string token, DataContract_SearchAppMetaData d, double originLatitude, double originLongitude)
+        internal MetadataItem(BuddyClient client, UserMetadata owner, AppMetadata ownerApp, string token, InternalModels.DataContract_SearchAppMetaData d, double originLatitude, double originLongitude)
             : this(client, owner, ownerApp, token, d.MetaKey, d.MetaValue, client.TryParseDouble(d.MetaLatitude), client.TryParseDouble(d.MetaLongitude), d.LastUpdateDate, null)
         {
             this.DistanceInKilometers = this.Client.TryParseDouble (d.DistanceInKilometers);

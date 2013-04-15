@@ -108,7 +108,7 @@ namespace Buddy
                 }
                 ;
 
-                DataContract_ApplicationMetaData d = result [0];
+                InternalModels.DataContract_ApplicationMetaData d = result[0];
                 {
                     callback (BuddyResultCreator.Create (new MetadataItem (this.Client, null, this, null, d.MetaKey, d.MetaValue,
                        this.Client.TryParseDouble (d.MetaLatitude), this.Client.TryParseDouble (d.MetaLongitude), d.LastUpdateDate, null), bcr.Error));

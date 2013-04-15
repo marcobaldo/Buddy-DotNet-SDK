@@ -31,7 +31,7 @@ namespace Buddy
         /// </summary>
         public string Text { get; protected set; }
 
-        internal Message(DataContract_Messages msg, int toId)
+        internal Message(InternalModels.DataContract_Messages msg, int toId)
         {
             this.DateSent = msg.DateSent;
             this.FromUserID = Int32.Parse(msg.FromUserID);
@@ -39,7 +39,7 @@ namespace Buddy
             this.Text = msg.MessageString;
         }
 
-        internal Message(DataContract_MessagesFromMe msg, int fromId)
+        internal Message(InternalModels.DataContract_MessagesFromMe msg, int fromId)
         {
             this.DateSent = msg.DateSent;
             this.FromUserID = fromId;

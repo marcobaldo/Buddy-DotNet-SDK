@@ -14,7 +14,7 @@ namespace Buddy
         public DateTime RegistrationDate { get; protected set; }
         public int UserID { get; protected set; }
 
-        internal RegisteredDeviceApple(DataContract_AppleDeviceList device, AuthenticatedUser user)
+        internal RegisteredDeviceApple(InternalModels.DataContract_AppleDeviceList device, AuthenticatedUser user)
         {
             if (device == null) throw new ArgumentNullException("device");
             if (user == null) throw new ArgumentNullException("user");

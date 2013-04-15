@@ -57,7 +57,7 @@ namespace Buddy
         /// </summary>
         public string AppTag { get; protected set; }
 
-        internal GameScore(BuddyClient client, DataContract_GameUserScoreList score)
+        internal GameScore(BuddyClient client, InternalModels.DataContract_GameUserScoreList score)
         {
             if (client == null)throw new ArgumentNullException("client");
             if (score == null) throw new ArgumentNullException("score");
@@ -73,7 +73,7 @@ namespace Buddy
             this.AppTag = score.ApplicationTag;
         }
 
-        internal GameScore(BuddyClient client, DataContract_GameBoardScoreList score)
+        internal GameScore(BuddyClient client, InternalModels.DataContract_GameBoardScoreList score)
         {
             if (client == null)throw new ArgumentNullException("client");
             if (score == null) throw new ArgumentNullException("score");
@@ -89,7 +89,7 @@ namespace Buddy
             this.AppTag = score.ApplicationTag;
         }
 
-        internal GameScore(BuddyClient client, DataContract_GameScoreSearchResults score)
+        internal GameScore(BuddyClient client, InternalModels.DataContract_GameScoreSearchResults score)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (score == null) throw new ArgumentNullException("score");
