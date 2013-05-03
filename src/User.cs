@@ -209,6 +209,7 @@ namespace Buddy
         internal User(BuddyClient client, InternalModels.DataContract_FriendRequests publicProfile, int userId)
             : this(client, Int32.Parse(publicProfile.FriendID) == userId ? Int32.Parse(publicProfile.UserID) : Int32.Parse(publicProfile.FriendID))
         {
+            this.ID = int.Parse(publicProfile.FriendID);
             this.Name = publicProfile.UserName;
             this.Gender = (UserGender)Enum.Parse(typeof(UserGender), publicProfile.UserGender, true);
             this.ApplicationTag = publicProfile.UserApplicationTag;
