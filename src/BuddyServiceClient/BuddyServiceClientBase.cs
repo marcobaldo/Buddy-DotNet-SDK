@@ -106,7 +106,7 @@ namespace BuddyServiceClient
         }
 
         private SynchronizationContext _syncContext;
-        protected void CallOnUiThread(SendOrPostCallback callback)
+        internal void CallOnUiThread(SendOrPostCallback callback)
         {
             if (_syncContext != null)
             {
@@ -134,7 +134,7 @@ namespace BuddyServiceClient
         }
 
         public abstract void CallMethodAsync<T>(string methodName, IDictionary<string, object> parameters, Action<BuddyCallResult<T>> callback);
-
+               
         private Regex IntRegex = new Regex("-?\\d+");
 
         private static bool ParseBuddyError(string str, out BuddyError err)
@@ -3713,8 +3713,35 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
     }
 
 
+    public class DataContract_Blob
+    {
+        public String BlobID { get; protected set; }
+        public String FriendlyName { get; protected set; }
+        public String MimeType { get; protected set; }
+        public String FileSize { get; protected set; }
+        public String AppTag { get; protected set; }
+        public String Owner { get; protected set; }
+        public String Latitude { get; protected set; }
+        public String Longitude { get; protected set; }
+        public String UploadDate { get; protected set; }
+        public String LastTouchDate { get; protected set; }
 
+    }
 
+    public class DataContract_Video
+    {
+        public String VideoID { get; protected set; }
+        public String FriendlyName { get; protected set; }
+        public String MimeType { get; protected set; }
+        public String FileSize { get; protected set; }
+        public String AppTag { get; protected set; }
+        public String Owner { get; protected set; }
+        public String Latitude { get; protected set; }
+        public String Longitude { get; protected set; }
+        public String UploadDate { get; protected set; }
+        public String LastTouchDate { get; protected set; }
+
+    }
 
 
     public class DataContract_DefinedUserStatusTags

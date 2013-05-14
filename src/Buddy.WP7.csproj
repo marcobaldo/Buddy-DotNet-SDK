@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMetadata.cs" />
+    <Compile Include="Blob.cs" />
+    <Compile Include="Blobs.cs" />
     <Compile Include="BuddyBase.cs" />
     <Compile Include="BuddyServiceClient\BuddyServiceClientBase.cs" />
     <Compile Include="BuddyServiceClient\BuddyServiceClientHttp.cs" />
@@ -132,6 +134,8 @@
     <Compile Include="StoreItem.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserMetadata.cs" />
+    <Compile Include="Video.cs" />
+    <Compile Include="Videos.cs" />
     <Compile Include="VirtualAlbum.cs" />
     <Compile Include="VirtualAlbums.cs" />
   </ItemGroup>

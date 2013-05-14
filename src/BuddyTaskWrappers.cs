@@ -15,6 +15,7 @@ namespace Buddy
     using System.IO;
     using System.Collections.Generic;
     using BuddyServiceClient;
+using System.Threading.Tasks;
 
 
    
@@ -2739,7 +2740,361 @@ namespace Buddy
         }
     }
 
+    public static class BlobsTaskWrappers 
+    {
+        public static Task<Blob> AddAsync(this Buddy.Blobs blobs, string friendlyName, string mimeType, string appTag, double latitude, double longitude, byte[] blobData)
+        {
+            var tcs = new TaskCompletionSource<Blob>();
+            blobs.AddInternal(friendlyName, mimeType, appTag, latitude, longitude, blobData, (BuddyCallResult<Blob> bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
 
+        public static Task<Stream> GetAsync(this Buddy.Blobs blobs, long blobID)
+        {
+            var tcs = new TaskCompletionSource<Stream>();
+            blobs.GetInternal(blobID, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<Blob> GetInfoAsync(this Buddy.Blobs blobs, long blobID)
+        {
+            var tcs = new TaskCompletionSource<Blob>();
+            blobs.GetInfoInternal(blobID, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Blob>> SearchMyBlobsAsync(this Buddy.Blobs blobs, string friendlyName, string mimeType, string appTag, 
+            int searchDistance, double searchLatitude, double searchLongitude, int timeFilter, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Blob>>();
+            blobs.SearchMyBlobsInternal(friendlyName, mimeType, appTag, searchDistance, searchLatitude, searchLongitude, timeFilter, recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Blob>> SearchBlobsAsync(this Buddy.Blobs blobs, string friendlyName, string mimeType, string appTag, 
+            int searchDistance, double searchLatitude, double searchLongitude, int timeFilter, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Blob>>();
+            blobs.SearchBlobsInternal(friendlyName, mimeType, appTag, searchDistance, searchLatitude, searchLongitude, timeFilter, recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Blob>> GetBlobListAsync(this Buddy.Blobs blobs, long userID, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Blob>>();
+            blobs.GetListInternal(userID, recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Blob>> GetMyBlobListAsync(this Buddy.Blobs blobs, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Blob>>();
+            blobs.GetMyListInternal(recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+    }
+
+    public static class BlobTaskWrapper
+    { 
+        public static Task<bool> EditInfoAsync(this Buddy.Blob blob, string FriendlyName, string MimeType, string AppTag)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            blob.EditInfoInternal(FriendlyName, MimeType, AppTag, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<Stream> GetAsync(this Buddy.Blob blob)
+        {
+            var tcs = new TaskCompletionSource<Stream>();
+            blob.GetInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<bool> DeleteAsync(this Buddy.Blob blob)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            blob.DeleteInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+    }
+
+    public static class VideosTaskWrappers
+    {
+        public static Task<Video> AddAsync(this Buddy.Videos videos, string friendlyName, string mimeType, string appTag, double latitude, double longitude, byte[] videoData)
+        {
+            var tcs = new TaskCompletionSource<Video>();
+            videos.AddInternal(friendlyName, mimeType, appTag, latitude, longitude, videoData, (BuddyCallResult<Video> bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<Stream> GetAsync(this Buddy.Videos videos, long videoID)
+        {
+            var tcs = new TaskCompletionSource<Stream>();
+            videos.GetInternal(videoID, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<Video> GetInfoAsync(this Buddy.Videos videos, long videoID)
+        {
+            var tcs = new TaskCompletionSource<Video>();
+            videos.GetInfoInternal(videoID, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Video>> SearchMyVideosAsync(this Buddy.Videos videos, string friendlyName, string mimeType, string appTag,
+            int searchDistance, double searchLatitude, double searchLongitude, int timeFilter, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Video>>();
+            videos.SearchMyVideosInternal(friendlyName, mimeType, appTag, searchDistance, searchLatitude, searchLongitude, timeFilter, recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Video>> SearchVideosAsync(this Buddy.Videos videos, string friendlyName, string mimeType, string appTag, 
+            int searchDistance, double searchLatitude, double searchLongitude, int timeFilter, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Video>>();
+            videos.SearchVideosInternal(friendlyName, mimeType, appTag, searchDistance, searchLatitude, searchLongitude, timeFilter, recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Video>> GetVideoListAsync(this Buddy.Videos videos, long userID, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Video>>();
+            videos.GetListInternal(userID, recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<IEnumerable<Video>> GetMyVideoListAsync(this Buddy.Videos videos, int recordLimit)
+        {
+            var tcs = new TaskCompletionSource<IEnumerable<Video>>();
+            videos.GetMyListInternal(recordLimit, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+    }
+
+    public static class VideoTaskWrappers 
+    {
+        public static Task<bool> EditInfoAsync(this Buddy.Video video, string FriendlyName, string MimeType, string AppTag)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            video.EditInfoInternal(FriendlyName, MimeType, AppTag, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<Stream> GetAsync(this Buddy.Video video)
+        {
+            var tcs = new TaskCompletionSource<Stream>();
+            video.GetInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        public static Task<bool> DeleteAsync(this Buddy.Video video)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            video.DeleteInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+    }
 
     public static class VirtualAlbumTaskWrappers
     {

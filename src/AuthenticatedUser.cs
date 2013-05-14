@@ -107,6 +107,16 @@ namespace Buddy
         /// </summary>
         public GamePlayers GamePlayers { get; protected set; }
 
+        /// <summary>
+        /// Gets an object that can be used for Blob for the user.
+        /// </summary>
+        public Blobs Blobs { get; protected set; }
+
+        /// <summary>
+        /// Gets an object that can be used for Video for the user.
+        /// </summary>
+        public Videos Videos { get; protected set; }
+
         internal override string TokenOrId {
             get {
                 return this.Token;
