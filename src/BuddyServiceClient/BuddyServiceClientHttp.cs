@@ -239,7 +239,26 @@ namespace BuddyServiceClient
         }
 
 
+        private const int EncodeChunk = 32000;
 
+        private static string EscapeDataString(string value)
+        {
+            StringBuilder encoded = new StringBuilder(value.Length);
+
+            var pos = 0;
+
+            // encode the string in 32K chunks.
+            while (pos < value.Length)
+            {
+                var len = Math.Min(EncodeChunk, value.Length - pos);
+                var encodedPart = value.Substring(pos, len);
+                encodedPart = Uri.EscapeDataString(encodedPart);
+                encoded.Append(encodedPart);
+                pos += EncodeChunk;
+            }
+            return encoded.ToString();
+            
+        }
 
 
         private string GetUrlEncodedParameters(IDictionary<string, object> parameters)
@@ -254,11 +273,11 @@ namespace BuddyServiceClient
                 if (kvp.Value is BuddyFile)
                 {
                     val = Convert.ToBase64String(((BuddyFile)kvp.Value).Bytes);
-                    val = Uri.EscapeDataString(val);
+                    val = EscapeDataString(val);
                 }
                 else
                 {
-                    val = Uri.EscapeDataString(kvp.Value.ToString());
+                    val = EscapeDataString(kvp.Value.ToString());
 
                 }
                 sb.AppendFormat("{2}{0}={1}", kvp.Key, val, isFirst ? "" : "&");
