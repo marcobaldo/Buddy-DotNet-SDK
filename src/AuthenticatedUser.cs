@@ -144,6 +144,9 @@ namespace Buddy
             this.Commerce = new Commerce (this.Client, this);
             this.GamePlayers = new GamePlayers (this.Client, this);
 
+            this.Blobs = new Blobs(this.Client, this);
+            this.Videos = new Videos(this.Client, this);
+
             this.UpdateFromProfile (profile);
 
             this.GameScores = new GameScores (this.Client, this, null);
@@ -165,6 +168,9 @@ namespace Buddy
             this.Startups = new Startups (this.Client, this);
             this.Commerce = new Commerce (this.Client, this);
             this.GamePlayers = new GamePlayers (this.Client, this);
+
+            this.Blobs = new Blobs(this.Client, this);
+            this.Videos = new Videos(this.Client, this);
 
             this.Name = profile.UserName;
             this.ID = Int32.Parse (profile.UserID);

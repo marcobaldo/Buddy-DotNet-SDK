@@ -244,10 +244,6 @@ namespace BuddyServiceClient
 
         }
 
-
-
-
-
         private string GetUrlEncodedParameters(IDictionary<string, object> parameters)
         {
             StringBuilder sb = new StringBuilder();

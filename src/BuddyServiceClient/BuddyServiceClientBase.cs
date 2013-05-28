@@ -3715,32 +3715,32 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
 
     public class DataContract_Blob
     {
-        public String BlobID { get; protected set; }
-        public String FriendlyName { get; protected set; }
-        public String MimeType { get; protected set; }
-        public String FileSize { get; protected set; }
-        public String AppTag { get; protected set; }
-        public String Owner { get; protected set; }
-        public String Latitude { get; protected set; }
-        public String Longitude { get; protected set; }
-        public String UploadDate { get; protected set; }
-        public String LastTouchDate { get; protected set; }
+        public String BlobID { get; set; }
+        public String FriendlyName { get; set; }
+        public String MimeType { get; set; }
+        public String FileSize { get; set; }
+        public String AppTag { get; set; }
+        public String Owner { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public DateTime UploadDate { get; set; }
+        public DateTime LastTouchDate { get; set; }
 
     }
 
     public class DataContract_Video
     {
-        public String VideoID { get; protected set; }
-        public String FriendlyName { get; protected set; }
-        public String MimeType { get; protected set; }
-        public String FileSize { get; protected set; }
-        public String AppTag { get; protected set; }
-        public String Owner { get; protected set; }
-        public String Latitude { get; protected set; }
-        public String Longitude { get; protected set; }
-        public String UploadDate { get; protected set; }
-        public String LastTouchDate { get; protected set; }
-
+        public String VideoID { get; set; }
+        public String FriendlyName { get; set; }
+        public String MimeType { get; set; }
+        public String FileSize { get; set; }
+        public String AppTag { get; set; }
+        public String Owner { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String UploadDate { get; set; }
+        public String LastTouchDate { get; set; }
+        public String VideoUrl { get; set; }
     }
 
 
