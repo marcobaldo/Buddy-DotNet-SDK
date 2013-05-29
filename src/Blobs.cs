@@ -298,7 +298,7 @@ namespace Buddy
 
             this.Client.Service.CallMethodAsync<InternalModels.DataContract_Blob[]>("Blobs_Blob_SearchBlobs", parameters, (bcr) =>
             {
-                List<Blob> result = null;
+                List<Blob> result = new List<Blob>();
                 if (bcr.Result != null)
                 {
                     foreach (InternalModels.DataContract_Blob b in bcr.Result)
@@ -329,7 +329,7 @@ namespace Buddy
 
             this.Client.Service.CallMethodAsync<InternalModels.DataContract_Blob[]>("Blobs_Blob_SearchMyBlobs", parameters, (bcr) =>
             {
-                List<Blob> result = null;
+                List<Blob> result = new List<Blob>();
                 if (bcr.Result != null)
                 {
                     foreach (var b in bcr.Result)
@@ -353,12 +353,14 @@ namespace Buddy
 
             this.Client.Service.CallMethodAsync<InternalModels.DataContract_Blob[]>("Blobs_Blob_GetBlobList", parameters, (bcr) =>
             {
-                List<Blob> result = null;
-                if (bcr.Result != null)
+                List<Blob> result = new List<Blob>();
+                var brd = bcr.Result;
+                if (brd != null)
                 {
-                    foreach (var b in bcr.Result)
+                    foreach (var b in brd)
                     {
-                        result.Add(new Blob(this.Client, this.AuthUser, b));
+                        var blob = new Blob(this.Client, this.AuthUser, b);
+                        result.Add(blob);
                     }
                 }
                 callback(BuddyServiceClient.BuddyResultCreator.Create((IEnumerable<Blob>)result, bcr.Error));
@@ -376,7 +378,7 @@ namespace Buddy
 
             this.Client.Service.CallMethodAsync<InternalModels.DataContract_Blob[]>("Blobs_Blob_GetMyBlobList", parameters, (bcr) =>
             {
-                List<Blob> result = null;
+                List<Blob> result = new List<Blob>();
                 if (bcr.Result != null)
                 {
                     foreach (var b in bcr.Result)

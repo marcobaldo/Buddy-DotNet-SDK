@@ -79,7 +79,7 @@ namespace Buddy
         /// </summary>
         public string VideoUrl {get; set;}
 
-        internal Video(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_Video video) : base(client)
+        internal Video(BuddyClient client, AuthenticatedUser user, InternalModels.DataContract_Video video) : base(client, user)
         { 
             this.VideoID = long.Parse(video.VideoID, CultureInfo.InvariantCulture);
             this.FriendlyName = video.FriendlyName;
