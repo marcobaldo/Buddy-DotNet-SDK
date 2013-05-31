@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
  
 [assembly: AssemblyCompany("Buddy Platform Inc.")]
 [assembly: AssemblyProduct("Buddy Platform Client SDK")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -18,8 +18,8 @@ using System.Runtime.InteropServices;
 // - the first two numbers are the Buddy Platform Web-Service version
 // - the second two number are the SDK versions 
 
-[assembly: AssemblyVersion("0.2.0.7")]
-[assembly: AssemblyFileVersion("0.2.0.7")]
+[assembly: AssemblyVersion("1.5.0.0")]
+[assembly: AssemblyFileVersion("1.5.0.0")]
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Buddy.ClientTest")]
 
