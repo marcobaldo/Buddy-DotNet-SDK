@@ -365,7 +365,7 @@ namespace Buddy
             parameters.Add("UserToken", this.AuthUser.Token);
             parameters.Add("VideoID", videoID);
 
-            this.Client.Service.CallMethodAsync<HttpWebResponse>("Videos_Blog_GetVideo", parameters, (bcr) =>
+            this.Client.Service.CallMethodAsync<HttpWebResponse>("Videos_Video_GetVideo", parameters, (bcr) =>
             {
                 Stream result = null;
                 if (bcr.Result != null)

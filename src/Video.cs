@@ -98,7 +98,7 @@ namespace Buddy
         /// Edits the information related to this Video.
         /// </summary>
         /// <param name="friendlyName">The new human friendly name for the Video. Leave null or empty to not change.</param>
-        /// <param name="appTag">The new AppTag for the BLob. Leave null or empty to not change.</param>
+        /// <param name="appTag">The new AppTag for the video. Leave null or empty to not change.</param>
         /// <returns>A Task&lt;bool&gt; that can be used to monitor progress on this call.</returns>
         public Task<bool> EditInfoAsync(string friendlyName, string appTag)
         {
