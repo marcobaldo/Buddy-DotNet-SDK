@@ -81,7 +81,7 @@ namespace BuddyServiceClient
         CouldNotDeleteFileGenericError, PhotoAlbumDoesNotExist, AlbumNamesCannotBeBlank, PhotoIDDoesNotExistInContext, dupelocation, invalidflagreason,
         EmptyDeviceURI, EmptyGroupName, EmptyImageURI, EmptyMessageCount, EmptyMessageTitle, EmptyRawMessage, EmptyToastTitle, EmptyToastSubTitle,
         EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
-        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError
+        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, BlobDoesNotExist
 
 
     }
