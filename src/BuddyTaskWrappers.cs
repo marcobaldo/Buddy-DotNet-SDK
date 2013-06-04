@@ -15,6 +15,7 @@ namespace Buddy
     using System.IO;
     using System.Collections.Generic;
     using BuddyServiceClient;
+using System.Threading.Tasks;
 
 
    
@@ -2644,27 +2645,6 @@ namespace Buddy
         }
     }
 
-    public static class SoundsTaskWrappers
-    {
-
-        public static System.Threading.Tasks.Task<Stream> GetSoundAsync(this Buddy.Sounds sounds, string soundName, Buddy.Sounds.SoundQuality quality)
-        {
-            var tcs = new System.Threading.Tasks.TaskCompletionSource<Stream>();
-            sounds.GetSoundInternal(soundName, quality, (bcr) =>
-            {
-                if (bcr.Error != BuddyServiceClient.BuddyError.None)
-                {
-                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
-                }
-                else
-                {
-                    tcs.TrySetResult(bcr.Result);
-                }
-            });
-            return tcs.Task;
-        }
-    }
-
     public static class StartupsTaskWrappers
     {
 
@@ -2738,8 +2718,6 @@ namespace Buddy
             return tcs.Task;
         }
     }
-
-
 
     public static class VirtualAlbumTaskWrappers
     {

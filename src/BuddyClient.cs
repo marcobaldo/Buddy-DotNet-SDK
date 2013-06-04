@@ -70,6 +70,11 @@ namespace Buddy
         /// </summary>
         public GameBoards GameBoards { get; protected set; }
 
+        /// <summary>
+        /// Gets an object that can be used to retrieve sounds.
+        /// </summary>
+        public Sounds Sounds { get; protected set; }
+
         private bool recordDeviceInfo = true;
         private const string WebServiceUrl = "https://webservice.buddyplatform.com";
 
@@ -109,6 +114,7 @@ namespace Buddy
             this.Metadata = new AppMetadata(this);
             this.Device = new Device(this);
             this.GameBoards = new GameBoards(this);
+            this.Sounds = new Sounds(this);
 
             this.recordDeviceInfo = autoRecordDeviceInfo;
         }

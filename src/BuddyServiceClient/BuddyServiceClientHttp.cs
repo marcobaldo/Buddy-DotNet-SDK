@@ -76,6 +76,12 @@ namespace BuddyServiceClient
         static BuddyServiceClientHttp()
         {
             RequestTypeOverrides["Sound_Sounds_GetSound"] = HttpRequestType.HttpGet;
+            RequestTypeOverrides["Blobs_Blob_GetBlob"] = HttpRequestType.HttpGet;
+            RequestTypeOverrides["Videos_Video_GetVideo"] = HttpRequestType.HttpGet;
+
+            RequestTypeOverrides["Videos_Video_AddVideo"] = HttpRequestType.HttpPostMultipartForm;
+            RequestTypeOverrides["Blobs_Blob_AddBlob"] = HttpRequestType.HttpPostMultipartForm;
+
         }
 
         public BuddyServiceClientHttp(string root, string sdkVersion)
@@ -237,7 +243,6 @@ namespace BuddyServiceClient
 
 
         }
-
 
         private const int EncodeChunk = 32000;
 

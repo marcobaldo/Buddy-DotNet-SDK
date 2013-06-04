@@ -81,7 +81,7 @@ namespace BuddyServiceClient
         CouldNotDeleteFileGenericError, PhotoAlbumDoesNotExist, AlbumNamesCannotBeBlank, PhotoIDDoesNotExistInContext, dupelocation, invalidflagreason,
         EmptyDeviceURI, EmptyGroupName, EmptyImageURI, EmptyMessageCount, EmptyMessageTitle, EmptyRawMessage, EmptyToastTitle, EmptyToastSubTitle,
         EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
-        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, UserIDMustBeAnInteger
+        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, UserIDMustBeAnInteger, BlobDoesNotExist
 
 
     }
@@ -106,7 +106,7 @@ namespace BuddyServiceClient
         }
 
         private SynchronizationContext _syncContext;
-        protected void CallOnUiThread(SendOrPostCallback callback)
+        internal void CallOnUiThread(SendOrPostCallback callback)
         {
             if (_syncContext != null)
             {
@@ -134,7 +134,7 @@ namespace BuddyServiceClient
         }
 
         public abstract void CallMethodAsync<T>(string methodName, IDictionary<string, object> parameters, Action<BuddyCallResult<T>> callback);
-
+               
         private Regex IntRegex = new Regex("-?\\d+");
 
         private static bool ParseBuddyError(string str, out BuddyError err)
@@ -3713,8 +3713,35 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
     }
 
 
+    public class DataContract_Blob
+    {
+        public String BlobID { get; set; }
+        public String FriendlyName { get; set; }
+        public String MimeType { get; set; }
+        public String FileSize { get; set; }
+        public String AppTag { get; set; }
+        public String Owner { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public DateTime UploadDate { get; set; }
+        public DateTime LastTouchDate { get; set; }
 
+    }
 
+    public class DataContract_Video
+    {
+        public String VideoID { get; set; }
+        public String FriendlyName { get; set; }
+        public String MimeType { get; set; }
+        public String FileSize { get; set; }
+        public String AppTag { get; set; }
+        public String Owner { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }
+        public String UploadDate { get; set; }
+        public String LastTouchDate { get; set; }
+        public String VideoUrl { get; set; }
+    }
 
 
     public class DataContract_DefinedUserStatusTags

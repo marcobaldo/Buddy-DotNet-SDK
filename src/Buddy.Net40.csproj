@@ -54,6 +54,8 @@
     <Compile Include="AuthenticatedUser.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Blob.cs" />
+    <Compile Include="Blobs.cs" />
     <Compile Include="BuddyBase.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -206,6 +208,8 @@
     <Compile Include="UserMetadata.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Video.cs" />
+    <Compile Include="Videos.cs" />
     <Compile Include="VirtualAlbum.cs">
       <SubType>Code</SubType>
     </Compile>
