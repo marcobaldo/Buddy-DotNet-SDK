@@ -39,7 +39,7 @@ namespace BuddyServiceClient
             }
         }
 
-        public enum HttpRequestType {
+        internal enum HttpRequestType {
             HttpPostUrlEncoded,
             HttpPostMultipartForm,
             HttpGet

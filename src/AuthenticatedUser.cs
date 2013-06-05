@@ -826,8 +826,275 @@ namespace Buddy
        public System.Threading.Tasks.Task<bool> AddProfilePhoto(byte[] blob, string appTag = "") {
         return this.AddProfilePhotoAsync(new MemoryStream(blob), appTag);
         }
-      
 
+       /// <summary>
+       /// Delete this user.
+       /// </summary>
+       /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<Boolean> DeleteAsync()
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+           DeleteInternal((bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Update the profile of this user.
+       /// </summary>
+       /// <param name="name">Optional new name for the user, can't be null or empty.</param>
+       /// <param name="password">Optional new password for the user, can't be null.</param>
+       /// <param name="gender">Optional new gender for the user.</param>
+       /// <param name="age">Optional new age for the user.</param>
+       /// <param name="email">Optional new email for the user.</param>
+       /// <param name="status">Optional new status for the user.</param>
+       /// <param name="fuzzLocation">Optional change in location fuzzing for this user. If location fuzzing is enable, user location will be 
+       /// randomized in all searches by other users.</param>
+       /// <param name="celebrityMode">Optional change in celebrity mode for this user. If celebrity mode is enabled the user will be hidden from all searches in the system.</param>
+       /// <param name="appTag">Optional update to the custom application tag for this user.</param>
+       /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<Boolean> UpdateAsync(string name = "", string password = "", Buddy.UserGender gender = UserGender.Any, int age = 0, string email = "", Buddy.UserStatus status = UserStatus.Any, bool fuzzLocation = false, bool celebrityMode = false, string appTag = "")
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+           UpdateInternal(name, password, gender, age, email, status, fuzzLocation, celebrityMode, appTag, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Retrieve a picture by its unique ID. Any picture that the user owns or is publicly available can be retrieved.
+       /// </summary>
+       /// <param name="pictureId">The id of the picture to retrieve.</param>
+       /// <returns>A Task&lt;Picture&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<Picture> GetPictureAsync(int pictureId)
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<Picture>();
+           GetPictureInternal(pictureId, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Search for public albums from other users.
+       /// </summary>
+       /// <param name="searchDistanceInMeters">Optionally search only within a certain distance from the supplied lat/long.</param>
+       /// <param name="latitude">Optionally search for photos added near a latitude.</param>
+       /// <param name="longitude">Optionally search for photos added near a longitude.</param>
+       /// <param name="limitResults">Optionally limit the number of returned photos. Note that this parameter limits the photos returned, not albums. It's possible
+       /// that a partial album is returned.</param>
+       /// <returns>A Task&lt;IEnumerable&lt;PhotoAlbumPublic&gt; &gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<IEnumerable<PhotoAlbumPublic>> SearchForAlbumsAsync(int searchDistanceInMeters = 99999999, double latitude = 0, double longitude = 0, int limitResults = 50)
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<PhotoAlbumPublic>>();
+           SearchForAlbumsInternal(searchDistanceInMeters, latitude, longitude, limitResults, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Delete a profile photo for this user. You can use the GetProfilePhotosAsync method to retrieve all the profile photos.
+       /// </summary>
+       /// <param name="picture">The photo to delete.</param>
+       /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<Boolean> DeleteProfilePhotoAsync(Buddy.PicturePublic picture)
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+           DeleteProfilePhotoInternal(picture, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Set a new "active" profile photo from the list of profile photos that the user has uploaded. The photo needs to be already uploaded.
+       /// </summary>
+       /// <param name="picture">The photo to set as the "active" profile photo.</param>
+       /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<Boolean> SetProfilePhotoAsync(Buddy.PicturePublic picture)
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+           SetProfilePhotoInternal(picture, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Find the public profile of a user from their unique User ID. This method can be used to find any user associated with this Application.
+       /// </summary>
+       /// <param name="id">The ID of the user, must be bigger than 0.</param><exception cref="T:Buddy.BuddyServiceException">With value: InvalidUserId, when the user ID doesn't exist in the system.</exception>
+       /// <returns>A Task&lt;User&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<User> FindUserAsync(int id)
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<User>();
+           FindUserInternal(id, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Find the public profiles of all users that match the serch parameters.
+       /// </summary>
+       /// <param name="latitude">The latitude of the position to search from. Must be a value between -90.0 and 90.0.</param>
+       /// <param name="longitude">The Longitude of the position to search from. Must be a value between -180.0 and 180.0.</param>
+       /// <param name="searchDistance">The distance in meters from the specified latitude/longitude to search for results. To ignore this distance pass in 40075000 (the circumferance of the earth).</param>
+       /// <param name="recordLimit">The maximum number of users to return with this search.</param>
+       /// <param name="gender">The gender of the users, use UserGender.Any to search for both.</param>
+       /// <param name="ageStart">Specifies the starting age for the range of ages to search in. The value must be &gt;= 0.</param>
+       /// <param name="ageStop">Specifies the ending age for the range of ages to search in. The value must be &gt; ageStart.</param>
+       /// <param name="status">The status of the users to search for. Use UserStatus.Any to ignore this parameter.</param>
+       /// <param name="checkinsWithinMinutes">Filter for users who have checked-in in the past 'checkinsWithinMinutes' number of minutes.</param>
+       /// <param name="appTag">Search for the custom appTag that was stored with the user.</param><exception cref="T:System.ArgumentException">When latitude or longitude are incorrect.</exception>
+       /// <returns>A Task&lt;IEnumerable&lt;User&gt; &gt;that can be used to monitor progress on this call.</returns>
+       [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+       public System.Threading.Tasks.Task<IEnumerable<User>> FindUserAsync(double latitude = 0, double longitude = 0, uint searchDistance = 2147483647, uint recordLimit = 10, Buddy.UserGender gender = UserGender.Any, uint ageStart = 0, uint ageStop = 200, Buddy.UserStatus status = UserStatus.Any, uint checkinsWithinMinutes = 2147483647, string appTag = "")
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<User>>();
+           FindUserInternal(latitude, longitude, searchDistance, recordLimit, gender, ageStart, ageStop, status, checkinsWithinMinutes, appTag, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Add a profile photo for this user.
+       /// </summary>
+       /// <param name="photoSteam">An array of bytes that represent the image you are adding.</param>
+       /// <param name="appTag">An optional tag for the photo.</param>
+       /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<Boolean> AddProfilePhotoAsync(Stream photoSteam, string appTag = "")
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+           AddProfilePhotoInternal(photoSteam, appTag, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Check-in the user at a location.
+       /// </summary>
+       /// <param name="latitude">The latitude of the location.</param>
+       /// <param name="longitude">The longitude of the location.</param>
+       /// <param name="comment">An optional comment for the check-in.</param>
+       /// <param name="appTag">An optional application specific tag for the location.</param>
+       /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<Boolean> CheckInAsync(double latitude, double longitude, string comment = "", string appTag = "")
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+           CheckInInternal(latitude, longitude, comment, appTag, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
+
+       /// <summary>
+       /// Get a list of user check-in locations.
+       /// </summary>
+       /// <param name="afterDate">Filter the list to return only check-in after a date.</param>
+       /// <returns>A Task&lt;IEnumerable&lt;CheckInLocation&gt; &gt;that can be used to monitor progress on this call.</returns>
+       public System.Threading.Tasks.Task<IEnumerable<CheckInLocation>> GetCheckInsAsync(System.DateTime afterDate = default(DateTime))
+       {
+           var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<CheckInLocation>>();
+           GetCheckInsInternal(afterDate, (bcr) =>
+           {
+               if (bcr.Error != BuddyServiceClient.BuddyError.None)
+               {
+                   tcs.TrySetException(new BuddyServiceException(bcr.Error));
+               }
+               else
+               {
+                   tcs.TrySetResult(bcr.Result);
+               }
+           });
+           return tcs.Task;
+       }
 #endif
+        
     }
 }

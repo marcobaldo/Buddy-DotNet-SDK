@@ -371,11 +371,186 @@ namespace Buddy
             return;
         }
 
+
+        /// <summary>
+        /// Register a Windows device for notificatons with Buddy. The URL is the notifications channel link that provided by the platform. Most of the time
+        /// you don't need to call this API directly, you can use ConfigurePushAsync instead which will configure everyting for you. Note that if you call this method,
+        /// you are responsible to configure the device for push notifications.
+        /// </summary>
+        /// <param name="deviceUri">The device notification channel URI.</param>
+        /// <param name="enableTile">Optionally enable tile notifications</param>
+        /// <param name="enableRaw">Optionally enable raw notifications.</param>
+        /// <param name="enableToast">Optionally enable toast notifications.</param>
+        /// <param name="groupName">Register this device as part of a group, so that you can send the whole group messages.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<Boolean> RegisterDeviceAsync(string deviceUri, bool enableTile = true, bool enableRaw = true, bool enableToast = true, string groupName = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            RegisterDeviceInternal(deviceUri, enableTile, enableRaw, enableToast, groupName, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Unregister the current user from push notifications.
+        /// </summary>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<Boolean> UnregisterDeviceAsync()
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            UnregisterDeviceInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Get a paged list of registered devices for this Application. This list can then be used to iterate over the devices and send each user a push notification.
+        /// </summary>
+        /// <param name="forGroup">Optionally filter only devices in a certain group.</param>
+        /// <param name="pageSize">Set the number of devices that will be returned for each call of this method.</param>
+        /// <param name="currentPage">Set the current page.</param>
+        /// <returns>A Task&lt;IEnumerable&lt;RegisteredDevice&gt; &gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<IEnumerable<RegisteredDevice>> GetRegisteredDevicesAsync(string forGroup = "", int pageSize = 10, int currentPage = 1)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<RegisteredDevice>>();
+            GetRegisteredDevicesInternal(forGroup, pageSize, currentPage, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Get a list of groups that have been registered with Buddy as well as the number of users in each group. Groups can be used to batch-send
+        /// push notifications to a number of users at the same time.
+        /// </summary>
+        /// <returns>A Task&lt;IDictionary&lt;String,Int32&gt; &gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<IDictionary<String, Int32>> GetGroupsAsync()
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<IDictionary<String, Int32>>();
+            GetGroupsInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Send a image tile to a windows phone device. The tile is represented by a image URL, you can take a look at the Windows phone docs for image dimensions and formats.
+        /// </summary>
+        /// <param name="imageUri">The URL of the tile image.</param>
+        /// <param name="senderUserId">The ID of the user that sent the notification.</param>
+        /// <param name="messageCount">The message count for this tile.</param>
+        /// <param name="messageTitle">The message title for the tile.</param>
+        /// <param name="deliverAfter">Schedule the message to be delivered after a certain date.</param>
+        /// <param name="groupName">Send messages to an entire group of users, not just a one.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public  System.Threading.Tasks.Task<Boolean> SendTileAsync(string imageUri, int senderUserId, int messageCount = -1, string messageTitle = "", System.DateTime deliverAfter = default(DateTime), string groupName = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            SendTileInternal(imageUri, senderUserId, messageCount, messageTitle, deliverAfter, groupName, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Send a raw message to a windows phone device. The app needs to be active and the Raw message callback set in order to recieve this message.
+        /// </summary>
+        /// <param name="rawMessage">The message to send.</param>
+        /// <param name="senderUserId">The ID of the user that sent the notification.</param>
+        /// <param name="deliverAfter">Schedule the message to be delivered after a certain date.</param>
+        /// <param name="groupName">Send messages to an entire group of users, not just a one.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<Boolean> SendRawMessageAsync(string rawMessage, int senderUserId, System.DateTime deliverAfter = default(DateTime), string groupName = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            SendRawMessageInternal(rawMessage, senderUserId, deliverAfter, groupName, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Send toast message to a windows phone device. If the app is active the user will recieve this message in the toast message callback. Otherwise the message
+        /// appears as a notification on top of the screen. Clicking it will launch the app.
+        /// </summary>
+        /// <param name="toastTitle">The title of the toast message/</param>
+        /// <param name="toastSubtitle">The subtitle of the toast message.</param>
+        /// <param name="toastParameter">An optional parameter for the toast message.</param>
+        /// <param name="senderUserId">The ID of the user that sent the notification.</param>
+        /// <param name="deliverAfter">Schedule the message to be delivered after a certain date.</param>
+        /// <param name="groupName">Send messages to an entire group of users, not just a one.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<Boolean> SendToastMessageAsync(string toastTitle, string toastSubtitle, int senderUserId, string toastParameter = "", System.DateTime deliverAfter = default(DateTime), string groupName = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            SendToastMessageInternal(toastTitle, toastSubtitle, senderUserId, toastParameter, deliverAfter, groupName, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
 #if WINDOWS_PHONE
         /// <summary>
         /// Configure this Windows Phone device for push notifications
         /// </summary>
-        /// <param name="callback"></param>
         /// <param name="channelName"></param>
         /// <param name="enableTiles"></param>
         /// <param name="enableToastMessages"></param>
@@ -383,16 +558,30 @@ namespace Buddy
         /// <param name="allowedDomains"></param>
         /// <param name="rawMessageCallback"></param>
         /// <param name="toastMessageCallback"></param>
-        public void ConfigurePushAsync(Action<bool, Exception> callback, bool enableTiles, bool enableToastMessages, string groupName = "",
+        public System.Threading.Tasks.Task<Boolean> ConfigurePushAsync(bool enableTiles, bool enableToastMessages, string groupName = "",
             List<string> allowedDomains = null, Action<string> rawMessageCallback = null, Action<IDictionary<string, string>> toastMessageCallback = null, string channelName = null)
         {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+
+            Action<bool, Exception> finish = (result, ex) =>
+            {
+                if (ex != null)
+                {
+                    tcs.TrySetException(ex);
+                }
+                else
+                {
+                    tcs.TrySetResult(result);
+                }
+            };
+           
             if (allowedDomains == null) allowedDomains = new List<string>();
             allowedDomains.Add("http://buddyplatform.s3.amazonaws.com/");
-            if (callback == null) callback = (r, ex) => { };
-
+            
             channelName = this.GetChannelName(channelName);
 
             HttpNotificationChannel channel = null;
+            bool done = false;
             if ((channel = HttpNotificationChannel.Find(channelName)) == null)
             {
                 channel = new HttpNotificationChannel(channelName, "www.buddy.com");
@@ -400,15 +589,18 @@ namespace Buddy
                 {
                     Deployment.Current.Dispatcher.BeginInvoke(() =>
                     {
-                        callback(false, new Exception("Couldn't create HttpNotificationChannel."));
+                        finish(false, new Exception("Couldn't create HttpNotificationChannel."));
                     });
 
-                    return;
+                    done = true;
                 }
-                channel.Open();
+                else
+                {
+                    channel.Open();
+                }
             }
 
-            if (rawMessageCallback != null) channel.HttpNotificationReceived += (s, ev) =>
+            if (!done && rawMessageCallback != null) channel.HttpNotificationReceived += (s, ev) =>
             {
                 StreamReader reader = new StreamReader(ev.Notification.Body);
 
@@ -419,7 +611,7 @@ namespace Buddy
             };
 
 
-            if (toastMessageCallback != null) channel.ShellToastNotificationReceived += (s, ev) =>
+            if (!done && toastMessageCallback != null) channel.ShellToastNotificationReceived += (s, ev) =>
             {
                 Deployment.Current.Dispatcher.BeginInvoke(() =>
                 {
@@ -442,22 +634,26 @@ namespace Buddy
                 this.RegisterDeviceInternal(newChannel.ChannelUri.ToString(), enableTiles, rawMessageCallback != null, enableToastMessages, groupName, (bcr) =>
                 {
                    
-                    callback(bcr.Result, bcr.Error == BuddyError.None ? null : new BuddyServiceException(bcr.Error.ToString()));
+                    finish(bcr.Result, bcr.Error == BuddyError.None ? null : new BuddyServiceException(bcr.Error.ToString()));
                    
                 });
 
               
             };
 
-            channel.ChannelUriUpdated += (s, ev) =>
+            if (!done)
             {
-                registerUri(channel);
-            };
+                channel.ChannelUriUpdated += (s, ev) =>
+                {
+                    registerUri(channel);
+                };
 
-            if (channel.ChannelUri != null)
-            {
-                registerUri(channel);
+                if (channel.ChannelUri != null)
+                {
+                    registerUri(channel);
+                }
             }
+            return tcs.Task;
         }
 
         private string GetChannelName(string channelName)

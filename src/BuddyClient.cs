@@ -916,7 +916,334 @@ namespace Buddy
         }
 
 
+   #if AWAIT_SUPPORTED
 
+      /// <summary>
+        /// Check if another user with the same name already exists in the system.
+        /// </summary>
+        /// <param name="username">The name to check for, can't be null or empty.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<Boolean> CheckIfUsernameExistsAsync( string username)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            CheckIfUsernameExistsInternal(username, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Create a new Buddy user. Note that this method internally does two web-service calls, and the IAsyncResult object
+        /// returned is only valid for the first one.
+        /// </summary>
+        /// <param name="name">The name of the new user. Can't be null or empty.</param>
+        /// <param name="password">The password of the new user. Can't be null.</param>
+        /// <param name="gender">An optional gender for the user.</param>
+        /// <param name="age">An optional age for the user.</param>
+        /// <param name="email">An optional email for the user.</param>
+        /// <param name="status">An optional status for the user.</param>
+        /// <param name="fuzzLocation">Optionally set location fuzzing for this user. When enabled user location is randomized in searches.</param>
+        /// <param name="celebrityMode">Optionally set the celebrity mode for this user. When enabled this user will be absent from all searches.</param>
+        /// <param name="appTag">An optional custom tag for this user.</param>
+        /// <returns>A Task&lt;AuthenticatedUser&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<AuthenticatedUser> CreateUserAsync( string name, string password, Buddy.UserGender gender = UserGender.Any, int age = 0, string email = "", Buddy.UserStatus status = UserStatus.Any, bool fuzzLocation = false, bool celebrityMode = false, string appTag = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<AuthenticatedUser>();
+            CreateUserInternal(name, password, gender, age, email, status, fuzzLocation, celebrityMode, appTag, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Starts an analytics session
+        /// </summary>
+        /// <param name="user">The user that is starting this session</param>
+        /// <param name="sessionName">The name of the session</param>
+        /// <param name="appTag">An optional custom tag to include with the session.</param>
+        /// <returns></returns>
+        public System.Threading.Tasks.Task<Int32> StartSessionAsync( Buddy.AuthenticatedUser user, string sessionName, string appTag = null)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Int32>();
+            StartSessionInternal(user, sessionName, appTag, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Ends an analytics session
+        /// </summary>
+        /// <param name="user">The user that is starting this session</param>
+        /// <param name="sessionId">The id of the session, returned from StartSessionAsync.</param>
+        /// <param name="appTag">An optional custom tag to include with the session.</param>
+        /// <returns></returns>
+        public System.Threading.Tasks.Task<Boolean> EndSessionAsync( Buddy.AuthenticatedUser user, int sessionId, string appTag = null)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            EndSessionInternal(user, sessionId, appTag, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Records a session metric value
+        /// </summary>
+        /// <param name="user">The user that is starting this session</param>
+        /// <param name="sessionId">The id of the session, returned from StartSessionAsync.</param>
+        /// <param name="metricKey">A custom key describing the metric.</param>
+        /// <param name="metricValue">The value to set.</param>
+        /// <param name="appTag">An optional custom tag to include with the metric.</param>
+        /// <returns></returns>
+        public System.Threading.Tasks.Task<Boolean> RecordSessionMetricAsync( Buddy.AuthenticatedUser user, int sessionId, string metricKey, string metricValue, string appTag = null)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            RecordSessionMetricInternal(user, sessionId, metricKey, metricValue, appTag, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Ping the service.
+        /// </summary>
+        /// <returns>A Task&lt;String&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<String> PingAsync()
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<String>();
+            PingInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Get the current Buddy web-service date/time.
+        /// </summary>
+        /// <returns>A Task&lt;DateTime&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<DateTime> GetServiceTimeAsync()
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<DateTime>();
+            GetServiceTimeInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Get the current version of the service that is being used by this SDK.
+        /// </summary>
+        /// <returns>A Task&lt;String&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<String> GetServiceVersionAsync()
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<String>();
+            GetServiceVersionInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Gets a list of emails for all registered users for this app.
+        /// </summary>
+        /// <param name="fromRow">Used for paging, retrieve only records starting fromRow.</param>
+        /// <param name="pageSize">Used for paginig, specify page size.</param>
+        /// <returns>A Task&lt;IEnumerable&lt;String&gt; &gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<IEnumerable<String>> GetUserEmailsAsync( int fromRow, int pageSize = 10)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<String>>();
+            GetUserEmailsInternal(fromRow, pageSize, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Gets a list of all user profiles for this app.
+        /// </summary>
+        /// <param name="fromRow">Used for paging, retrieve only records starting fromRow.</param>
+        /// <param name="pageSize">Used for paginig, specify page size.</param>
+        /// <returns>A Task&lt;IEnumerable&lt;User&gt; &gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<IEnumerable<User>> GetUserProfilesAsync( int fromRow, int pageSize = 10)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<User>>();
+            GetUserProfilesInternal(fromRow, pageSize, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// This method will return a list of statistics for the application covering items such as total users, photos, etc. 
+        /// </summary>
+        /// <returns>A Task&lt;IEnumerable&lt;ApplicationStatistics&gt; &gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<IEnumerable<ApplicationStatistics>> GetApplicationStatisticsAsync()
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<ApplicationStatistics>>();
+            GetApplicationStatisticsInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Login an existing user with their secret token. Each user is assigned a token on creation, you can store it instead of a
+        /// username/password combination.
+        /// </summary>
+        /// <param name="token">The private token of the user to login.</param>
+        /// <returns>A Task&lt;AuthenticatedUser&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<AuthenticatedUser> LoginAsync( string token)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<AuthenticatedUser>();
+            LoginInternal(token, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Login an existing user with their username and password. Note that this method internally does two web-service calls, and the IAsyncResult object
+        /// returned is only valid for the first one.
+        /// </summary>
+        /// <param name="username">The username of the user. Can't be null or empty.</param>
+        /// <param name="password">The password of the user. Can't be null.</param>
+        /// <returns>A Task&lt;AuthenticatedUser&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<AuthenticatedUser> LoginAsync( string username, string password)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<AuthenticatedUser>();
+            LoginInternal(username, password, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Check if another user with the same email already exists in the system.
+        /// </summary>
+        /// <param name="email">The email to check for, can't be null or empty.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<Boolean> CheckIfEmailExistsAsync( string email)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            CheckIfEmailExistsInternal(email, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+#endif
 
 
 
@@ -1038,6 +1365,8 @@ namespace Buddy
 
             this.TotalUserMetadata = appStats.TotalUserMetadata;
         }
+
+
     }
 
 #if NET40

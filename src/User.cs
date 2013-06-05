@@ -308,5 +308,29 @@ namespace Buddy
                 { callback(BuddyResultCreator.Create(pictures, bcr.Error)); return; };
             }); return;
         }
+
+#if AWAIT_SUPPORTED
+           /// <summary>
+        /// Gets a list of profile photos for this user.
+        /// </summary>
+        /// <returns>A Task&lt;IEnumerable&lt;PicturePublic&gt; &gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<IEnumerable<PicturePublic>> GetProfilePhotosAsync()
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<PicturePublic>>();
+            GetProfilePhotosInternal((bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+#endif
     }
 }
