@@ -2601,7 +2601,7 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
 }
 
 // for WP7.
-#if PUBLIC_SERIALIZATION
+#if !PUBLIC_SERIALIZATION
     internal
 #else
     public
