@@ -2601,10 +2601,11 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
 }
 
 // for WP7.
+
 #if PUBLIC_SERIALIZATION
-    public
+public
 #else
-    internal
+internal
 #endif
  class InternalModels
 {
