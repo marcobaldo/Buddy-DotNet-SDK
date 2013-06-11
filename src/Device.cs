@@ -171,5 +171,66 @@ namespace Buddy
 
 
         }
+
+#if AWAIT_SUPPORTED
+
+        /// <summary>
+        /// Record runtine device type information. This info will be uploaded to the Buddy service and can later be used for analytics purposes.
+        /// </summary>
+        /// <param name="osVersion">The OS version of the device runnign this code. On some .NET platforms you can use System.Environment.OSVersion to get this information.</param>
+        /// <param name="deviceType">The type of device running this app. On Windows Phone 7 for example you can use DeviceExtendedProperties to retrieve this information.</param>
+        /// <param name="user">The user that's registering this device information.</param>
+        /// <param name="appVersion">The optional version of this application.</param>
+        /// <param name="latitude">The optional latitude where this report was submitted.</param>
+        /// <param name="longitude">The optional longiture where this report was submitted.</param>
+        /// <param name="metadata">An optional application specific metadata string to include with the report.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public  System.Threading.Tasks.Task<Boolean> RecordInformationAsync(string osVersion, string deviceType, Buddy.AuthenticatedUser user, string appVersion = "1.0", double latitude = 0, double longitude = 0, string metadata = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            RecordInformationInternal(osVersion, deviceType, user, appVersion, latitude, longitude, metadata, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Record runtime crash information for this app. This could be exceptions, errors or your own custom crash information.
+        /// </summary>
+        /// <param name="methodName">The method name or location where the error happend. This could also be a descriptive string of the error.</param>
+        /// <param name="osVersion">The OS version of the device runnign this code. On some .NET platforms you can use System.Environment.OSVersion to get this information.</param>
+        /// <param name="deviceType">The type of device running this app. On Windows Phone 7 for example you can use DeviceExtendedProperties to retrieve this information.</param>
+        /// <param name="user">The user that's registering this device information.</param>
+        /// <param name="stackTrace">The optional stack trace of where the error happened.</param>
+        /// <param name="appVersion">The optional version of this application.</param>
+        /// <param name="latitude">The optional latitude where this report was submitted.</param>
+        /// <param name="longitude">The optional longiture where this report was submitted.</param>
+        /// <param name="metadata">An optional application specific metadata string to include with the report.</param>
+        /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<Boolean> RecordCrashAsync( string methodName, string osVersion, string deviceType, Buddy.AuthenticatedUser user, string stackTrace = "", string appVersion = "1.0", double latitude = 0, double longitude = 0, string metadata = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+            RecordCrashInternal(methodName, osVersion, deviceType, user, stackTrace, appVersion, latitude, longitude, metadata, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+#endif
     }
 }

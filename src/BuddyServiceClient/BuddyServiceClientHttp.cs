@@ -81,7 +81,9 @@ namespace BuddyServiceClient
 
             RequestTypeOverrides["Videos_Video_AddVideo"] = HttpRequestType.HttpPostMultipartForm;
             RequestTypeOverrides["Blobs_Blob_AddBlob"] = HttpRequestType.HttpPostMultipartForm;
-
+            RequestTypeOverrides["Pictures_Photo_Add"] = HttpRequestType.HttpPostMultipartForm;
+            RequestTypeOverrides["Pictures_Photo_AddWithWatermark"] = HttpRequestType.HttpPostMultipartForm;
+            RequestTypeOverrides["Pictures_ProfilePhoto_Add"] = HttpRequestType.HttpPostMultipartForm;
         }
 
         public BuddyServiceClientHttp(string root, string sdkVersion)
@@ -262,7 +264,6 @@ namespace BuddyServiceClient
                 pos += EncodeChunk;
             }
             return encoded.ToString();
-            
         }
 
 

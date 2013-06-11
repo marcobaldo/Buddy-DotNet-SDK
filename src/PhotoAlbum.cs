@@ -189,6 +189,83 @@ namespace Buddy
          public System.Threading.Tasks.Task<Buddy.Picture> AddPicture(byte[] blob, string comment = "", double latitude = 0, double longitude = 0, string appTag = "") {
             return this.AddPictureAsync(new MemoryStream(blob), comment, latitude, longitude, appTag);
         }
+
+
+         /// <summary>
+         /// Delete this photo album.
+         /// </summary>
+         /// <returns>A Task&lt;Boolean&gt;that can be used to monitor progress on this call.</returns>
+         public System.Threading.Tasks.Task<Boolean> DeleteAsync()
+         {
+             var tcs = new System.Threading.Tasks.TaskCompletionSource<Boolean>();
+             DeleteInternal((bcr) =>
+             {
+                 if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                 {
+                     tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                 }
+                 else
+                 {
+                     tcs.TrySetResult(bcr.Result);
+                 }
+             });
+             return tcs.Task;
+         }
+
+         /// <summary>
+         /// Add a new picture to this album. Note that this method internally does two web-service calls, and the IAsyncResult object
+         /// returned is only valid for the first one.
+         /// </summary>
+         /// <param name="photoStream">A stream containing the photo's contents..</param>
+         /// <param name="comment">An optional comment for this picture.</param>
+         /// <param name="latitude">An optional latitude for the picture.</param>
+         /// <param name="longitude">An optional longitude for the picture.</param>
+         /// <param name="appTag">An optional application tag.</param>
+         /// <returns>A Task&lt;Picture&gt;that can be used to monitor progress on this call.</returns>
+         public System.Threading.Tasks.Task<Picture> AddPictureAsync(Stream photoStream, string comment = "", double latitude = 0, double longitude = 0, string appTag = "")
+         {
+             var tcs = new System.Threading.Tasks.TaskCompletionSource<Picture>();
+             AddPictureInternal(photoStream, comment, latitude, longitude, appTag, (bcr) =>
+             {
+                 if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                 {
+                     tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                 }
+                 else
+                 {
+                     tcs.TrySetResult(bcr.Result);
+                 }
+             });
+             return tcs.Task;
+         }
+
+         /// <summary>
+         /// Add a new picture to this album. Note that this method internally does two web-service calls, and the IAsyncResult object
+         /// returned is only valid for the first one.
+         /// </summary>
+         /// <param name="photoStream">A stream containing the photo's contents..</param>
+         /// <param name="comment">An optional comment for this picture.</param>
+         /// <param name="latitude">An optional latitude for the picture.</param>
+         /// <param name="longitude">An optional longitude for the picture.</param>
+         /// <param name="appTag">An optional application tag.</param>
+         /// <param name="watermarkmessage">An optional message to watermark the image with.</param>
+         /// <returns>A Task&lt;Picture&gt;that can be used to monitor progress on this call.</returns>
+         public System.Threading.Tasks.Task<Picture> AddPictureWithWatermarkAsync(Stream photoStream, string comment = "", double latitude = 0, double longitude = 0, string appTag = "", string watermarkmessage = "")
+         {
+             var tcs = new System.Threading.Tasks.TaskCompletionSource<Picture>();
+             AddPictureWithWatermarkInternal(photoStream, comment, latitude, longitude, appTag, watermarkmessage, (bcr) =>
+             {
+                 if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                 {
+                     tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                 }
+                 else
+                 {
+                     tcs.TrySetResult(bcr.Result);
+                 }
+             });
+             return tcs.Task;
+         }
        
        
 #endif
