@@ -211,5 +211,101 @@ namespace Buddy
             });
             return;
         }
+
+#if AWAIT_SUPPORTED
+
+
+        /// <summary>
+        /// This method is used create a new album. The album will be owned by this user. Multiple albums can be created with the same name. Note that this method internally does two web-service calls, and the IAsyncResult object
+        /// returned is only valid for the first one.
+        /// </summary>
+        /// <param name="name">The name of the new album.</param>
+        /// <param name="isPublic">Make the album publicly visible to other users.</param>
+        /// <param name="appTag">Optionally add a custom application tag for this user.</param>
+        /// <returns>A Task&lt;PhotoAlbum&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<PhotoAlbum> CreateAsync( string name, bool isPublic = false, string appTag = "")
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<PhotoAlbum>();
+            CreateInternal(name, isPublic, appTag, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Get a photo album by ID. This album doesn't need to be owned by this user.
+        /// </summary>
+        /// <param name="albumId">The ID of the album.</param>
+        /// <returns>A Task&lt;PhotoAlbum&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<PhotoAlbum> GetAsync( int albumId)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<PhotoAlbum>();
+            GetInternal(albumId, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Get a photo album by its name. Note that there can be more than one album with the same name. This method will only return the first one.
+        /// Call PhotoAlbums.All to get all the albums.
+        /// </summary>
+        /// <param name="albumName">The name of the albul to retrieve. Can't be null or empty.</param>
+        /// <returns>A Task&lt;PhotoAlbum&gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<PhotoAlbum> GetAsync( string albumName)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<PhotoAlbum>();
+            GetInternal(albumName, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Return all photo albums for this user. Note that this can be an expensive operation since all the Picture data is retrieved as well.
+        /// </summary>
+        /// <param name="afterDate">Optionally return all albums created after a date.</param>
+        /// <returns>A Task&lt;IEnumerable&lt;PhotoAlbum&gt; &gt;that can be used to monitor progress on this call.</returns>
+        public System.Threading.Tasks.Task<IEnumerable<PhotoAlbum>> GetAllAsync( System.DateTime afterDate = default(DateTime))
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<IEnumerable<PhotoAlbum>>();
+            GetAllInternal(afterDate, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+#endif
     }
 }
