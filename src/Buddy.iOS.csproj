@@ -210,6 +210,10 @@
     <Compile Include="VirtualAlbums.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Blob.cs" />
+    <Compile Include="Blobs.cs" />
+    <Compile Include="Video.cs" />
+    <Compile Include="Videos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

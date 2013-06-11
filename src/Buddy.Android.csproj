@@ -215,6 +215,10 @@
     <Compile Include="VirtualAlbums.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Blob.cs" />
+    <Compile Include="Blobs.cs" />
+    <Compile Include="Video.cs" />
+    <Compile Include="Videos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
