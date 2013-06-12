@@ -2601,6 +2601,7 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
 }
 
 // for WP7.
+      [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 #if !PUBLIC_SERIALIZATION
     internal
 #else

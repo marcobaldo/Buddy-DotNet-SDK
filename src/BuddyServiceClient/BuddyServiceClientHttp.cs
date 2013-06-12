@@ -461,17 +461,19 @@ namespace BuddyServiceClient
             requestStream.Write(trailer, 0, trailer.Length);
         }
 
-#if PUBLIC_SERIALIZATION
-        public
-#else 
-        internal
-#endif 
-            class JsonEnvelope<T>
-        {
-            public T data = default(T);
-        }
+
        
      }
 
+  [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#if PUBLIC_SERIALIZATION
+        public
+#else
+     internal
+#endif
+ class JsonEnvelope<T>
+     {
+         public T data = default(T);
+     }
 
 }
