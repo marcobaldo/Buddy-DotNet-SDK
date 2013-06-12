@@ -461,6 +461,7 @@ namespace BuddyServiceClient
         }
 
 
+<<<<<<< HEAD
      }
 
 #if PUBLIC_SERIALIZATION
@@ -473,4 +474,20 @@ namespace BuddyServiceClient
          public T data = default(T);
      }
        
+=======
+       
+     }
+
+  [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#if PUBLIC_SERIALIZATION
+        public
+#else
+     internal
+#endif
+ class JsonEnvelope<T>
+     {
+         public T data = default(T);
+     }
+
+>>>>>>> * Fix for WP7 serialization
 }
