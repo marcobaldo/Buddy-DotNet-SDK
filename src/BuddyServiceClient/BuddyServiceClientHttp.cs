@@ -459,22 +459,6 @@ namespace BuddyServiceClient
             byte[] trailer = System.Text.Encoding.UTF8.GetBytes("\r\n--" + boundary + "--\r\n");
             requestStream.Write(trailer, 0, trailer.Length);
         }
-
-
-<<<<<<< HEAD
-     }
-
-#if PUBLIC_SERIALIZATION
-     public
-#else 
-        internal
-#endif
- class JsonEnvelope<T>
-     {
-         public T data = default(T);
-     }
-       
-=======
        
      }
 
@@ -489,5 +473,5 @@ namespace BuddyServiceClient
          public T data = default(T);
      }
 
->>>>>>> * Fix for WP7 serialization
+
 }
