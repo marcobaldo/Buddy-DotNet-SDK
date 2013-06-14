@@ -80,16 +80,9 @@ namespace BuddyServiceClient
         GeoLocationCategoryIncorrect, BadGeoLocationName, GeoLocationIDIncorrect, BadParameter, PhotoUploadGenericError, CouldNotFindPhotoTodelete,
         CouldNotDeleteFileGenericError, PhotoAlbumDoesNotExist, AlbumNamesCannotBeBlank, PhotoIDDoesNotExistInContext, dupelocation, invalidflagreason,
         EmptyDeviceURI, EmptyGroupName, EmptyImageURI, EmptyMessageCount, EmptyMessageTitle, EmptyRawMessage, EmptyToastTitle, EmptyToastSubTitle,
-<<<<<<< Updated upstream
-        EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
-        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, BlobDoesNotExist
-
-
-=======
         EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
         ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, UserIDMustBeAnInteger, BlobDoesNotExist,
         NoSuchSocialProvider, AccessTokenInvalid
->>>>>>> Stashed changes
     }
 
     internal abstract partial class BuddyServiceClientBase

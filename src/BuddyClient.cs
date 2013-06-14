@@ -77,9 +77,7 @@ namespace Buddy
         public Sounds Sounds { get; protected set; }
 
         private bool recordDeviceInfo = true;
-        //private const string WebServiceUrl = "https://webservice.buddyplatform.com";
-        private const string WebServiceUrl = "http://localhost:61771";
-
+        private const string WebServiceUrl = "https://webservice.buddyplatform.com";
         /// <summary>
         /// Initializes a new instance of the BuddyClient class. To get an application username and password, go to http://buddy.com, create a new
         /// developer account and create a new application.
