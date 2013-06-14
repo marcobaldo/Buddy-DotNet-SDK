@@ -17,6 +17,7 @@ using System.Net;
 
 #endif
 using System.Xml.Linq;
+using System.Threading.Tasks;
 
 namespace Buddy
 {
@@ -76,8 +77,8 @@ namespace Buddy
         public Sounds Sounds { get; protected set; }
 
         private bool recordDeviceInfo = true;
-        private const string WebServiceUrl = "https://webservice.buddyplatform.com";
-
+        //private const string WebServiceUrl = "https://webservice.buddyplatform.com";
+        private const string WebServiceUrl = "http://localhost:61771";
 
         /// <summary>
         /// Initializes a new instance of the BuddyClient class. To get an application username and password, go to http://buddy.com, create a new
@@ -445,6 +446,46 @@ namespace Buddy
             return;
 
 
+        }
+
+        public Task<AuthenticatedUser> SocialLoginAsync(string providerName, string providerUserId, string accessToken) 
+        {
+            var tcs = new TaskCompletionSource<AuthenticatedUser>();
+
+            this.SocialLoginInternal(providerName, providerUserId, accessToken, (bcr) =>
+                {
+                    if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                    {
+                        tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                    }
+                    else
+                    {
+                        tcs.TrySetResult(bcr.Result);
+                    }
+                });
+            return tcs.Task;
+        }
+
+        internal void SocialLoginInternal(string providerName, string providerUserId, string accessToken, Action<BuddyServiceClient.BuddyCallResult<AuthenticatedUser>> callback)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+            parameters.Add("BuddyApplicationName", this.AppName);
+            parameters.Add("BuddyApplicationPassword", this.AppPassword);
+            parameters.Add("ProviderName", providerName);
+            parameters.Add("ProviderUserId", providerUserId);
+            parameters.Add("AccessToken", accessToken);
+
+            this.Service.CallMethodAsync<InternalModels.DataContract_SocialLoginReply[]>("UserAccount_Profile_SocialLogin", parameters, (bcr) =>
+                {
+                    if (bcr.Result != null)
+                    {
+                        this.LoginInternal(bcr.Result.First().UserToken, (bdr) =>
+                            {
+                                callback(bdr);
+                            });
+                    }
+                });
         }
 
         private void RecordDeviceInfo(AuthenticatedUser user)
