@@ -81,9 +81,8 @@ namespace BuddyServiceClient
         CouldNotDeleteFileGenericError, PhotoAlbumDoesNotExist, AlbumNamesCannotBeBlank, PhotoIDDoesNotExistInContext, dupelocation, invalidflagreason,
         EmptyDeviceURI, EmptyGroupName, EmptyImageURI, EmptyMessageCount, EmptyMessageTitle, EmptyRawMessage, EmptyToastTitle, EmptyToastSubTitle,
         EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
-        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, BlobDoesNotExist
-
-
+        ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, UserIDMustBeAnInteger, BlobDoesNotExist,
+        NoSuchSocialProvider, AccessTokenInvalid
     }
 
     internal abstract partial class BuddyServiceClientBase
@@ -171,6 +170,10 @@ namespace BuddyServiceClient
             else if (!IntRegex.IsMatch(response) && ParseBuddyError(response, out err))
             {
                 return err;
+            }
+            else if (response.StartsWith("Specified argument was out of the range of valid values.\r\n"))
+            {
+                return BuddyError.BadParameter;
             }
             return BuddyError.None;
         }
@@ -3744,6 +3747,14 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
         public String VideoUrl { get; set; }
     }
 
+
+    public class DataContract_SocialLoginReply
+    {
+        public String UserID { get; set; }
+        public String UserName { get; set; }
+        public String UserToken { get; set; }
+        public String IsNew { get; set; }
+    }
 
     public class DataContract_DefinedUserStatusTags
     {
