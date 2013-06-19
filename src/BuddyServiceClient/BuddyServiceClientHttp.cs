@@ -462,6 +462,7 @@ namespace BuddyServiceClient
        
      }
 
+
   [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 #if PUBLIC_SERIALIZATION
         public
