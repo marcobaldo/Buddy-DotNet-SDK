@@ -19,24 +19,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\winrt\</OutputPath>
+    <OutputPath>bin\Debug\WindowsStore\</OutputPath>
     <DefineConstants>TRACE;DEBUG;AWAIT_SUPPORTED</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\winrt\Buddy.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\WindowsStore\Buddy.XML</DocumentationFile>
     <NoWarn>1591,1573</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\winrt\</OutputPath>
+    <OutputPath>bin\Release\WindowsStore\</OutputPath>
     <DefineConstants>TRACE;AWAIT_SUPPORTED</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <NoWarn>1591</NoWarn>
-    <DocumentationFile>bin\Release\winrt\Buddy.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\WindowsStore\Buddy.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
