@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\WindowsStore\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;AWAIT_SUPPORTED</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;AWAIT_SUPPORTED,WINRT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\WindowsStore\Buddy.XML</DocumentationFile>
@@ -31,7 +31,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\WindowsStore\</OutputPath>
-    <DefineConstants>TRACE;AWAIT_SUPPORTED</DefineConstants>
+    <DefineConstants>TRACE;AWAIT_SUPPORTED,WINRT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
