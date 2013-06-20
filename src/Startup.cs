@@ -162,7 +162,7 @@ namespace Buddy
             this.StartupID = long.Parse(startup.StartupID);
             this.StartupName = startup.StartupName;
             this.StreetAddress = startup.StreetAddress;
-            this.TotalFundingRaised = string.IsNullOrEmpty(startup.EmployeeCount) ? 0 : decimal.Parse(startup.TotalFundingRaised, CultureInfo.InvariantCulture);
+            this.TotalFundingRaised = string.IsNullOrEmpty(startup.TotalFundingRaised) ? 0 : decimal.Parse(startup.TotalFundingRaised, CultureInfo.InvariantCulture);
             this.TwitterURL = startup.TwitterURL;
             this.ZipPostal = double.Parse(startup.ZipPostal, CultureInfo.InvariantCulture);
         }
