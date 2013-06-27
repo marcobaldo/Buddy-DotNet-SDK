@@ -155,6 +155,9 @@ namespace BuddyServiceClient
                         response = (HttpWebResponse)webEx.Response;
                         bcr.Message = response.StatusDescription;
                     }
+                    else {
+                        bcr.Message = webEx.Status.ToString();
+                    }
 
                 }
                
@@ -238,7 +241,14 @@ namespace BuddyServiceClient
                             }
                         }
                     }
-                    callback(bcr);
+                    try
+                    {
+                        callback(bcr);
+                    }
+                    catch (Exception ex3)
+                    {
+                        handleException(ex3, bcr);
+                    }
 
                 }
             });
@@ -292,6 +302,8 @@ namespace BuddyServiceClient
             return sb.ToString();
         }
 
+        private const int TimeoutMilliseconds = 30000;
+
         private void GetResponse(string methodName, IDictionary<string, object> parameters, HttpRequestType requestType, Action<Exception, HttpWebResponse> callback)
         {
 
@@ -338,19 +350,61 @@ namespace BuddyServiceClient
             {
                 try
                 {
+                    int requestStatus = -1;
                     LogRequest(methodName, url, null);
-                    wr.BeginGetResponse((async2) =>
-                    {
+                    var asyncResult = wr.BeginGetResponse((async2) =>
+                    {   
                         try
                         {
-                            HttpWebResponse response = (HttpWebResponse)wr.EndGetResponse(async2);
-                            callback(null, response);
+                            lock (wr)
+                            {
+                                if (requestStatus == 1)
+                                {
+                                    throw new WebException("Request timed out.", WebExceptionStatus.RequestCanceled);
+                                }
+                                else
+                                {
+                                    HttpWebResponse response = (HttpWebResponse)wr.EndGetResponse(async2);
+                                    callback(null, response);
+                                }
+                            }
                         }
                         catch (WebException ex)
                         {
                             callback(ex, null);
                         }
                     }, null);
+
+                    // spin up a timer to check for timeout.  not all platforms
+                    // support proper threadpool wait.
+                    //
+                    Action timeoutHandler = () =>
+                    {
+                        lock (wr)
+                        {
+                            if (requestStatus == -1)
+                            {
+                                requestStatus = 1;
+                                wr.Abort();
+                            }
+                        }
+                    };
+#if WINRT
+                    TimeSpan delay = TimeSpan.FromMilliseconds(TimeoutMilliseconds);
+
+                    Windows.System.Threading.ThreadPoolTimer.CreateTimer(
+                        (source) =>
+                        {
+                            timeoutHandler();
+                        }, delay);
+         
+#else
+                    new System.Threading.Timer((state) =>
+                    {
+                       timeoutHandler();
+                    }, null, TimeoutMilliseconds, System.Threading.Timeout.Infinite);
+#endif
+
                 }
                 catch (WebException wex)
                 {

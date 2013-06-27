@@ -82,7 +82,7 @@ namespace BuddyServiceClient
         EmptyDeviceURI, EmptyGroupName, EmptyImageURI, EmptyMessageCount, EmptyMessageTitle, EmptyRawMessage, EmptyToastTitle, EmptyToastSubTitle,
         EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
         ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, UserIDMustBeAnInteger, BlobDoesNotExist,
-        NoSuchSocialProvider, AccessTokenInvalid
+        NoSuchSocialProvider, AccessTokenInvalid, FileLargerThanMaxSize
     }
 
     internal abstract partial class BuddyServiceClientBase
