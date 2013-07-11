@@ -38,6 +38,11 @@ namespace Buddy
         /// <returns>A Task&lt;Blob&gt;that can be used to monitor progress on this call.</returns>
         public Task<Blob> AddAsync(string friendlyName, string mimeType, string appTag, double latitude, double longitude, Stream blobData)
         {
+            if (blobData == null || blobData.Length <= 0)
+            {
+                throw new ArgumentNullException("blobData");
+            }
+
             var tcs = new TaskCompletionSource<Blob>();
             this.AddInternal(friendlyName, mimeType, appTag, latitude, longitude, blobData, (BuddyCallResult<Blob> bcr) =>
             {
@@ -232,10 +237,17 @@ namespace Buddy
         {
             AddInternal(friendlyName, mimeType, appTag, latitude, longitude, blobData, (bcr) =>
             {
-                this.GetInfoInternal(bcr.Result, (bdr) =>
+                if (bcr.Error == BuddyError.None)
+                {
+                    this.GetInfoInternal(bcr.Result, (bdr) =>
                     {
                         callback(bdr);
                     });
+                }
+                else
+                {
+                    callback(BuddyResultCreator.Create<Blob>(null, bcr.Error));
+                }
             });
         }
 

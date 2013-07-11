@@ -494,7 +494,7 @@ namespace BuddyServiceClient
                 }
 
                 requestStream.Write(boundarybytes, 0, boundarybytes.Length);
-                string formitem = string.Format(formdataTemplate, kvp.Key, Uri.EscapeUriString(kvp.Value.ToString()));
+                string formitem = string.Format(formdataTemplate, kvp.Key, kvp.Value.ToString());
                 byte[] formitembytes = System.Text.Encoding.UTF8.GetBytes(formitem);
                 requestStream.Write(formitembytes, 0, formitembytes.Length);
             }
