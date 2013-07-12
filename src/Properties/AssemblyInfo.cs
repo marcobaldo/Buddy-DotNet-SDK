@@ -14,12 +14,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Assembly Version - derived from:
-// - the first two numbers are the Buddy Platform Web-Service version
-// - the second two number are the SDK versions 
 
-[assembly: AssemblyVersion("1.5.0.4")]
-[assembly: AssemblyFileVersion("1.5.0.4")]
+
+[assembly: AssemblyVersion("1.5.1.1")]
+[assembly: AssemblyFileVersion("1.5.1.1")]
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Buddy.ClientTest")]
 

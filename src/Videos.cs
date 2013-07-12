@@ -29,6 +29,11 @@ namespace Buddy
         /// <returns>A Task&lt;Video&gt; that can be used to monitor progress on this call.</returns>
         public Task<Video> AddAsync(string friendlyName, string mimeType, string appTag, double latitude, double longitude, Stream videoData)
         {
+            if (videoData == null || videoData.Length <= 0)
+            {
+                throw new ArgumentException("videoData");
+            }
+
             var tcs = new TaskCompletionSource<Video>();
             this.AddInternal(friendlyName, mimeType, appTag, latitude, longitude, videoData, (BuddyCallResult<Video> bcr) =>
             {
@@ -204,10 +209,17 @@ namespace Buddy
         {
             AddInternal(friendlyName, mimeType, appTag, latitude, longitude, videoData, (bcr) =>
                 {
-                    this.GetInfoInternal(bcr.Result, (bdr) =>
+                    if (bcr.Error == BuddyError.None)
+                    {
+                        this.GetInfoInternal(bcr.Result, (bdr) =>
                         {
                             callback(bdr);
                         });
+                    }
+                    else
+                    {
+                        callback(BuddyResultCreator.Create<Video>(null, bcr.Error));
+                    }
                 });
         }
 

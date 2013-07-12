@@ -274,7 +274,6 @@ namespace BuddyServiceClient
                 pos += EncodeChunk;
             }
             return encoded.ToString();
-
         }
 
 
@@ -494,7 +493,7 @@ namespace BuddyServiceClient
                 }
 
                 requestStream.Write(boundarybytes, 0, boundarybytes.Length);
-                string formitem = string.Format(formdataTemplate, kvp.Key, Uri.EscapeUriString(kvp.Value.ToString()));
+                string formitem = string.Format(formdataTemplate, kvp.Key, kvp.Value.ToString());
                 byte[] formitembytes = System.Text.Encoding.UTF8.GetBytes(formitem);
                 requestStream.Write(formitembytes, 0, formitembytes.Length);
             }
@@ -514,10 +513,9 @@ namespace BuddyServiceClient
             byte[] trailer = System.Text.Encoding.UTF8.GetBytes("\r\n--" + boundary + "--\r\n");
             requestStream.Write(trailer, 0, trailer.Length);
         }
-
-
        
      }
+
 
   [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 #if PUBLIC_SERIALIZATION
@@ -529,5 +527,6 @@ namespace BuddyServiceClient
      {
          public T data = default(T);
      }
+
 
 }
