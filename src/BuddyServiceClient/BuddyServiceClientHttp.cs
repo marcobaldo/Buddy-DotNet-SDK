@@ -274,7 +274,6 @@ namespace BuddyServiceClient
                 pos += EncodeChunk;
             }
             return encoded.ToString();
-
         }
 
 
@@ -514,10 +513,9 @@ namespace BuddyServiceClient
             byte[] trailer = System.Text.Encoding.UTF8.GetBytes("\r\n--" + boundary + "--\r\n");
             requestStream.Write(trailer, 0, trailer.Length);
         }
-
-
        
      }
+
 
   [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 #if PUBLIC_SERIALIZATION
@@ -529,5 +527,6 @@ namespace BuddyServiceClient
      {
          public T data = default(T);
      }
+
 
 }

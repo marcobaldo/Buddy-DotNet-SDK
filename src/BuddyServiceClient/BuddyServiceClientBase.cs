@@ -2604,13 +2604,14 @@ public void UserAccount_Identity_GetMyList(String BuddyApplicationName, String B
 }
 
 // for WP7.
-      [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-#if !PUBLIC_SERIALIZATION
-    internal
-#else
+
+[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+#if PUBLIC_SERIALIZATION
     public
+#else
+    internal
 #endif
-    class InternalModels
+ class InternalModels
 {
 
     public class DataContract_MetaDataBatchSum
