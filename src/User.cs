@@ -155,7 +155,7 @@ namespace Buddy
         internal User(BuddyClient client, int id)
             : base(client)
         {
-
+            this.ID = id;
             this.GameScores = new GameScores(this.Client, null, this);
             this.GameStates = new GameStates(this.Client, this);
         }
