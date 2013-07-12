@@ -163,6 +163,7 @@ namespace Buddy
         internal User(BuddyClient client, InternalModels.DataContract_PublicUserProfile publicProfile)
             : this(client, Int32.Parse(publicProfile.UserID))
         {
+            this.ID = Int32.Parse(publicProfile.UserID);
             this.Name = publicProfile.UserName;
             this.Gender = (UserGender)Enum.Parse(typeof(UserGender), publicProfile.UserGender, true);
             this.ApplicationTag = publicProfile.UserApplicationTag;
@@ -193,6 +194,7 @@ namespace Buddy
         internal User(BuddyClient client, InternalModels.DataContract_FriendList publicProfile, int userId)
             : this(client, Int32.Parse(publicProfile.FriendID) == userId ? Int32.Parse(publicProfile.UserID) : Int32.Parse(publicProfile.FriendID))
         {
+            this.ID = Int32.Parse(publicProfile.UserID);
             this.Name = publicProfile.UserName;
             this.Gender = (UserGender)Enum.Parse(typeof(UserGender), publicProfile.UserGender, true);
             this.ApplicationTag = publicProfile.UserApplicationTag;
