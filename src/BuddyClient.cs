@@ -387,6 +387,85 @@ namespace Buddy
 
         }
 
+        /// <summary>
+        /// Request a reset password email for the given user.
+        /// </summary>
+        /// <param name="userName">The username of the user to create a reset password request for.</param>
+        /// <returns>A Task&lt;bool&gt; that can be used to monitor progress on this call.</returns>
+        public Task<bool> RequestPasswordResetAsnyc(string userName)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            this.RequestPasswordResetInternal(userName, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        internal void RequestPasswordResetInternal(string userName, Action<BuddyCallResult<bool>> callback)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+            parameters.Add("BuddyApplicationName", this.AppName);
+            parameters.Add("BuddyApplicationPassword", this.AppPassword);
+            parameters.Add("UserName", userName);
+
+            this.Service.CallMethodAsync<string>("UserAccount_Profile_RequestPasswordReset", parameters, (bcr) =>
+                {
+                    this.Service.CallOnUiThread((state) =>
+                        callback(BuddyResultCreator.Create(bcr.Result == "1", bcr.Error)));
+                });
+        }
+
+        /// <summary>
+        /// Reset the password for the given user using the given reset code.
+        /// </summary>
+        /// <param name="userName">The username of the user to change the password for.</param>
+        /// <param name="resetCode">The reset code for this user as seen in the users email.</param>
+        /// <param name="newPassword">The new password to set for the given user.</param>
+        /// <returns>A Task&lt;bool&gt; that can be used to monitor progress on this call.</returns>
+        public Task<bool> ResetPasswordAsync(string userName, string resetCode, string newPassword)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            this.ResetPasswordInternal(userName, resetCode, newPassword, (bcr) =>
+            {
+                if (bcr.Error != BuddyServiceClient.BuddyError.None)
+                {
+                    tcs.TrySetException(new BuddyServiceException(bcr.Error));
+                }
+                else
+                {
+                    tcs.TrySetResult(bcr.Result);
+                }
+            });
+            return tcs.Task;
+        }
+
+        internal void ResetPasswordInternal(string userName, string resetCode, string newPassword, Action<BuddyCallResult<bool>> callback)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+            parameters.Add("BuddyApplicationName", this.AppName);
+            parameters.Add("BuddyApplicationPassword", this.AppPassword);
+            parameters.Add("UserName", userName);
+            parameters.Add("ResetCode", resetCode);
+            parameters.Add("NewPassword", newPassword);
+
+            this.Service.CallMethodAsync<string>("UserAccount_Profile_ResetPassword", parameters, (bcr) =>
+                {
+                    this.Service.CallOnUiThread((state) =>
+                        callback(BuddyResultCreator.Create(bcr.Result == "1", bcr.Error)));
+                });
+        }
 
         /// <summary>
         /// Login an existing user with their secret token. Each user is assigned a token on creation, you can store it instead of a
