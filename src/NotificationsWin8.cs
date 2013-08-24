@@ -61,6 +61,9 @@ namespace Buddy
             if (String.IsNullOrEmpty (clientSecret))
                 throw new ArgumentException ("Can't be null or empty.", "clientSecret");
 
+            // deviceUri is already partially encoded; encode again so the original encoding isn't lost during decoding on the server.
+            deviceUri = Uri.EscapeDataString(deviceUri);
+
             this.Client.Service.PushNotifications_Win8_RegisterDevice (this.Client.AppName, this.Client.AppPassword, AuthUser.Token, deviceUri, clientId, clientSecret, groupName, (bcr) =>
             {
 
