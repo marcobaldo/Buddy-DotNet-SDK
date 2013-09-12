@@ -555,12 +555,18 @@ namespace Buddy
 
             this.Service.CallMethodAsync<InternalModels.DataContract_SocialLoginReply[]>("UserAccount_Profile_SocialLogin", parameters, (bcr) =>
                 {
+                    AuthenticatedUser usr = null;
                     if (bcr.Result != null)
                     {
                         this.LoginInternal(bcr.Result.First().UserToken, (bdr) =>
                             {
-                                callback(bdr);
+                                usr = bdr.Result;
+                                callback(BuddyServiceClient.BuddyResultCreator.Create(usr, bcr.Error));
                             });
+                    }
+                    else
+                    {
+                        callback(BuddyServiceClient.BuddyResultCreator.Create(usr, bcr.Error));
                     }
                 });
         }
