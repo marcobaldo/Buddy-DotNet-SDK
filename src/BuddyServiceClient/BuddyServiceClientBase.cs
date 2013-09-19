@@ -83,7 +83,7 @@ namespace BuddyServiceClient
         EmptyToastParameter, GroupNameCannotBeEmpty, GroupSecurityCanOnlyBy0or1, GroupAlreadyExists, GroupChatIDEmpty, GroupChatNotFound, GroupOwnerSecurityError,
         ApplicationAPICallDisabledByDeveloper, ServiceErrorNull, ServiceErrorNegativeOne, UnknownServiceError, InternetConnectionError, UserIDMustBeAnInteger, BlobDoesNotExist,
         NoSuchSocialProvider, AccessTokenInvalid, FileLargerThanMaxSize, NoEmailSetForUser,
-        PasswordResetInvalidResetCode, PasswordResetNotConfigured, PasswordResetTooManyRequests
+        PasswordResetInvalidResetCode, PasswordResetNotConfigured, PasswordResetTooManyRequests, UnexpectedServiceError
     }
 
     internal abstract partial class BuddyServiceClientBase

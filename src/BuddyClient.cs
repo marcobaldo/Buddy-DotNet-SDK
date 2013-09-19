@@ -568,6 +568,7 @@ namespace Buddy
                     {
                         callback(BuddyServiceClient.BuddyResultCreator.Create(usr, bcr.Error));
                     }
+
                 });
         }
 
