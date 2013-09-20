@@ -70,7 +70,7 @@ namespace BuddyServiceClient
         }
     }
 
-    internal enum BuddyError
+    public enum BuddyError
     {
         None = 0,
         WrongSocketLoginOrPass, SecurityTokenInvalidPleaseRenew, SecurityTokenRenewed, SecurityTokenCouldNotBeRenewed, SecurityFailedBannedDeviceID,
